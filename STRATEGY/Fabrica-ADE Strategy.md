@@ -17,7 +17,7 @@
 #### Planning :
 
 1. creat a new [VisualPalette-plan.md](http://VisualPalette-plan.md) and goo depeer in the old-fabrica/ and extract everything into this file.
-2. rename  [VisualPalette-plan.md](http://VisualPalette-plan.md) to  [VisualPalette-migration_plan.md](http://VisualPalette-plan.md) 
+2. rename  [VisualPalette-plan.md](http://VisualPalette-plan.md) to  [VisualPalette-migration_plan.md](http://VisualPalette-plan.md)
 3. Go depeer in the orca/ app and see what need to be updated to matches, like all **Brand Asset Integration, Color Palette Alignment ..**  
 and update [VisualPalette-migration_plan.md](http://VisualPalette-plan.md) with findings.
 4. creat a new [configs-migration_plan.md](http://VisualPalette-plan.md) and goo depeer orca/ app and see what need to be updated to matches, like all **Metadatas &amp; Distribution Configs**
@@ -34,6 +34,8 @@ and update [VisualPalette-migration_plan.md](http://VisualPalette-plan.md) with 
 1. **Telemetry Sanitization**: replace `stablyai` upstream analytics calls with Fabrica servers.
 2. **Auto-Updater &amp; Releases**: change the repo to (`Auto-Skiller/Fabrica-ADE`)
 3. **Deep Linking Scheme**: Rename all `orca://` protocol handlers to `fabrica://`
+
+### Verify if we maked all the orca app our own so we can go further ?
 
 ## 3.  Bussines-First Upgrade - Planning:
 
