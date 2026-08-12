@@ -194,6 +194,63 @@ Used for marketing/landing tier of the same identity:
 | `old-fabrica/frontend-next/app/page.tsx`           | Landing-page copper palette + dark chrome                                   |
 | `old-fabrica/CHANGELOG.md`                         | Theme description + original slide-deck palette (cream/charcoal/amber/teal) |
 | `old-fabrica/README.md` + `metadata.json`          | Product positioning ("Your Next AI EXIT")                                   |
-| `STRATEGY/fabrica-logo_icon.svg` / `.ico` / `.png` | Logo mark asset                                                             |
+| `STRATEGY/fabrica-logo_icon.svg` / `.ico` / `.png` | Logo mark asset                                                         |
+
+---
+
+## 9. `orca/` codebase — migration findings (live audit)
+
+> Audited against the tokens in §3–§6. Orca's own `docs/STYLEGUIDE.md` describes it as **"monochrome and quiet"**: neutral grays carry the chrome, color is reserved for *state only*. Its only visible brand hues today are a **blue sidebar primary `#1447e6`** (dark theme) and a **violet AI-action accent** — neither is Fabrica Copper. Everything below must be re-pointed to the Fabrica identity.
+
+### 9.1 Brand Asset Integration (logo + icons)
+
+| Asset | File | Notes |
+| --- | --- | --- |
+| App window / sidebar / onboarding logo | `orca/resources/logo.svg` | Current Orca mark (white path, transparent). **Replace with Fabrica mark.** Imported by `src/renderer/src/App.tsx:23`, `Landing.tsx:15`, `SidebarSettingsHelpMenu.tsx:17`, `OnboardingFlow.tsx:16`, `components/settings/orca-logo-settings-icon.tsx:3`, `components/mobile/slides/HomeSlide.tsx:250` (`OrcaLogo()`), `components/stats/share-card-utils.tsx:130` (`OrcaLogo()`), `StatsShareUsageCard.tsx:111`. |
+| App icon (set) | `orca/resources/icon.png`, `icon-dev.png`, `build/icon.png`, `build/icon.ico`, `build/icon.icns` | Replace with Fabrica `.icns/.ico/.png` generated from `STRATEGY/fabrica-logo_icon.*`. |
+| Secondary app icons | `orca/resources/app-icons/orca-watercolor.png`, `orca-blue.png` | Rebrand or drop. |
+| macOS tray template | `orca/resources/tray/orca-menu-barTemplate.png` (+`@2x`) | Rename + swap to Fabrica glyph. |
+| Settings icon component | `orca/src/renderer/src/components/settings/orca-logo-settings-icon.tsx` | **Rename → `fabrica-logo-settings-icon.tsx`**; update import + usage in `useSettingsNavigationMetadata.ts:39,268`. |
+| `OrcaLogo()` builders | `components/stats/share-card-utils.tsx:130`, `components/mobile/slides/HomeSlide.tsx:250` | Rename to `FabricaLogo()`. |
+| Web client app name | `src/renderer/src/web/web-preload-api.ts:551` (`name: 'Orca'`) | → `'Fabrica'`. |
+
+### 9.2 Color Palette Alignment (tokens in `main.css`)
+
+Canonical token file: `orca/src/renderer/src/assets/main.css`. The `@theme inline` block (lines 43–120) maps `--color-*` → CSS vars; the **actual values** live in the `:root` / `.dark` blocks:
+
+| Token | Orca light (current) | Orca dark (current) | **Fabrica target** |
+| --- | --- | --- | --- |
+| `--background` | `#fff` | `#0a0a0a` | light `#FAF9F6` / `#ffffff`; dark `#121214` |
+| `--foreground` | `#0a0a0a` | `#fafafa` | light `#1C1C1E`; dark `#FAF9F6` |
+| `--primary` | `#171717` | `#e5e5e5` | Copper `#CC7A4A` (brand) — or keep near-black primary but add copper brand layer |
+| `--border` | `#e5e5e5` | `rgb(255 255 255/.07)` | light `#E2E8F0`/`#2C2C2E`-class; dark `#2C2C2E` |
+| `--ring` | `#a1a1a1` | `#737373` | copper-tinted ring `rgba(204,122,74,…)` |
+| `--sidebar-primary` | `#171717` | `#1447e6` (blue) | **Copper `#CC7A4A`** (this is Orca's main brand color today → swap to copper) |
+| `--ai-action-accent` | `violet-500` | `violet-400` | **Copper/amber** (`#CC7A4A` / `#e59320`) to match brand accent |
+| `--primary-foreground` | `#fafafa` | `#171717` | contrast text on copper = `#ffffff` |
+
+Apply per §6 rules: flat (`--shadow:none`), sharp radius, copper as the *sole* brand accent; green/red/amber/blue/violet kept only for status semantics. The status hues already exist as `--status-success/-error/-warn` etc. — verify they match §4 (success `#10b981`, error `#ef4444`/dark `#f43f5e`, warn `#f59e0b`).
+
+### 9.3 Typography
+
+`main.css` defines `--app-font-family: 'Geist', …` (line 127) and loads `Geist` + `Orca Nerd Font Symbols` via `@font-face` (lines 10–25). To match Fabrica §3.3:
+- Add `@font-face` for **Inter** (UI/sans), **Space Grotesk** (display), **JetBrains Mono** (mono/technical labels).
+- Repoint `--app-font-family` / `--font-sans` → Inter; add `--font-display` → Space Grotesk; `--font-mono` → JetBrains Mono.
+- Keep `Orca Nerd Font Symbols` (terminal icon font) but consider renaming the family reference.
+
+### 9.4 Non-visual scope moved out
+
+All non-visual rebrand work — **Metadata & Distribution Configs, Auto-Updater & Release Channels, Deep-Link scheme (`orca://`→`fabrica://`), Backend/Telemetry endpoints (`onorca.dev`/PostHog → Fabrica), CLI command names & data directories, CI/CD, Homebrew, and user-visible product-name strings** — is now documented in **`STRATEGY/configs-migration_plan.md`** (with deeper `orca/` findings and ordered checklist). This file stays focused on visual identity only.
+
+---
+
+## 10. Ordered rebrand checklist for `orca/` (visual only)
+
+1. **Assets:** drop Fabrica logo into `resources/logo.svg` + `build/icon.{icns,ico,png}` + `tray/` + `app-icons/`; rename `orca-logo-settings-icon.tsx` → `fabrica-logo-settings-icon.tsx` and `OrcaLogo()` → `FabricaLogo()`.
+2. **Color tokens:** rewrite `:root` / `.dark` in `main.css` (§9.2 table) → Fabrica copper/cream/charcoal; repoint `--sidebar-primary` and `--ai-action-accent` to copper; verify status hues match §4.
+3. **Typography:** add Inter/Space Grotesk/JetBrains Mono `@font-face`; repoint `--app-font-family` / `--font-sans` / `--font-mono` / `--font-display`.
+4. **Verify (visual):** `pnpm lint` + `vitest` in `orca/`; build a smoke artifact; confirm light/dark contrast (copper `#CC7A4A` on `#121214` is WCAG-safe for UI text).
+
+> Non-visual steps (metadata, launchers/casks, deep link, backend/telemetry, display strings, CI/CD) → **`STRATEGY/configs-migration_plan.md` §10**.
 
 
