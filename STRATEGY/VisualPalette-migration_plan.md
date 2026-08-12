@@ -240,7 +240,7 @@ Apply per §6 rules: flat (`--shadow:none`), sharp radius, copper as the *sole* 
 
 ### 9.4 Non-visual scope moved out
 
-All non-visual rebrand work — **Metadata & Distribution Configs, Auto-Updater & Release Channels, Deep-Link scheme (`orca://`→`fabrica://`), Backend/Telemetry endpoints (`onorca.dev`/PostHog → Fabrica), CLI command names & data directories, CI/CD, Homebrew, and user-visible product-name strings** — is now documented in **`STRATEGY/configs-migration_plan.md`** (with deeper `orca/` findings and ordered checklist). This file stays focused on visual identity only.
+All non-visual rebrand work — **Metadata & Distribution Configs, Auto-Updater & Release Channels, Deep-Link scheme (`orca://`→`fabrica://`), Backend/Telemetry endpoints (`onorca.dev`/PostHog → Fabrica), CLI command names & data directories, CI/CD, Homebrew, and user-visible product-name strings** — is now documented in **`STRATEGY/infra-migration_plan.md`** (with deeper `orca/` findings and ordered checklist). This file stays focused on visual identity only.
 
 ---
 
@@ -251,6 +251,14 @@ All non-visual rebrand work — **Metadata & Distribution Configs, Auto-Updater 
 3. **Typography:** add Inter/Space Grotesk/JetBrains Mono `@font-face`; repoint `--app-font-family` / `--font-sans` / `--font-mono` / `--font-display`.
 4. **Verify (visual):** `pnpm lint` + `vitest` in `orca/`; build a smoke artifact; confirm light/dark contrast (copper `#CC7A4A` on `#121214` is WCAG-safe for UI text).
 
-> Non-visual steps (metadata, launchers/casks, deep link, backend/telemetry, display strings, CI/CD) → **`STRATEGY/configs-migration_plan.md` §10**.
+> Non-visual steps (metadata, launchers/casks, deep link, backend/telemetry, display strings, CI/CD) → **`STRATEGY/infra-migration_plan.md` §10**.
+
+---
+
+## 11. Additional visual gaps (2026-08-12)
+
+- **Icon/wordmark font family rename:** the custom icon font `Orca Nerd Font Symbols` (used by `AppIconFont` / `AppFont` and referenced from `tailwind` typography + icon components) must be renamed to `Fabrica Nerd Font Symbols`, and the actual font asset file renamed to match. The glyph set itself can stay; only the family name/asset changes.
+- **Visible copy lives in i18n locale JSON, not just code:** `src/renderer/src/i18n/locales/en.json` has **621** "Orca" strings; every locale file has localized product-name text. The visual rebrand is **not complete** until these translation catalogs are swept (rename "Orca"→"Fabrica" in user-facing strings; keep keys/identifiers). See `infra-migration_plan.md` §8 / §11.3.
+- **Built-in docs/help links that render visible text** also change domains: `SidebarSettingsHelpMenu.tsx` (Docs/Changelog → onorca.dev) and `telemetry.ts` (Privacy → onorca.dev/docs/telemetry) — covered in `infra-migration_plan.md` §11.3.
 
 
