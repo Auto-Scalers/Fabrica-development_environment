@@ -37,11 +37,25 @@ and update [VisualPalette-migration_plan.md](http://VisualPalette-plan.md) with 
 
 ### Verify if we maked all the orca app our own so we can go further ?
 
-## 3.  Bussines-First Upgrade - Planning:
+## 3.  Interactive Agentic UI &amp; Bussines-First Upgrade - Planning:
 
-Currently, the app is for Coding-First, it can run some busines but a Founder need to have some technical backgrounds and some agentic experience, we need to turn it to something where a user can controll everything without touching the cli or writhing code, everything from the ui, where he can Draft, plan, execute, verify -- assign tasks, orchestrate and supervise,  define multi-agent crews (Researchers, Developers, Marketers, Business Analysts) on 24/7 Autonomy and Scale.
+Currently, the app is for Coding-First, it can run some agentic tasks and busines tasks but a Founder need to have some technical backgrounds and some agentic experience, we need to turn it to something where a user can controll everything without touching the cli or writhing code, everything from the ui, where he can Draft, plan, execute, verify -- assign tasks, orchestrate and supervise,  define multi-agent crews (Researchers, Developers, Marketers, Business Analysts) on 24/7 Autonomy and Scale.
 
-### Clean-room reimplementation - Planning:
+
+
+### Agentic UI &amp; Bussines layers - Planning:
+
+- am thinking about others repos/projects like Power BI and others for **Data Visualization &amp; Interactive Dashboards**
+- also we need some **Business Intelligence** projects, 
+- 
+
+
+
+&nbsp;
+
+&nbsp;
+
+`mission-control` **- Planning:**
 
 in order to impliment those new features, we will get inspired by another repo `Auto-Skiller/Fabrica-ADE/mission-control` but this repo is under  [**AGPL-3.0 license]** 
 
@@ -54,3 +68,6 @@ This is expensive and slow, but it's the real thing companies do (e.g., how BIOS
 2. **Reimplement the business layer:** 
 then we add, ewmove, audit features form thsoe specs and figure out how we should upgrade Fabrica's business layer without corrupting any existing features and how each feature should look like, where it should be, how it interact and link with everything else ...
 
+
+
+&nbsp;
