@@ -12,7 +12,7 @@ From `STRATEGY/Fabrica-ADE Strategy.md`, the non-visual rebrand goals are:
 
 - **Metadata & Distribution Config** — `package.json`, `electron-builder`, `Fabrica.exe`, build channels.
 - **Telemetry Sanitization** — replace `stablyai` analytics with Fabrica-owned servers.
-- **Auto-Updater & Releases** — point at `Auto-Skiller/Fabrica-ADE` (and dev-channel repos).
+- **Auto-Updater & Releases** — point at `Auto-Scalers/Fabrica` (and dev-channel repos).
 - **Deep Linking Scheme** — `orca://` → `fabrica://`.
 
 ---
@@ -25,10 +25,10 @@ From `STRATEGY/Fabrica-ADE Strategy.md`, the non-visual rebrand goals are:
 | --- | --- | --- |
 | `name` | `orca` | `fabrica` |
 | `description` | "Next-gen IDE for parallel agentic development" | align to Fabrica positioning |
-| `homepage` | `https://github.com/stablyai/orca` | `https://github.com/Auto-Skiller/Fabrica-ADE` |
-| `author` | `stablyai` | `Auto-Skiller` (or Fabrica entity) |
+| `homepage` | `https://github.com/stablyai/orca` | `https://github.com/Auto-Scalers/Fabrica` |
+| `author` | `stablyai` | `Auto-Scalers` (or Fabrica entity) |
 | `bin.orca` / `bin.orca-dev` | `orca` / `orca-dev` | `fabrica` / `fabrica-dev` |
-| `repository` (if present) | `stablyai/orca` | `Auto-Skiller/Fabrica-ADE` |
+| `repository` (if present) | `stablyai/orca` | `Auto-Scalers/Fabrica` |
 
 ### 2.2 `orca/config/electron-builder.config.cjs`
 
@@ -48,12 +48,12 @@ From `STRATEGY/Fabrica-ADE Strategy.md`, the non-visual rebrand goals are:
 | `linux.executableName` | `417` | `orca-ide` | `fabrica` (GNOME `orca` conflict no longer applies; verify) |
 | `linux.desktop.entry.StartupWMClass` | `425` | `orca` | `fabrica` |
 | `linux.extraResources` | `433-434` | `resources/linux/bin/orca-ide → bin/orca-ide` | `fabrica` |
-| `linux.maintainer` | `447` | `stablyai` | `Auto-Skiller` |
+| `linux.maintainer` | `447` | `stablyai` | `Auto-Scalers` |
 | `linux.category` | `448` | `Utility` | (keep) |
 | `appImage.artifactName` | `451` | `orca-linux(-arm64).${ext}` | `fabrica-linux(-arm64).${ext}` |
 | `deb.packageName` / `artifactName` | `454-455` | `orca-ide` | `fabrica` |
 | `rpm.packageName` / `artifactName` | `476-477` | `orca-ide` | `fabrica` |
-| `publish` | `500-504` | `owner:'stablyai'`, `repo: devChannelRepo ?? 'orca'` | `owner:'Auto-Skiller'`, `repo:'Fabrica-ADE'` (+ dev channels) |
+| `publish` | `500-504` | `owner:'stablyai'`, `repo: devChannelRepo ?? 'orca'` | `owner:'Auto-Scalers'`, `repo:'Fabrica'` (+ dev channels) |
 | `devChannelRepo` | `42-48` | `orca-hourly` / `orca-daily` / `orca-adhoc` | `fabrica-hourly` / `fabrica-daily` / `fabrica-adhoc` |
 | `chmodUnixCliLaunchers` list | `512` | `['orca','orca-ide']` | `['fabrica']` |
 | `afterPack` / signing helpers | `208,279,281,393,543,552,570` | `Orca Computer Use.app`, `orca-notification-status`, `ORCA_COMPUTER_MACOS_SIGN_IDENTITY` | `Fabrica Computer Use.app`, `fabrica-notification-status`, `FABRICA_…_SIGN_IDENTITY` |
@@ -66,7 +66,7 @@ From `STRATEGY/Fabrica-ADE Strategy.md`, the non-visual rebrand goals are:
 | `app` | `"Orca.app"` | `"Fabrica.app"` |
 | `binary` | `#{appdir}/Orca.app/.../bin/orca` | `.../bin/fabrica` |
 | data dir | `~/Library/Application Support/Orca` | `~/Library/Application Support/Fabrica` |
-| tap | `stablyai/homebrew-orca` | `Auto-Skiller/homebrew-fabrica` |
+| tap | `stablyai/homebrew-orca` | `Auto-Scalers/homebrew-fabrica` |
 
 ### 2.4 CLI launchers / packaged resources
 
@@ -124,15 +124,15 @@ The feed URLs are derived from repo constants — **this is the core of the Auto
 
 | What | File:line | Current | Target |
 | --- | --- | --- | --- |
-| Main release repo | `src/shared/release-channel.ts:27` (`MAIN_RELEASE_REPO`) | `stablyai/orca` | `Auto-Skiller/Fabrica-ADE` |
-| Hourly repo | `:24` | `stablyai/orca-hourly` | `Auto-Skiller/Fabrica-ADE-hourly` |
-| Daily repo | `:25` | `stablyai/orca-daily` | `Auto-Skiller/Fabrica-ADE-daily` |
-| Adhoc repo | `:26` | `stablyai/orca-adhoc` | `Auto-Skiller/Fabrica-ADE-adhoc` |
+| Main release repo | `src/shared/release-channel.ts:27` (`MAIN_RELEASE_REPO`) | `stablyai/orca` | `Auto-Scalers/Fabrica` |
+| Hourly repo | `:24` | `stablyai/orca-hourly` | `Auto-Scalers/Fabrica-hourly` |
+| Daily repo | `:25` | `stablyai/orca-daily` | `Auto-Scalers/Fabrica-daily` |
+| Adhoc repo | `:26` | `stablyai/orca-adhoc` | `Auto-Scalers/Fabrica-adhoc` |
 | Channel→repo resolver | `:73` (`getReleaseRepoForChannel`) | reads above | (auto via constants) |
 | Feed URL builder | `src/main/updater-release-builds.ts:19-21` | `https://github.com/${repo}/releases/download/...` | (auto via repo constants) |
 | Releases API URL | `:15-17` | `https://api.github.com/repos/${repo}/releases` | (auto via repo constants) |
-| Updater fallback feed | `src/main/updater.ts:1440,2205` | `https://github.com/stablyai/orca/releases/latest/download` | `.../Auto-Skiller/Fabrica-ADE/...` |
-| electron-builder publish | `config/electron-builder.config.cjs:500-504` | `owner:'stablyai'`, `repo:'orca'` | `owner:'Auto-Skiller'`, `repo:'Fabrica-ADE'` |
+| Updater fallback feed | `src/main/updater.ts:1440,2205` | `https://github.com/stablyai/orca/releases/latest/download` | `.../Auto-Scalers/Fabrica/...` |
+| electron-builder publish | `config/electron-builder.config.cjs:500-504` | `owner:'stablyai'`, `repo:'orca'` | `owner:'Auto-Scalers'`, `repo:'Fabrica'` |
 
 > The GitHub release **tags** (e.g. `v1.4.178-rc.2`) stay semver; only *owner/repo* changes. Dev-channel builds still need matching `fabrica-hourly`/`fabrica-daily`/`fabrica-adhoc` repos on GitHub, and `devChannelRepo` in `electron-builder.config.cjs:42-48` must be renamed in lockstep.
 
@@ -226,9 +226,9 @@ Orca's analytics is **first-party via PostHog**, plus a first-party diagnostics/
 
 | Concern | File | Current | Target |
 | --- | --- | --- | --- |
-| Repo guard | `release-cut.yml:68`, `hourly/daily/adhoc-mac-build.yml`, `readme-downloads-badge.yml:23`, `homebrew-bump.yml` | `github.repository == 'stablyai/orca'` | `'Auto-Skiller/Fabrica-ADE'` |
-| Dev release repos | `hourly:58`, `daily:66`, `adhoc:77` (`*_REPO`) | `stablyai/orca-hourly|daily|adhoc` | `Auto-Skiller/Fabrica-ADE-hourly|daily|adhoc` |
-| Homebrew tap | `homebrew-bump.yml:10,137,147,152` | `stablyai/homebrew-orca` | `Auto-Skiller/homebrew-fabrica` |
+| Repo guard | `release-cut.yml:68`, `hourly/daily/adhoc-mac-build.yml`, `readme-downloads-badge.yml:23`, `homebrew-bump.yml` | `github.repository == 'stablyai/orca'` | `'Auto-Scalers/Fabrica'` |
+| Dev release repos | `hourly:58`, `daily:66`, `adhoc:77` (`*_REPO`) | `stablyai/orca-hourly|daily|adhoc` | `Auto-Scalers/Fabrica-hourly|daily|adhoc` |
+| Homebrew tap | `homebrew-bump.yml:10,137,147,152` | `stablyai/homebrew-orca` | `Auto-Scalers/homebrew-fabrica` |
 | Cask bump | `homebrew-bump.yml:73-77,104-108` | `orca`/`orca@rc` tokens, `orca-macos-*.dmg` | `fabrica`/`fabrica@rc`, `fabrica-macos-*.dmg` |
 | SignPath project-slug | `release-cut.yml:1278,1489` | `orca` | `fabrica` |
 | Diagnostics token URL | `release-cut.yml`, mac builds | `https://www.onorca.dev/diagnostics/token` | Fabrica diagnostics endpoint |
@@ -263,7 +263,7 @@ These are the strings a user reads — rename the **English default** to `Fabric
 
 ## 10. Ordered checklist (configs)
 
-1. **Repo/package metadata:** `package.json` (name/author/homepage/bin/description) + `src/shared/release-channel.ts` repo constants (`Auto-Skiller/Fabrica-ADE` + dev repos).
+1. **Repo/package metadata:** `package.json` (name/author/homepage/bin/description) + `src/shared/release-channel.ts` repo constants (`Auto-Scalers/Fabrica` + dev repos).
 2. **electron-builder:** `appId`, `productName`, `executableName`, `artifactName` (`fabrica-*`), permission strings, helper app names, `publish` owner/repo, `devChannelRepo` names, `chmodUnixCliLaunchers` list.
 3. **CLI + data dirs:** `cli-installer.ts`, `wsl-cli-installer.ts`, shim/dispatcher, `codex-home-paths.ts`; rename resources bins (`fabrica`/`fabrica.cmd`/`fabrica.exe`); add data-dir migration.
 4. **Deep link:** register `fabrica://`; rename all `orca://` literals + tests.
@@ -272,7 +272,7 @@ These are the strings a user reads — rename the **English default** to `Fabric
 7. **CI/CD:** `.github/workflows` repo guards, dev repos, Homebrew tap/cask, SignPath slug, signing artifact names, `config/scripts/*-release-repo.sh`, mobile build names.
 8. **Homebrew + plugins:** `Casks/orca.rb`/`orca@rc.rb`, plugin `publisher` fields.
 9. **Display strings:** replace user-visible `'Orca'` defaults with `'Fabrica'`.
-10. **Verify:** `pnpm lint` + `vitest` in `orca/`; cut a smoke release to `Auto-Skiller/Fabrica-ADE` and confirm updater feed + deep link resolve.
+10. **Verify:** `pnpm lint` + `vitest` in `orca/`; cut a smoke release to `Auto-Scalers/Fabrica` and confirm updater feed + deep link resolve.
 
 ---
 
@@ -312,10 +312,10 @@ Rule: only rename where the value is the **Fabrica product identity**; leave cro
 
 ### 11.6 Prerequisites / blockers outside code
 To truly "make it our own", these must exist before/with the code rebrand:
-- **Domains:** own `fabrica.dev` (and `api.` / `relay.` / `update.` / `share.` / `login.` subdomains). Currently `onorca.dev`.
+- **Domains:** own `fabrica.dev` (and `api.` / `relay.` / `update.` / `share.` / `login.` subdomains). Currently `onorca.dev`. **Status (Aug 2026): domain/website NOT yet acquired — open task.** Until owned, the Fabrica-branded telemetry/diagnostics/docs/changelog endpoints (§6, §9.1) cannot point at real Fabrica URLs; they must either stay pointing at `onorca.dev`, or be temporarily routed to GitHub Pages / a placeholder until the domain lands. This is a blocker for full telemetry/diagnostics cutover, not for the desktop rename itself.
 - **Code signing:** new Apple Developer ID + notarization cert (macOS) under Fabrica entity; Windows SignPath org slug changed `orca`→`fabrica` (§7).
 - **App Store / distribution:** new iOS App Store app record (current `apps.apple.com/us/app/orca-ide/id6766130217` + TestFlight `YjeGMQBA` belong to stablyai); new Android release channel (current APKs published to `stablyai/orca` releases).
-- **GitHub orgs/repos:** `Auto-Skiller/Fabrica-ADE` (+ `-hourly/-daily/-adhoc`), `fabrica-plugins` (was `orca-plugins`), plugin repos (`stablyai.orca-*` → renamed), `fabrica-cloud` (was `orca-cloud`). Update every default-repo fallback.
+- **GitHub orgs/repos:** `Auto-Scalers/Fabrica` (+ `-hourly/-daily/-adhoc`), `fabrica-plugins` (was `orca-plugins`), plugin repos (`stablyai.orca-*` → renamed), `fabrica-cloud` (was `orca-cloud`). Update every default-repo fallback.
 - **Plugin publisher migration:** re-sign `stablyai.orca-*` plugins under the new publisher (§11.1).
 - **Mobile backend:** if `mobile/` uses a stablyai Firebase/push project, migrate ownership.
 

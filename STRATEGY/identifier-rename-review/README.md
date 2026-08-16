@@ -19,20 +19,36 @@ So almost every item below is **safe to rename now**. The only remaining reasons
 
 ## Quick-decision table
 
-| Item | Visible to users? | Recommendation (0 users) | File |
-| --- | --- | --- | --- |
-| 1. Wire tokens (`orca_server_ready`, `orca:serve-ready`) | No | **✅ Renamed** to `fabrica_*` (both sides ship together) | [01-wire-tokens.md](01-wire-tokens.md) |
-| 2. Environment variables (`ORCA_*`) | No | **Keep** (or rename later, low priority) | [02-environment-variables.md](02-environment-variables.md) |
-| 3. Plugin `engines.orca` field | No | **Keep "orca"** — tied to plugin trust system | [03-plugin-engines-field.md](03-plugin-engines-field.md) |
-| 4. Keychain service name | No (macOS Keychain) | **Rename now** — nothing stored yet | [04-keychain-service.md](04-keychain-service.md) |
-| 5. Data folders / `.orca` paths | No | **Rename now** — nothing in them yet | [05-data-directories.md](05-data-directories.md) |
-| 6. `Co-authored-by: Orca` git trailer | Yes (git history) | **Rename now** — cosmetic | [06-git-coauthor-trailer.md](06-git-coauthor-trailer.md) |
-| 7. App name / About / app menu / productName | **Yes** | **Rename now** — this IS the brand | [07-app-name-and-menu.md](07-app-name-and-menu.md) |
-| 8. Windows firewall rule `Orca Mobile Pairing` | Yes (Windows Settings) | **Rename now** | [08-firewall-rule.md](08-firewall-rule.md) |
-| 9. TLS certificate `CN=Orca Runtime` | Yes (security prompts) | **Rename now** | [09-tls-certificate.md](09-tls-certificate.md) |
-| 10. Windows install path `Program Files\Orca Dev` | Yes (user's disk) | **Rename now** | [10-install-path.md](10-install-path.md) |
-| 11. `orca` CLI command | Yes (terminal) | **Keep `orca` + add `fabrica` alias** | [11-cli-command.md](11-cli-command.md) |
-| 12. `Orca Computer Use.app` helper (macOS) | Mostly no | **Rename in lockstep** with the app | [12-computer-use-app.md](12-computer-use-app.md) |
+**Status key:** ✅ done · 🟡 in progress · ⬜ not started
+
+| # | Item | Group | Visible? | Decision | Planning | Impl. | File |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 7 | App name / About / menu / productName | 🔵 A | **Yes** | Option A — display name now; `appId` deferred | ✅ | ✅ | [07-app-name-and-menu.md](07-app-name-and-menu.md) |
+| 8 | Windows firewall rule | 🔵 A | Yes | Option C — rename with A's release | ⬜ | ⬜ | [08-firewall-rule.md](08-firewall-rule.md) |
+| 12 | `Orca Computer Use.app` helper | 🔵 A | Mostly no | Option A — helper name now; bundle id deferred | 🟡 | ⬜ | [12-computer-use-app.md](12-computer-use-app.md) |
+| 11 | `orca` CLI command | 🟢 B | Yes | Option C — full rename + `orca` shim (both-sides rule) | ✅ | ⬜ | [11-cli-command.md](11-cli-command.md) |
+| 10 | Windows install path (+ download artifacts) | 🟢 B | Yes | Option C — rename with item 11 | ✅ | ⬜ | [10-install-path.md](10-install-path.md) |
+| 2 | Environment variables (`ORCA_*`) | 🟢 B | No | Full rename to `FABRICA_*` + CI/telemetry | ✅ | 🟡 | [02-environment-variables.md](02-environment-variables.md) |
+| 6 | `Co-authored-by` git trailer | 🟢 B | Yes | Option A — rename now (via item 02) | ✅ | ⬜ | [06-git-coauthor-trailer.md](06-git-coauthor-trailer.md) |
+| 4 | Keychain service | 🟠 C | No | Option A — rename now | ✅ | ✅ | [04-keychain-service.md](04-keychain-service.md) |
+| 9 | TLS certificate | 🟠 C | Yes | Option C — rename whole identity (touches 04) | ✅ | ✅ | [09-tls-certificate.md](09-tls-certificate.md) |
+| 5 | Data folders / `.orca` paths | 🟠 C | No | Option A — rename now — ⛔ blocked on app name (item 07) | ⬜ | ⬜ | [05-data-directories.md](05-data-directories.md) |
+| 1 | Wire tokens | ⚪ D | No | Rename to `fabrica_*` | ✅ | ✅ | [01-wire-tokens.md](01-wire-tokens.md) |
+| 3 | Plugin `engines.orca` field | ⚪ D | No | Full takeover | ⬜ | ⬜ | [03-plugin-engines-field.md](03-plugin-engines-field.md) |
+
+**Groups (ship together):** 🔵 **A** Identity lockstep — one bundle-id release (appId + mobile + helper, infra §11.4) · 🟢 **B** CLI command surface — CLI + install + env + trailer · 🟠 **C** Storage identity — one sweep (keychain + TLS + data dirs) · ⚪ **D** Standalone — own release, no coupling
+
+> **How to update this table:** an item becomes 🟡 in Planning once its decision is locked in its file (recommendation → decided); ✅ when the plan text is finalized. Impl. becomes ✅ only when the code change + tests land. The 🔒 decision that depends on another item is recorded in the item's file; items in the same Group must ship in one coordinated release.
+
+## ⏳ Known remaining `ORCA_` (come back later)
+
+Item 02's bulk rename (`ORCA_` → `FABRICA_*`, 958 files) is applied, **but one `ORCA_` is deliberately still in the repo**:
+
+- **GitHub Actions Secret store key** — `secrets.ORCA_POSTHOG_WRITE_KEY` in:
+  - `orca/.github/workflows/release-cut.yml:1148`
+  - `orca/.github/workflows/release-mac-build.yml:121`
+
+The **env var name** is already `FABRICA_POSTHOG_WRITE_KEY`; only the GitHub Secret **store key** is still `ORCA_*`. It is external infrastructure, not code — renaming it is an admin action in **Settings → Secrets and variables → Actions** on the repo hosting CI (now `Auto-Scalers/Fabrica`), done together with a build so the workflow doesn't fail with "Secret not found". The PostHog value itself is unchanged. This is safe to leave until the first release to the new repo.
 
 ## The one real risk (internal wiring, not users)
 
