@@ -1,0 +1,6 @@
+[submodule "Fabrica-app"]
+	path = Fabrica-app
+	url = https://github.com/Auto-Scalers/Fabrica-app.git
+[submodule "Fabrica-web"]
+	path = Fabrica-web
+	url = https://github.com/Auto-Scalers/Fabrica-web.git

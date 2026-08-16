@@ -24,8 +24,8 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Git metadata backups
-.backup/.git - Copy/
+# Local backup folder (kept on disk, not versioned)
+.backup/
 
 # Misc
 *.tsbuildinfo
