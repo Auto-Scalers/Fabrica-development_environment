@@ -30,6 +30,14 @@ You are the **orchestrator**. You manage cross-folder decisions, prioritize work
 - Add planning docs to `.Fabrica-Board/`
 - Update your own `AGENTS.md` and `README.md` (top-level only)
 
+**You can also update sub-project task files** when you receive worker_done messages:
+- `Fabrica-app/.Fabrica-app-board/Fabrica-app-tasks.md`
+- `Fabrica-web/.Fabrica-web-board/Fabrica-web-tasks.md`
+- `Fabrica-marketing/.Fabrica-marketing-board/Fabrica-marketing-tasks.md`
+- `Fabrica-plugins/.Fabrica-plugins-board/Fabrica-plugins-tasks.md`
+
+Update task statuses to reflect what was completed. The roadmap (`.Fabrica-Board/Fabrica-Roadmap.md`) should also be updated automatically when tasks complete.
+
 ## What You Do NOT Do
 
 - **Do NOT edit ANY file** in `Fabrica-app/`, `Fabrica-web/`, or `Fabrica-marketing/` — not even one file
@@ -241,7 +249,8 @@ When a new session starts, it should immediately:
 - **Keep the same stack as Orca.** Edits and additions, not massive refactors. Don't corrupt what already works.
 - **Never touch `.backup/` or `_sources/`** — those are frozen reference copies.
 - **Never directly edit sub-folder files.** Always dispatch through orchestration.
-- **NEVER push to remote.** Sub-orchestrators commit locally only. The user (PM) reviews and pushes. This ensures the user can review all changes before they go live.
+- **NEVER commit or push to remote.** Sub-orchestrators make changes only. The user (PM) commits and pushes after review.
+- **Update the roadmap automatically** — when a task completes, update `.Fabrica-Board/Fabrica-Roadmap.md` to reflect the new status.
 
 ## Roadmap
 
