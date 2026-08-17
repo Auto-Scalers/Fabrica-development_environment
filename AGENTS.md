@@ -241,6 +241,7 @@ When a new session starts, it should immediately:
 - **Keep the same stack as Orca.** Edits and additions, not massive refactors. Don't corrupt what already works.
 - **Never touch `.backup/` or `_sources/`** — those are frozen reference copies.
 - **Never directly edit sub-folder files.** Always dispatch through orchestration.
+- **NEVER push to remote.** Sub-orchestrators commit locally only. The user (PM) reviews and pushes. This ensures the user can review all changes before they go live.
 
 ## Roadmap
 
