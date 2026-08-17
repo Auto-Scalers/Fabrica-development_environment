@@ -2,17 +2,18 @@
 
 ## What This Folder Is
 
-This is the **top-level Fabrica development environment** — it coordinates across 3 sub-projects that each have their own repo, agent instructions, and planning docs.
+This is the **top-level Fabrica development environment** — it coordinates across 4 sub-projects that each have their own repo, agent instructions, and planning docs.
 
-You are the **orchestrator**. You manage cross-folder decisions, prioritize work, and ensure the 3 sub-projects stay aligned.
+You are the **orchestrator**. You manage cross-folder decisions, prioritize work, and ensure the 4 sub-projects stay aligned.
 
-## The 3 Sub-Projects
+## The Sub-Projects
 
 | Folder | What It Does | Agent Instructions | Worktree ID |
 |--------|-------------|-------------------|-------------|
 | `Fabrica-app/` | Desktop app (Electron, forked from Orca) | `Fabrica-app/AGENTS.md` | `fb6b9ddc-b91a-42f2-bd3d-22fc14e9853a::C:/Users/BAB AL SAFA/Desktop/Fabrica-development_environment/Fabrica-app` |
 | `Fabrica-web/` | Landing page (Next.js, fabrica-ai.vercel.app) | `Fabrica-web/AGENTS.md` | `cddb258f-edbe-4bae-b207-a7713e4eb3a2::C:/Users/BAB AL SAFA/Desktop/Fabrica-development_environment/Fabrica-web` |
 | `Fabrica-marketing/` | Marketing assets, copy, launch materials | `Fabrica-marketing/AGENTS.md` | `6f298adc-e33d-42de-942f-f68caafd905c::C:/Users/BAB AL SAFA/Desktop/Fabrica-development_environment/Fabrica-marketing` |
+| `Fabrica-plugins/` | Plugin marketplace index (JSON registry) | `Fabrica-plugins/AGENTS.md` | — |
 
 ## What You Own
 
@@ -36,16 +37,202 @@ You are the **orchestrator**. You manage cross-folder decisions, prioritize work
 - Do NOT make technical decisions that only affect one folder — defer to that folder's agent
 - Do NOT touch `.backup/` or `_sources/` — those are frozen reference material
 
-## How to Work With Sub-Folders
+## How to Create a New Sub-Project
 
-You never directly touch sub-folder files. Instead:
+When adding a new sub-project to Fabrica, follow these steps exactly:
 
-1. **Dispatch a task** to the sub-orchestrator via orchestration
-2. **Wait for results** (worker_done, escalation, question)
-3. **Process the result** and decide next steps
-4. **Repeat** until all work is done
+### Step 1: Create GitHub Repo
 
-Each sub-orchestrator reads its own `AGENTS.md` to understand its scope, then dispatches work to agents within its project.
+```bash
+gh repo create Auto-Scalers/Fabrica-<name> --public --description "Fabrica <description>"
+```
+
+### Step 2: Create Local Folder Structure
+
+```powershell
+New-Item -ItemType Directory -Path "Fabrica-<name>\.Fabrica-<name>-board" -Force
+```
+
+### Step 3: Create Required Files
+
+**`Fabrica-<name>/AGENTS.md`** — sub-orchestrator instructions. Copy from an existing sub-project and adapt:
+- What It Does
+- What You Own
+- What You Can Edit Directly (board folder only)
+- Task File reference
+- How to Work
+- Escalate to Top-Level Orchestrator
+- Orchestration Skill
+- Identity System
+- Spin Up New Agent Session
+
+**`Fabrica-<name>/.Fabrica-<name>-board/Fabrica-<name>-tasks.md`** — initial task list with status legend.
+
+### Step 4: Commit and Push to GitHub
+
+```powershell
+cd Fabrica-<name>
+git init
+git add -A
+git commit -m "Initial commit: AGENTS.md and tasks file"
+git branch -M main
+git remote add origin https://github.com/Auto-Scalers/Fabrica-<name>.git
+git push -u origin main
+```
+
+### Step 5: Convert to Submodule
+
+```powershell
+# Remove .git folder (files are safe on GitHub)
+Remove-Item -Recurse -Force "Fabrica-<name>\.git"
+
+# Delete the local folder
+cmd /c rmdir /s /q "Fabrica-<name>"
+
+# Add as submodule (clones fresh from GitHub)
+git submodule add https://github.com/Auto-Scalers/Fabrica-<name>.git Fabrica-<name>
+```
+
+### Step 6: Update Documentation
+
+Update these files to include the new sub-project:
+
+1. **`AGENTS.md`** (this file) — add to "The 3 Sub-Projects" table and "Task Files" table
+2. **`.Fabrica-Board/Fabrica-Roadmap.md`** — add to task files reference and progress tracker
+3. **`.Fabrica-Board/Fabrica-DNA.md`** — add repo reference to header section
+
+### Why Submodules?
+
+Each sub-project has its own GitHub repo. Submodules link the folder to the repo so:
+- Each sub-project can be cloned independently
+- Changes are tracked in the sub-project's repo, not the parent
+- The parent repo only tracks which commit each sub-project points to
+
+## Hierarchical Orchestration Architecture
+
+```
+Top-level Orchestrator (you — in Fabrica-development_environment)
+├── app-orchestrator     (persistent session in Fabrica-app worktree)
+│   ├── worker: Group A tasks  (ephemeral, new worktree per task group)
+│   ├── worker: Group B tasks  (ephemeral, new worktree per task group)
+│   └── ...
+├── web-orchestrator     (persistent session in Fabrica-web worktree)
+│   ├── worker: API routes    (ephemeral, new worktree)
+│   └── ...
+├── marketing-orchestrator (persistent session in Fabrica-marketing worktree)
+│   └── ...
+└── plugins-orchestrator  (persistent session in Fabrica-plugins worktree)
+    └── ...
+```
+
+### Rules
+
+1. **Sub-orchestrators are persistent sessions** — they stay alive forever. You talk to them, they talk back. They never close.
+2. **Sub-orchestrators don't do actual work** — they read their AGENTS.md, understand scope, then spin up ephemeral worker sessions in separate worktrees to do the real work.
+3. **Workers are ephemeral** — each worker gets its own worktree, does one task group, reports back, then the sub-orchestrator can release it or reuse it.
+4. **Only the top-level orchestrator (you) starts sub-orchestrator sessions.** Sub-orchestrators never start each other.
+5. **Cross-project coordination flows through you.** Sub-orchestrators don't talk to each other directly.
+
+### How to Dispatch a Sub-Orchestrator
+
+```bash
+# 1. Create a task for the sub-orchestrator
+orca orchestration task-create --spec "Orchestrate Fabrica-web rebranding" --json
+
+# 2. Create a terminal in the sub-project's worktree
+orca terminal create \
+  --worktree "id:<worktree_id>" \
+  --title "web-orchestrator" \
+  --command "opencode" \
+  --json
+# Save: terminal handle from result.terminal.handle
+
+# 3. Wait for the TUI to be ready (CRITICAL — don't skip this)
+orca terminal wait --terminal <handle> --for tui-idle --timeout-ms 60000 --json
+
+# 4. Dispatch with inject (sends task spec + preamble automatically)
+orca orchestration dispatch --task <task_id> --to <handle> --inject --json
+# Save: dispatch_id from result.dispatch.id
+
+# 5. Wait for results
+orca orchestration check --wait --types worker_done,escalation,question --timeout-ms 300000 --json
+```
+
+**IMPORTANT:** Do NOT use `worker-start` — its inject fires before the TUI is ready. Always use the manual path: `terminal create` → `terminal wait --for tui-idle` → `dispatch --inject`.
+
+### Verifying Coordinator Handle
+
+When you create a Run, the `coordinator_handle` is set to your current terminal. If you close and reopen a session, the handle may be stale. To verify:
+
+```bash
+orca orchestration run-show --id <run_id> --json
+# Check that coordinator_handle matches your current terminal
+```
+
+If stale, create a new Run or use `orca orchestration run-use --id <run_id> --takeover-legacy --json` to take over.
+
+**IMPORTANT:** Do NOT use `worker-start` — its inject fires before the TUI is ready. Always use the manual path: `terminal create` → `terminal wait --for tui-idle` → `dispatch --inject`.
+
+### How Sub-Orchestrators Dispatch Workers
+
+Each sub-orchestrator follows this pattern internally:
+
+```
+Sub-orchestrator receives task from you
+  → Reads its AGENTS.md and task file
+  → Creates a new worktree for the worker
+  → Starts a worker session in that worktree
+  → Worker does the work, sends worker_done
+  → Sub-orchestrator reports back to you
+```
+
+### Named Sessions Reference
+
+| Session Name | Worktree | Purpose |
+|-------------|----------|---------|
+| **`fabrica-orchestrator`** | `Fabrica-development_environment/` | **Top-level orchestrator** — you |
+| `app-orchestrator` | `Fabrica-app/` | Coordinates all desktop app work |
+| `web-orchestrator` | `Fabrica-web/` | Coordinates landing page + API work |
+| `marketing-orchestrator` | `Fabrica-marketing/` | Coordinates marketing content |
+| `plugins-orchestrator` | `Fabrica-plugins/` | Coordinates plugin marketplace |
+
+### What You (fabrica-orchestrator) Own
+
+- Creating and managing the 4 sub-orchestrator sessions
+- Sending high-level tasks to sub-orchestrators
+- Waiting for results (worker_done, escalation, question)
+- Cross-folder prioritization and sequencing
+- Decisions that affect more than one folder
+- Tracking overall progress against the roadmap
+
+## First Prompt (What To Do When You Start)
+
+When a new session starts, it should immediately:
+
+1. **Load the orchestration skill:**
+   ```bash
+   orca skills get orchestration
+   ```
+
+2. **Read the roadmap to understand current state:**
+   - Read `.Fabrica-Board/Fabrica-Roadmap.md` to see what's done, in progress, and next
+   - Read `.Fabrica-Board/Fabrica-DNA.md` for identity and strategy
+
+3. **Read this AGENTS.md** to understand your role and capabilities
+
+4. **Check for existing sub-orchestrator sessions:**
+   ```bash
+   orca terminal list --json
+   ```
+   - If sub-orchestrators exist: check their status, continue coordination
+   - If no sub-orchestrators: create them using the pattern in "How to Dispatch a Sub-Orchestrator"
+
+5. **Report to user:**
+   - Current phase and progress
+   - What's ready to execute
+   - Ask: "What would you like me to work on?"
+
+**Do NOT wait for instructions.** Read the roadmap, assess the state, and tell the user what's ready.
 
 ## Rules
 
@@ -57,12 +244,24 @@ Each sub-orchestrator reads its own `AGENTS.md` to understand its scope, then di
 
 ## Roadmap
 
-The top-level roadmap lives at `.Fabrica-Board/Fabrica-Roadmap.md`. It tracks:
-- Product positioning and architecture
-- Rebranding progress (Orca → Fabrica)
-- What's been done, what's in progress, what's blocked
+The top-level roadmap lives at `.Fabrica-Board/Fabrica-Roadmap.md`. It is a **tracking hub only** — phases, status, and links to task files.
 
-Read it to understand current priorities before making cross-folder decisions.
+For vision, identity, App ID, repos, infrastructure, and product direction → see `.Fabrica-Board/Fabrica-DNA.md`.
+
+## Task Files (Source of Truth for Execution)
+
+Each sub-project has its own task file that owns execution details. The Roadmap is the central hub — it tracks phases and cross-cutting status only.
+
+| Sub-Project | Task File | What It Tracks |
+|-------------|-----------|----------------|
+| Fabrica-app | `Fabrica-app/.Fabrica-app-board/Fabrica-app-tasks.md` | Desktop app rebranding, build, distribution, relay, auto-updater |
+| Fabrica-web | `Fabrica-web/.Fabrica-web-board/Fabrica-web-tasks.md` | Landing page, API routes, static files, docs |
+| Fabrica-marketing | `Fabrica-marketing/.Fabrica-marketing-board/Fabrica-marketing-tasks.md` | Brand, launch copy, content, press |
+| Fabrica-plugins | `Fabrica-plugins/.Fabrica-plugins-board/Fabrica-plugins-tasks.md` | Plugin marketplace index, submission process, quality |
+
+**Rule:** Do not duplicate task details in the Roadmap. When dispatching work, reference the specific task file for that sub-project.
+
+**Identity & strategy:** See `.Fabrica-Board/Fabrica-DNA.md` for App ID, repos, infrastructure, product direction, and deferred items.
 
 ## Orchestration Skill
 
@@ -200,6 +399,24 @@ orca worktree create --name "task-name" --no-parent --agent opencode --prompt "Y
 - **Escalation** — if a sub-agent asks a question or escalates, the orchestrator decides and replies
 - **Decision gates** — use for cross-folder decisions that need human approval
 - **Heartbeats** — workers send heartbeats to show they're alive; don't mistake silence for failure
+
+### CRITICAL: One-Way vs Two-Way Communication
+
+**`orca terminal send`** = one-way. The sub-agent receives the message but has NO way to send results back. Use only for simple notifications that don't need a response.
+
+**`orca orchestration dispatch --inject`** = two-way. Injects a preamble with `run_id`, `task_id`, `dispatch_id`, and `coordinator_handle` so the worker can send `worker_done`, `ask`, or `escalation` back to you.
+
+**Rule:** ALWAYS use `orca orchestration dispatch --inject` when you need a response. NEVER use `orca terminal send` for tasks that require results.
+
+```bash
+# WRONG — one-way, no reply possible
+orca terminal send --terminal <handle> --text "Push your changes" --enter --json
+
+# CORRECT — two-way, worker can reply
+orca orchestration task-create --spec "Push changes" --json
+orca orchestration dispatch --task <task_id> --to <handle> --inject --json
+orca orchestration check --wait --types worker_done,escalation,question --timeout-ms 300000 --json
+```
 
 ## What Each Sub-Orchestrator Should Do
 

@@ -11,6 +11,8 @@
 
 **Marketing and GTM Repo** `Auto-Scalers/Fabrica-marketing` (Fabrica-marketing/), (Fabrica-marketing/.Fabrica-marketing-board)
 
+**Plugin Marketplace Repo** `Auto-Scalers/Fabrica-plugins` (Fabrica-plugins/), (Fabrica-plugins/.Fabrica-plugins-board)
+
 **Base:** Orca (`stablyai/orca`) — MIT licensed (archived in `.backup/orca`)
 **Helpers Repos** `_sources/legacy-fabrica` and `_sources/mission-control`
 

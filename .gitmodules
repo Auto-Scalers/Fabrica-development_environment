@@ -4,3 +4,9 @@
 [submodule "Fabrica-web"]
 	path = Fabrica-web
 	url = https://github.com/Auto-Scalers/Fabrica-web.git
+[submodule "Fabrica-marketing"]
+	path = Fabrica-marketing
+	url = https://github.com/Auto-Scalers/Fabrica-marketing.git
+[submodule "Fabrica-plugins"]
+	path = Fabrica-plugins
+	url = https://github.com/Auto-Scalers/Fabrica-plugins.git
