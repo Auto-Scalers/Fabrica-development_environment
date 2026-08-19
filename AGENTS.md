@@ -85,6 +85,9 @@ Update task statuses to reflect what was completed. The roadmap (`.Fabrica-Board
 - **Do NOT read code** in sub-folders to audit or verify — dispatch a task to the sub-orchestrator instead
 - Do NOT make technical decisions that only affect one folder — defer to that folder's agent
 - Do NOT touch `.backup/` or `_sources/` — those are frozen reference material
+- **Do NOT create workers directly in sub-project worktrees** — ALWAYS delegate to the sub-orchestrator for that project. The sub-orchestrator manages its own workers.
+- **Do NOT use `worker-start` to dispatch to sub-projects** — use `terminal create` → `terminal wait --for tui-idle` → `dispatch --inject` to send tasks to the sub-orchestrator session.
+- **Do NOT send empty prompts** — every worker must receive a detailed task brief telling it what to do, what files to read, and what to send back.
 
 ## How to Create a New Sub-Project
 
