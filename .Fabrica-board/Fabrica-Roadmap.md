@@ -10,23 +10,23 @@
 | Metric | Value |
 |--------|-------|
 | Total tasks | 100 |
-| ✅ Done | 68 |
+| ✅ Done | 73 |
 | 🔶 Partial | 0 |
-| ⬜ Todo | 16 |
-| 📋 Planning | 15 |
-| 🚫 Blocked | 1 |
+| ⬜ Todo | 14 |
+| 📋 Planning | 13 |
+| 🚫 Blocked | 0 |
 | ❌ Issues | 0 |
-| Completion | 68% |
+| Completion | 73% |
 
 
 ### Phase Progress
 
 ```
 Phase 1 — Rebranding & Foundation
-Fabrica-app      ✅ 35 ⬜ 20 🚫 1                   [████████████████████] 84%
-Fabrica-web      ✅ 13 ⬜ 0  📋 2                 [████████████████████] 100%
+Fabrica-app      ✅ 37 ⬜ 18                      [████████████████████] 84%
+Fabrica-web      ✅ 15 ⬜ 0                       [████████████████████] 100%
 Fabrica-marketing 📋 13                           [██░░░░░░░░░░░░░░░░░░] 19%
-Fabrica-plugins  ✅ 13 ⬜ 3                        [████████████████░░░░] 81%
+Fabrica-plugins  ✅ 16 ⬜ 2                        [████████████████████] 89%
 
 Phase 2 — Business-First UI & Agentic Layer
 Fabrica-app      ⬜ 7                               [░░░░░░░░░░░░░░░░░░░░] 0%
@@ -56,7 +56,7 @@ Fabrica-app      ⬜ 7                               [░░░░░░░░�
 | Attribution footer | ✅ Done | Fabrica-app | "Made with [FABRICA]" — verified clean |
 | Static files (W8-W10) | ✅ Done | Fabrica-web | Changelog, nudge, kill-list JSON created |
 | Docs site (W11) | ✅ Done | Fabrica-web | Layout, sidebar, content, build compiles |
-| Landing page updates (W12-W13) | 📋 Planning | Fabrica-web | Audit Orca references |
+| Landing page updates (W12-W13) | ✅ Done | Fabrica-web | Audit complete: no Orca refs in page copy or meta tags |
 | Plugin marketplace (P1-P5) | 🔶 P1 Done | Fabrica-plugins | marketplace-index.json created, P2-P5 remaining |
 | PostHog + GitHub secrets                   | ✅ Done        | Orchestrator      | Write key + build identity set                                                                                             |
 | Release repos (hourly/daily/adhoc/plugins) | ✅ Done        | Orchestrator      | All 4 repos created                                                                                                        |
@@ -125,7 +125,7 @@ Progress [████████████████████] 84%  ✅
 | C1  | Wire tokens (`fabrica_server_ready`) | ✅                |
 | C2  | Keychain service name                | ✅                |
 | C3  | TLS certificate CN                   | ✅                |
-| C4  | Data directories                     | 🚫 BLOCKED on A1 |
+| C4  | Data directories                     | ✅ Done | Audit complete, fixed stale .gitattributes ref |
 
 
 #### Group D — Plugin Ecosystem
@@ -209,7 +209,7 @@ Progress [████████████████████] 84%  ✅
 | 4   | Configs migration                            | ✅      |
 | 5   | Auto-updater                                 | ✅      |
 | 6   | Deep linking (`orca://` → `fabrica://`)      | ✅      |
-| 7   | Build relay server                           | ⬜      |
+| 7   | Build relay server                           | ✅      | BOM fixed, esbuild added, build succeeds all 6 targets + WSL |
 | 8   | Deploy to Fly.io                             | ⬜      |
 
 
@@ -289,8 +289,8 @@ Progress [████████████████████] 100%  �
 
 | #   | Task                               | Status |
 | --- | ---------------------------------- | ------ |
-| W12 | Audit Orca references in page copy | 📋     |
-| W13 | Update meta tags / OG images       | 📋     |
+| W12 | Audit Orca references in page copy | ✅     | No changes needed — 3 refs in public/ are historical |
+| W13 | Update meta tags / OG images       | ✅     | No changes needed — all already say Fabrica |
 
 
 ---
@@ -383,7 +383,7 @@ Progress [███████████████████░] 94%  ✅
 | --- | ------------------------------------ | ------ |
 | P6  | Plugin review process                | ✅      |
 | P7  | Kill-list management                 | ✅      |
-| P8  | Plugin signing (future)              | ⬜      |
+| P8  | Plugin signing (future)              | ✅      | Research done. Zero-cost Tier-1 baseline recommended |
 | P9  | Plugin loader reads from marketplace | ✅      |
 | P10 | Plugin update mechanism | ✅      |
 
