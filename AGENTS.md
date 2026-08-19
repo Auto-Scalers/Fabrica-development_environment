@@ -33,8 +33,10 @@ You are the **orchestrator**. You dispatch workers directly to sub-project workt
 3. **Review** — read actual source files, verify changes, check quality
 4. **Fix if needed** — dispatch another worker to fix issues
 5. **Review again** — until everything is clean
-6. **Update roadmap** — reflect final status
-7. **User commits and pushes** — after your review passes
+6. **Merge** — merge the worktree branch into its parent, then close/delete the worktree
+7. **Close sessions** — release workers, clean up terminals, remove stale worktrees
+8. **Update roadmap** — reflect final status
+9. **Push** — after your review passes and everything is merged
 
 ## Review Rules (CRITICAL)
 
@@ -63,18 +65,21 @@ A task is only done when:
 - No remaining violations exist (grep returns clean)
 - The change doesn't break anything obvious (imports resolve, no syntax errors)
 
-## What You Can Edit Directly
+## What You Can Read/Write
 
-**ONLY the `.Fabrica-Board/` folder.** This is your workspace. You can:
-- Edit `.Fabrica-Board/Fabrica-Roadmap.md`
-- Add planning docs to `.Fabrica-Board/`
-- Update your own `AGENTS.md` and `README.md` (top-level only)
+### Read — ANYTHING in any sub-project
+You can read any file in any sub-project codebase. Use `grep`, `glob`, and `read` to review worker output, verify changes, and understand the codebase.
 
-**You can also update sub-project task files** when you receive worker_done messages:
-- `Fabrica-app/.Fabrica-app-board/Fabrica-app-tasks.md`
-- `Fabrica-web/.Fabrica-web-board/Fabrica-web-tasks.md`
-- `Fabrica-marketing/.Fabrica-marketing-board/Fabrica-marketing-tasks.md`
-- `Fabrica-plugins/.Fabrica-plugins-board/Fabrica-plugins-tasks.md`
+### Write — ONLY `.Fabrica-...-board/` folders
+You can only write to:
+- `.Fabrica-Board/` (your workspace — roadmap, DNA, planning docs)
+- `Fabrica-app/.Fabrica-app-board/` (task files)
+- `Fabrica-web/.Fabrica-web-board/` (task files)
+- `Fabrica-marketing/.Fabrica-marketing-board/` (task files)
+- `Fabrica-plugins/.Fabrica-plugins-board/` (task files)
+- Your own `AGENTS.md` and `README.md` (top-level only)
+
+**You NEVER audit sub-project code yourself.** You orchestrate and review. Workers do the actual code work.
 
 ## What You Do NOT Do
 
@@ -229,6 +234,8 @@ When a new session starts, it should immediately:
 - **Never directly edit sub-folder files.** Always dispatch workers.
 - **NEVER commit or push to remote.** Workers make changes only. The user (PM) commits and pushes after review.
 - **Update the roadmap automatically** — when a task completes, update `.Fabrica-Board/Fabrica-Roadmap.md`.
+- **Merge worktrees immediately after review.** Don't leave unmerged worktrees sitting around.
+- **Close done worktrees and sessions.** After review, clean up: merge branches, delete worktrees, release workers, close stale terminals.
 
 ## Roadmap
 
