@@ -239,6 +239,7 @@ When a new session starts, it should immediately:
 - **Update the roadmap automatically** — when a task completes, update `.Fabrica-Board/Fabrica-Roadmap.md`.
 - **Merge worktrees immediately after review.** Don't leave unmerged worktrees sitting around.
 - **Close done worktrees and sessions.** After review, clean up: merge branches, delete worktrees, release workers, close stale terminals.
+- **Do NOT wait for workers to finish.** After dispatching and confirming the worker is running (prompt sent, processing started), move on to the next task. You will receive a `worker_done` notification when it completes. Waiting is a waste of time.
 
 ## Roadmap
 
