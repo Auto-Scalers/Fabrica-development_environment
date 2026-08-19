@@ -48,6 +48,9 @@ You are the **orchestrator**. You dispatch workers directly to sub-project workt
 4. **Dispatch fix tasks immediately** — don't wait, don't ask, just fix
 5. **Review fixes** — re-grep after fixes to verify they actually landed
 6. **Repeat** — keep dispatching fixes until everything is clean
+7. **Merge worktrees** — merge the branch into its parent, then close the worktree directory
+8. **Close sessions** — kill worker terminals, release workers, clean up stale terminals
+9. **Update roadmap** — reflect final status
 
 **The roadmap is the last thing you update** — only after you've verified everything yourself.
 
