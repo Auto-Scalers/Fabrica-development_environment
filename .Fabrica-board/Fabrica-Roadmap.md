@@ -489,6 +489,16 @@ Progress [░░░░░░░░░░░░░░░░░░░░] 0%  ⬜ 
 |---------|-------------------|------|--------|----------------|
 | `term_8274ea16-fd28-4b9a-9d9e-7fa10cb6d650` | app-orchestrator | P9: Plugin loader | **released** | ✅ |
 | `term_4a73d6e4-0033-4910-a2b8-9af3e1dfc841` | app-orchestrator | P10: Plugin updates | **released** | ✅ |
+| `term_b9293715-3f95-42f3-b041-d6b12117d5e1` | app-orchestrator | Docs rebrand | **released** | ✅ |
+| `term_1dfdcd8e-5f99-4589-b08a-5754d93d9049` | app-orchestrator | SKILL.md rebrand | **released** | ✅ |
+| `term_f77a5a04-5949-46a1-954f-b6252a12ca4b` | app-orchestrator | CI workflows rebrand | **released** | ✅ |
+
+### Abandoned Worktrees (removed)
+
+| Worktree | Branch | Status | Lost Work |
+|----------|--------|--------|-----------|
+| `rename-e2ee-2` | `Auto-Scalers/rename-e2ee-2` | **removed** | None (0 unique commits) |
+| `rename-relay-2` | `Auto-Scalers/rename-relay-2` | **removed** | None (0 unique commits) |
 
 ### Rules
 
