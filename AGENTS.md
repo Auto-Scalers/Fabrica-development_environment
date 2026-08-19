@@ -22,6 +22,47 @@ You are the **orchestrator**. You manage cross-folder decisions, prioritize work
 - Resolving conflicts between folders
 - Tracking overall progress against the roadmap (`.Fabrica-Board/Fabrica-Roadmap.md`)
 - Coordinating launches (app + landing page + marketing must be ready together)
+- **Reviewing all work** after orchestration completes — you are the reviewer
+- **Managing sub-orchestrator sessions** — you start them, they never close
+- **Tracking session ledger** — which sessions exist, which workers were created, which worktrees are open
+
+## Review Workflow
+
+1. **Orchestrate** — dispatch tasks to sub-orchestrators
+2. **Wait** — for worker_done messages
+3. **Review** — read task files, verify changes, check quality
+4. **Fix if needed** — orchestrate again to fix issues
+5. **Review again** — until everything is OK
+6. **Update roadmap** — reflect final status
+7. **User commits and pushes** — after your review passes
+
+## Review Rules (CRITICAL)
+
+**NEVER trust sub-orchestrator claims.** When a worker_done message arrives:
+
+1. **Read the actual source files** — use `grep`, `glob`, and `read` tools to verify changes
+2. **Search for remaining violations** — grep for "Orca", "orca", "stablyai" in source code
+3. **Compare claimed status vs actual** — sub-orchestrators often claim "done" when work is partial
+4. **Dispatch fix tasks immediately** — don't wait, don't ask, just fix
+5. **Review fixes** — re-grep after fixes to verify they actually landed
+6. **Repeat** — keep dispatching fixes until everything is clean
+
+**The roadmap is the last thing you update** — only after you've verified everything yourself.
+
+### What to Grep During Review
+
+```bash
+# In each sub-project, search for remaining violations:
+grep -ri "orca" --include="*.ts" --include="*.tsx" --include="*.js" --include="*.json" --include="*.yml" --include="*.yaml" --include="*.md" --include="*.rb" --exclude-dir=node_modules --exclude-dir=.next --exclude-dir=dist --exclude-dir=_sources .
+grep -ri "stablyai" --include="*.ts" --include="*.tsx" --include="*.js" --include="*.json" --include="*.yml" --include="*.yaml" --include="*.md" --exclude-dir=node_modules --exclude-dir=.next --exclude-dir=dist --exclude-dir=_sources .
+```
+
+### What Counts as "Done"
+
+A task is only done when:
+- The code change is actually in the file (not just claimed)
+- No remaining violations exist (grep returns clean)
+- The change doesn't break anything obvious (imports resolve, no syntax errors)
 
 ## What You Can Edit Directly
 
@@ -140,6 +181,48 @@ Top-level Orchestrator (you — in Fabrica-development_environment)
 3. **Workers are ephemeral** — each worker gets its own worktree, does one task group, reports back, then the sub-orchestrator can release it or reuse it.
 4. **Only the top-level orchestrator (you) starts sub-orchestrator sessions.** Sub-orchestrators never start each other.
 5. **Cross-project coordination flows through you.** Sub-orchestrators don't talk to each other directly.
+6. **Never bypass a sub-orchestrator.** Do not create worker sessions directly in a sub-project's worktree. Always dispatch to the sub-orchestrator, who manages its own workers.
+7. **Orchestration sessions never close.** Once a sub-orchestrator session is started, it stays alive 24/7. It receives tasks, dispatches to workers, and reports back. The session itself is permanent.
+8. **Workers are released after review.** After a worker completes and you've reviewed the work, release the worker session. The orchestration session stays alive.
+9. **Merge worktrees immediately after review.** Do not leave worktrees unmerged. After reviewing and approving work, merge the branch into main. If merge is deferred, track the branch and creation commit explicitly.
+10. **One orchestration session per task file.** Each sub-project task file is managed by exactly one orchestration session. That session is the single entry point for all work in that sub-project.
+
+### Session Lifecycle
+
+```
+Main orchestrator starts sub-orchestrator session (permanent, 24/7)
+  → Sub-orchestrator reads task file
+  → Sub-orchestrator creates worker session (ephemeral)
+  → Worker does work in worktree
+  → Worker sends worker_done
+  → Sub-orchestrator reports to main orchestrator
+  → Main orchestrator reviews work
+  → Worker session released
+  → Worktree merged or abandoned
+  → Sub-orchestrator stays alive for next task
+```
+
+**What never closes:** Sub-orchestrator sessions (app-orchestrator, web-orchestrator, marketing-orchestrator, plugins-orchestrator).
+
+**What gets released:** Worker sessions after their task is reviewed and approved.
+
+**What gets merged:** Worktree branches after review. Never leave worktrees unmerged.
+
+### Session Ledger
+
+Every task file contains a Session Ledger section. This tracks:
+- Which orchestration session owns this task file
+- Which worker sessions have been created
+- Which worktrees exist and their merge status
+- Which sessions are active vs released
+
+The ledger is the single source of truth for "what sessions exist and what they're doing."
+
+**Rules for the ledger:**
+- Update the ledger when creating or releasing a worker session
+- Update the ledger when merging or abandoning a worktree
+- Include session handle, task, status, and creation time
+- The main orchestrator reads the ledger during reviews to check for orphaned sessions
 
 ### How to Dispatch a Sub-Orchestrator
 
