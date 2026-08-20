@@ -16,7 +16,7 @@
 **Relay Server Repo** `Auto-Scalers/Fabrica-relay` (Fabrica-relay/), (Fabrica-relay/.Fabrica-relay-board) — Cloudflare Workers + Durable Objects + Hono, Supabase auth
 
 **Base:** Orca (`stablyai/orca`) — MIT licensed (archived in `.backup/orca`)
-**Helpers Repos** `_sources/legacy-fabrica` and `_sources/mission-control`
+**Helpers Repos** `_sources/legacy-fabrica` and `_sources/mission-control` and `_sources/buzz`
 
 ---
 
@@ -65,6 +65,47 @@ What Fabrica will never do:
 - Build a walled garden — extensibility is core
 - Optimize for developer ergonomics at the expense of business user experience
 - Ship features that require CLI or code to use
+
+---
+
+## App ID
+
+**Unified across all platforms:** `ai.autoscalers.fabrica`
+
+| Platform                 | Value                                 |
+| ------------------------ | ------------------------------------- |
+| electron-builder appId   | `ai.autoscalers.fabrica`              |
+| macOS CFBundleIdentifier | `ai.autoscalers.fabrica`              |
+| macOS helper             | `ai.autoscalers.fabrica.computer-use` |
+| Windows AUMID            | `ai.autoscalers.fabrica`              |
+| Windows/Linux            | `ai.autoscalers.fabrica`              |
+| Deep link protocol       | `fabrica://`                          |
+| Future iOS bundle ID     | `ai.autoscalers.fabrica`              |
+| Future Android package   | `ai.autoscalers.fabrica`              |
+
+---
+
+## Infrastructure
+
+| Service            | Where                                | Owner           |
+| ------------------ | ------------------------------------ | --------------- |
+| Landing page       | Vercel                               | Fabrica-web     |
+| Backend API        | Vercel (API routes)                  | Fabrica-web     |
+| Auth               | Supabase (shared project)            | Fabrica-web     |
+| Telemetry          | PostHog                              | Fabrica-app     |
+| Relay              | Cloudflare Workers + Durable Objects | Fabrica-relay   |
+| Auto-updater       | GitHub Releases                      | Fabrica-app     |
+| Plugin marketplace | GitHub repo                          | Fabrica-plugins |
+
+---
+
+## Deferred Items
+
+| Item            | Blocker                    | What's Needed                        |
+| --------------- | -------------------------- | ------------------------------------ |
+| Code signing    | Apple Developer Program    | $99/year Apple Dev, Windows SignPath |
+| App Store (iOS) | Apple Dev Program + review | Dev membership, listing, review      |
+| Google Play     | $25 fee                    | Google Play Developer account        |
 
 ---
 
