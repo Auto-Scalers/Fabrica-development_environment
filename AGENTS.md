@@ -2,7 +2,7 @@
 
 ## What This Folder Is
 
-This is the **top-level Fabrica development environment** — it coordinates across 4 sub-projects that each have their own repo, agent instructions, and planning docs.
+This is the **top-level Fabrica development environment** — it coordinates across 5 sub-projects that each have their own repo, agent instructions, and planning docs.
 
 You are the **orchestrator**. You dispatch workers directly to sub-project worktrees, review their work, and manage cross-folder priorities.
 
@@ -14,6 +14,7 @@ You are the **orchestrator**. You dispatch workers directly to sub-project workt
 | `Fabrica-web/` | Landing page (Next.js, fabrica-ai.vercel.app) | `Fabrica-web/AGENTS.md` | `cddb258f-edbe-4bae-b207-a7713e4eb3a2::C:/Users/BAB AL SAFA/Desktop/Fabrica-development_environment/Fabrica-web` |
 | `Fabrica-marketing/` | Marketing assets, copy, launch materials | `Fabrica-marketing/AGENTS.md` | `6f298adc-e33d-42de-942f-f68caafd905c::C:/Users/BAB AL SAFA/Desktop/Fabrica-development_environment/Fabrica-marketing` |
 | `Fabrica-plugins/` | Plugin marketplace index (JSON registry) | `Fabrica-plugins/AGENTS.md` | `50c4d32d-dbcc-441f-a2df-4cd3e5317bb6::C:/Users/BAB AL SAFA/Desktop/Fabrica-development_environment/Fabrica-plugins` |
+| `Fabrica-relay/` | Relay server (WebSocket bridge for phone↔desktop) | `Fabrica-relay/AGENTS.md` | `pending` |
 
 ## What You Own
 
@@ -173,10 +174,19 @@ Every task file contains a Session Ledger section tracking:
 - Which worktrees exist and their merge status
 - Which sessions are active vs released
 
+**IDs to store in every ledger entry:**
+
+| ID | Format | When You Get It | How to Use It |
+|----|--------|-----------------|---------------|
+| `task_xxx` | `task_` + hex | `task-create --json` → `result.task.id` | Resume a stuck worker: `worker-start --task <task_id> --retry-of <dispatch_id>` |
+| `ctx_xxx` | `ctx_` + hex | `worker-start --json` → `result.dispatchId` | Read worker output: `worker-read --dispatch <ctx_xxx>`. Resume: `--retry-of <ctx_xxx>` |
+| `term_xxx` | `term_` + uuid | `worker-start --json` → `effects[terminal].id` | Send message to worker: `terminal send --terminal <term_xxx>`. Read output: `terminal read --terminal <term_xxx>` |
+
 **Rules for the ledger:**
 - Update when creating or releasing a worker session
 - Update when merging or abandoning a worktree
-- Include session handle, task, status, and creation time
+- Include **session name** (human-readable), all 3 IDs, task, status, and creation time
+- Session names make it easy to identify what each terminal is doing without reading output
 
 ## How to Dispatch Workers
 
@@ -239,6 +249,7 @@ When a new session starts, it should immediately:
 - **Update the roadmap automatically** — when a task completes, update `.Fabrica-Board/Fabrica-Roadmap.md`.
 - **Merge worktrees immediately after review.** Don't leave unmerged worktrees sitting around.
 - **Close done worktrees and sessions.** After review, clean up: merge branches, delete worktrees, release workers, close stale terminals.
+- **Do NOT stop workers that are stuck but not done.** If a worker appears stuck, check its terminal output first. Only stop workers that are: (1) completely done and reviewed, or (2) no longer needed because the task was cancelled. Stuck workers can be resumed — stopped workers lose context and must restart from scratch.
 - **Do NOT wait for workers to finish.** After dispatching and confirming the worker is running (prompt sent, processing started), move on to the next task. You will receive a `worker_done` notification when it completes. Waiting is a waste of time.
 
 ## Roadmap
@@ -257,6 +268,7 @@ Each sub-project has its own task file that owns execution details.
 | Fabrica-web | `Fabrica-web/.Fabrica-web-board/Fabrica-web-tasks.md` | Landing page, API routes, static files, docs |
 | Fabrica-marketing | `Fabrica-marketing/.Fabrica-marketing-board/Fabrica-marketing-tasks.md` | Brand, launch copy, content, press |
 | Fabrica-plugins | `Fabrica-plugins/.Fabrica-plugins-board/Fabrica-plugins-tasks.md` | Plugin marketplace index, submission process, quality |
+| Fabrica-relay | `Fabrica-relay/.Fabrica-relay-board/Fabrica-relay-tasks.md` | Relay server (WebSocket bridge for phone↔desktop) |
 
 **Rule:** Do not duplicate task details in the Roadmap. When dispatching work, reference the specific task file for that sub-project.
 

@@ -9,24 +9,25 @@
 
 | Metric | Value |
 |--------|-------|
-| Total tasks | 100 |
-| ✅ Done | 73 |
-| 🔶 Partial | 0 |
-| ⬜ Todo | 14 |
-| 📋 Planning | 13 |
+| Total tasks | 130 |
+| ✅ Done | 100 |
+| 🔶 Partial | 1 |
+| ⬜ Todo | 29 |
+| 📋 Planning | 0 |
 | 🚫 Blocked | 0 |
 | ❌ Issues | 0 |
-| Completion | 73% |
+| Completion | 77% |
 
 
 ### Phase Progress
 
 ```
 Phase 1 — Rebranding & Foundation
-Fabrica-app      ✅ 37 ⬜ 18                      [████████████████████] 84%
+Fabrica-app      ✅ 55 ⬜ 0                       [████████████████████] 100%
 Fabrica-web      ✅ 15 ⬜ 0                       [████████████████████] 100%
-Fabrica-marketing 📋 13                           [██░░░░░░░░░░░░░░░░░░] 19%
-Fabrica-plugins  ✅ 16 ⬜ 2                        [████████████████████] 89%
+Fabrica-marketing ✅ 13 ⬜ 0                       [████████████████████] 100%
+Fabrica-plugins  ✅ 16 ⬜ 0                        [████████████████████] 100%
+Fabrica-relay    🔶 1 ⬜ 29                        [██░░░░░░░░░░░░░░░░░░] 3%
 
 Phase 2 — Business-First UI & Agentic Layer
 Fabrica-app      ⬜ 7                               [░░░░░░░░░░░░░░░░░░░░] 0%
@@ -44,7 +45,7 @@ Fabrica-app      ⬜ 7                               [░░░░░░░░�
 | App rebranding — display identity | ✅ Done | Fabrica-app | App name, menu, firewall, helper, CLI, env vars, keychain, wire tokens, plugin engines, data dirs, casks, i18n, deep links |
 | API routes (W1-W7) | ✅ Done | Fabrica-web | All 9 route files built, no TS errors |
 | Plugin source study (P0a-P0f) | ✅ Done | Fabrica-plugins | 9 repos cloned, schemas documented |
-| Marketing plans (M1-M13) | 📋 Planning | Fabrica-marketing | All 13 tasks have detailed plans (696 lines) |
+| Marketing plans (M1-M13) | ✅ Done | Fabrica-marketing | All 13 tasks complete |
 | CI workflows | ✅ Done | Fabrica-app | All 8 workflows renamed stablyai → Auto-Scalers |
 | SKILL.md files | ✅ Done | Fabrica-app | All rebranded (remaining "orca" = GNOME Orca screen reader, correct) |
 | Localized READMEs | ✅ Done | Fabrica-app | zh-CN, pt, ko, ja, fr, es all rebranded |
@@ -66,6 +67,11 @@ Fabrica-app      ⬜ 7                               [░░░░░░░░�
 | Kill list URL fix                           | ✅ Done        | Orchestrator      | Changed onFABRICA.dev → fabrica-ai.vercel.app (real web domain)                                                            |
 | Categories filter removal                   | ✅ Done        | Orchestrator      | Removed UNSUPPORTED_MARKETPLACE_CATEGORIES — show all plugins like Orca                                                    |
 | Plugin repos created                        | ✅ Done        | Orchestrator      | 8 GitHub repos created under Auto-Scalers, added as submodules in Fabrica-plugins/                                         |
+| Orca Legacy Bridge investigation            | ✅ Done        | Orchestrator      | No "Orca Legacy Bridge" plugin exists — codex-session-bridge.ts is internal migration tool, not a plugin                    |
+| Archive P0-P8 planning docs                 | ✅ Done        | Orchestrator      | Moved P0-P8 to .archive/ in all sub-project boards                                                                         |
+| Relay server repo created                   | ✅ Done        | Orchestrator      | Fabrica-relay repo created with AGENTS.md, README, and 30 tasks (R1-R30)                                                   |
+| Relay deployment decision                   | ✅ Done        | Orchestrator      | Cloudflare Workers + Durable Objects chosen ($0/mo), stack: Hono; research archived into relay tasks file |
+| Relay design decisions                       | ✅ Done        | Orchestrator      | DB=SQLite per-host DO (no Postgres/D1); accept client reconnects on deploy; concurrency ~1K users/<100 tunnels |
 
 
 ---
@@ -79,11 +85,12 @@ Fabrica-app      ⬜ 7                               [░░░░░░░░�
 
 | Sub-Project       | ✅ Done | 🔶 Partial | ⬜ Todo | 📋 Planning | 🚫 Blocked | ❌ Issues | Task File                                                               |
 | ----------------- | ------ | ---------- | ------ | ----------- | ---------- | -------- | ----------------------------------------------------------------------- |
-| Fabrica-app       | 38     | 0          | 17     | 0           | 1          | 0        | `Fabrica-app/.Fabrica-app-board/Fabrica-app-tasks.md`                   |
+| Fabrica-app       | 55     | 0          | 0      | 0           | 0          | 0        | `Fabrica-app/.Fabrica-app-board/Fabrica-app-tasks.md`                   |
 | Fabrica-web       | 13     | 0          | 0      | 2           | 0          | 0        | `Fabrica-web/.Fabrica-web-board/Fabrica-web-tasks.md`                   |
-| Fabrica-marketing | 0      | 0          | 0      | 13          | 0          | 0        | `Fabrica-marketing/.Fabrica-marketing-board/Fabrica-marketing-tasks.md` |
-| Fabrica-plugins   | 15     | 0          | 1      | 0           | 0          | 0        | `Fabrica-plugins/.Fabrica-plugins-board/Fabrica-plugins-tasks.md`       |
-| **Total**         | **66** | **0**      | **18** | **15**      | **1**      | **0**    |                                                                         |
+| Fabrica-marketing | 13     | 0          | 0      | 0           | 0          | 0        | `Fabrica-marketing/.Fabrica-marketing-board/Fabrica-marketing-tasks.md` |
+| Fabrica-plugins   | 16     | 0          | 0      | 0           | 0          | 0        | `Fabrica-plugins/.Fabrica-plugins-board/Fabrica-plugins-tasks.md`       |
+| Fabrica-relay     | 0      | 1          | 29     | 0           | 0          | 0        | `Fabrica-relay/.Fabrica-relay-board/Fabrica-relay-tasks.md`             |
+| **Total**         | **87** | **1**      | **29** | **0**       | **0**      | **0**    |                                                                         |
 
 
 ---
@@ -93,7 +100,7 @@ Fabrica-app      ⬜ 7                               [░░░░░░░░�
 > Desktop app, CLI, mobile companion, relay, plugins, build system.
 
 ```
-Progress [████████████████████] 84%  ✅ 35 ⬜ 20 🚫 1
+Progress [████████████████████] 100%  ✅ 55 ⬜ 0 🚫 0
 ```
 
 #### Group A — Display &amp; Visible Identity
@@ -210,7 +217,7 @@ Progress [████████████████████] 84%  ✅
 | 5   | Auto-updater                                 | ✅      |
 | 6   | Deep linking (`orca://` → `fabrica://`)      | ✅      |
 | 7   | Build relay server                           | ✅      | BOM fixed, esbuild added, build succeeds all 6 targets + WSL |
-| 8   | Deploy to Fly.io                             | ⬜      |
+| 8   | Deploy relay server (Cloudflare)            | 🚫      | Cloudflare Workers + Durable Objects chosen (see Fabrica-relay tasks R29); blocked: cloud relay server is greenfield — no server-side implementation exists anywhere yet (clients/tests only in Fabrica-app), tracked in Fabrica-relay R1–R30 |
 
 
 #### Skill Files
@@ -298,47 +305,38 @@ Progress [████████████████████] 100%  �
 ### Fabrica-marketing — Brand + Launch
 
 ```
-Progress [██░░░░░░░░░░░░░░░░░░] 19%  📋 13
+Progress [████████████████████] 100%  ✅ 13
 ```
 
 #### Brand &amp; Positioning
 
-> **PLANNING MODE** — Plan and refine only.
-
-
 | #   | Task                              | Status |
 | --- | --------------------------------- | ------ |
-| M1  | Finalize brand guidelines         | 📋     |
-| M2  | Competitor landscape doc          | 📋     |
-| M3  | Positioning statement / one-pager | 📋     |
+| M1  | Finalize brand guidelines         | ✅     |
+| M2  | Competitor landscape doc          | ✅     |
+| M3  | Positioning statement / one-pager | ✅     |
 
 
 #### Launch Materials
 
-> **PLANNING MODE** — Plan and refine only.
-
-
 | #   | Task                          | Status |
 | --- | ----------------------------- | ------ |
-| M4  | Launch blog post              | 📋     |
-| M5  | Product Hunt listing + assets | 📋     |
-| M6  | Hacker News "Show HN" post    | 📋     |
-| M7  | Press kit                     | 📋     |
-| M8  | Email launch sequence         | 📋     |
+| M4  | Launch blog post              | ✅     |
+| M5  | Product Hunt listing + assets | ✅     |
+| M6  | Hacker News "Show HN" post    | ✅     |
+| M7  | Press kit                     | ✅     |
+| M8  | Email launch sequence         | ✅     |
 
 
 #### Content &amp; Early Access
 
-> **PLANNING MODE** — Plan and refine only.
-
-
 | #   | Task                          | Status |
 | --- | ----------------------------- | ------ |
-| M9  | Social media content calendar | 📋     |
-| M10 | Twitter/X thread templates    | 📋     |
-| M11 | Founder story / origin post   | 📋     |
-| M12 | Early access nurture emails   | 📋     |
-| M13 | Waitlist page copy            | 📋     |
+| M9  | Social media content calendar | ✅     |
+| M10 | Twitter/X thread templates    | ✅     |
+| M11 | Founder story / origin post   | ✅     |
+| M12 | Early access nurture emails   | ✅     |
+| M13 | Waitlist page copy            | ✅     |
 
 
 ---
@@ -386,6 +384,65 @@ Progress [███████████████████░] 94%  ✅
 | P8  | Plugin signing (future)              | ✅      | Research done. Zero-cost Tier-1 baseline recommended |
 | P9  | Plugin loader reads from marketplace | ✅      |
 | P10 | Plugin update mechanism | ✅      |
+
+
+---
+
+### Fabrica-relay — Relay Server
+
+```
+Progress [██░░░░░░░░░░░░░░░░░░] 3%  🔶 1 ⬜ 29
+```
+
+#### Phase 1 — Scaffold & Core
+
+| # | Task | Status |
+|---|------|--------|
+| R1 | Initialize repo (package.json, tsconfig, vitest) | 🔶 |
+| R2 | Create shared types (protocol messages, IDs, timestamps) | ⬜ |
+| R3 | Implement Director: relay JWT validation | ⬜ |
+| R4 | Implement Director: `POST /v1/assign` + `POST /v1/resolve` | ⬜ |
+| R5 | Implement Cell: WebSocket server setup | ⬜ |
+| R6 | Implement Cell: Host challenge-response | ⬜ |
+| R7 | Implement Cell: Host activation flow | ⬜ |
+| R8 | Implement Cell: Ping/pong keepalive | ⬜ |
+| R9 | Implement Cell: Phone relay-auth/relay-hello | ⬜ |
+| R10 | Unit tests for Director | ⬜ |
+| R11 | Unit tests for Cell | ⬜ |
+
+#### Phase 2 — Connection Tunneling
+
+| # | Task | Status |
+|---|------|--------|
+| R12 | Implement Cell: conn-open notification | ⬜ |
+| R13 | Implement Cell: Data channel per connId | ⬜ |
+| R14 | Implement Cell: Data tunneling | ⬜ |
+| R15 | Implement Cell: Connection cleanup | ⬜ |
+| R16 | Integration tests for data tunneling | ⬜ |
+
+#### Phase 3 — Device Management
+
+| # | Task | Status |
+|---|------|--------|
+| R17 | Implement invite-create RPC | ⬜ |
+| R18 | Implement device-credential-install RPC | ⬜ |
+| R19 | Implement device-credential-status RPC | ⬜ |
+| R20 | Implement device-revoke RPC | ⬜ |
+| R21 | Implement device-resume-confirm RPC | ⬜ |
+| R22 | Device management tests | ⬜ |
+
+#### Phase 4 — Production Readiness
+
+| # | Task | Status |
+|---|------|--------|
+| R23 | Create wrangler config + build setup | ⬜ |
+| R24 | Add database (SQLite-backed Durable Objects per host) | ⬜ |
+| R25 | Add graceful reconnect/drain handling | ⬜ |
+| R26 | Add structured logging | ⬜ |
+| R27 | Add health check endpoint | ⬜ |
+| R28 | Add rate limiting | ⬜ |
+| R29 | Deploy to Cloudflare | ⬜ |
+| R30 | Update Fabrica-app task file | ⬜ |
 
 
 ---
@@ -453,7 +510,7 @@ Progress [░░░░░░░░░░░░░░░░░░░░] 0%  ⬜ 
 | Backend API        | Vercel (API routes)       | Fabrica-web     |
 | Auth               | Supabase (shared project) | Fabrica-web     |
 | Telemetry          | PostHog                   | Fabrica-app     |
-| Relay              | Fly.io                    | Fabrica-app     |
+| Relay              | Cloudflare Workers + Durable Objects | Fabrica-relay |
 | Auto-updater       | GitHub Releases           | Fabrica-app     |
 | Plugin marketplace | GitHub repo               | Fabrica-plugins |
 
@@ -482,16 +539,20 @@ Progress [░░░░░░░░░░░░░░░░░░░░] 0%  ⬜ 
 | `term_0adb1b43-ceeb-47c7-ad47-f65f6df17d3e` | `Fabrica-web/` | `Fabrica-web-tasks.md` | **active** |
 | `term_f667dbf4-72e5-44c5-87af-d8519f90f3e9` | `Fabrica-marketing/` | `Fabrica-marketing-tasks.md` | **active** |
 | `term_24ff1a27-8b86-43f8-9206-73367917448f` | `Fabrica-plugins/` | `Fabrica-plugins-tasks.md` | **active** |
+| `pending` | `Fabrica-relay/` | `Fabrica-relay-tasks.md` | **pending** |
 
 ### Worker Sessions (ephemeral — released after review)
 
-| Session | Parent Orchestrator | Task | Status | Worktree Merged |
-|---------|-------------------|------|--------|----------------|
-| `term_8274ea16-fd28-4b9a-9d9e-7fa10cb6d650` | app-orchestrator | P9: Plugin loader | **released** | ✅ |
-| `term_4a73d6e4-0033-4910-a2b8-9af3e1dfc841` | app-orchestrator | P10: Plugin updates | **released** | ✅ |
-| `term_b9293715-3f95-42f3-b041-d6b12117d5e1` | app-orchestrator | Docs rebrand | **released** | ✅ |
-| `term_1dfdcd8e-5f99-4589-b08a-5754d93d9049` | app-orchestrator | SKILL.md rebrand | **released** | ✅ |
-| `term_f77a5a04-5949-46a1-954f-b6252a12ca4b` | app-orchestrator | CI workflows rebrand | **released** | ✅ |
+| Name | Session | Parent Orchestrator | Task | Status | Worktree Merged |
+|------|---------|-------------------|------|--------|----------------|
+| P9 Plugin loader | `term_8274ea16-fd28-4b9a-9d9e-7fa10cb6d650` | app-orchestrator | P9: Plugin loader | **released** | ✅ |
+| P10 Plugin updates | `term_4a73d6e4-0033-4910-a2b8-9af3e1dfc841` | app-orchestrator | P10: Plugin updates | **released** | ✅ |
+| Docs rebrand | `term_b9293715-3f95-42f3-b041-d6b12117d5e1` | app-orchestrator | Docs rebrand | **released** | ✅ |
+| SKILL.md rebrand | `term_1dfdcd8e-5f99-4589-b08a-5754d93d9049` | app-orchestrator | SKILL.md rebrand | **released** | ✅ |
+| CI workflows rebrand | `term_f77a5a04-5949-46a1-954f-b6252a12ca4b` | app-orchestrator | CI workflows rebrand | **released** | ✅ |
+| F2 Build verification | `term_2d281364-f08e-428d-b4d7-e86ef6d95f7f` | orchestrator | F2: Build verification | **running** | — |
+| F3 Lint+test | `term_626fd308-bb95-46df-a539-b54f3082f683` | orchestrator | F3: Lint + test | **running** | — |
+| Relay deploy research | `term_0e49225d-9814-4f64-986d-81a1d55ed2ec` | orchestrator | Relay deployment alternatives | **released** | ✅ research archived into relay tasks file |
 
 ### Abandoned Worktrees (removed)
 

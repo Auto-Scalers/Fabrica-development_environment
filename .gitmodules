@@ -10,3 +10,6 @@
 [submodule "Fabrica-plugins"]
 	path = Fabrica-plugins
 	url = https://github.com/Auto-Scalers/Fabrica-plugins.git
+[submodule "Fabrica-relay"]
+	path = Fabrica-relay
+	url = https://github.com/Auto-Scalers/Fabrica-relay.git
