@@ -1,4 +1,4 @@
-﻿# Fabrica — Roadmap 02
+# Fabrica — Roadmap 02
 
 > Phase 2 execution. Vision/identity → `Fabrica-DNA.md`. Marketing Findings, Gaps & Feature QA → `Features-QA.md`.
 
@@ -8,30 +8,30 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Phase 2 tasks | 66 |
-| ✅ Done | 1 |
-| 🔶 In Review | 1 |
-| ⬜ Todo | 64 |
+| Total Phase 2 tasks | 70 |
+| ✅ Done | 4 |
+| 🔶 In Review | 0 |
+| ⬜ Todo | 66 |
 | 📋 Planning | 0 |
 | 🚫 Blocked | 0 |
 | ❌ Issues | 0 |
-| Completion | 2% |
+| Completion | 6% |
 
 ### Phase Progress
 
 ```
 Phase 2 — Business-First Transformation
 
-Group 0 — Strategy & Feature QA Alignment            🔶  [██████████░░░░░░░░░░] 50% (1/4 done, 1 in review) ← CURRENT
-Group I — Source Extraction & Licensing Isolation    ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (3 tasks)
+Group 0 — Strategy & Feature QA Alignment            ✅  [████████████████████] 100% (4/4 done)
+Group I — Source Extraction & Licensing Isolation    ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (3 tasks) ← NEXT
 Group A — Mission Control UI & Visual Lifecycle      ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (10 tasks)
-Group B — Multi-Role Business Agent Crews            ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (7 tasks)
+Group B — Multi-Role Business Agent Crews & CLI Mgr  ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (9 tasks)
 Group C — Governance: Approval Gates & Hard Budgets  ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (6 tasks)
-Group D — Field Ops & 64+ Service Connectors         ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (8 tasks)
-Group E — Encrypted Credential Vault & Privacy       ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (5 tasks)
-Group F — Workflow Automation & Continuous Daemon    ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (6 tasks)
+Group D — Field Ops, n8n & 64+ Service Connectors    ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (9 tasks)
+Group E — Knowledge Vault & Encrypted Credentials    ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (6 tasks)
+Group F — Workflow Automation & 24/7 Runtime Daemon  ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (6 tasks)
 Group G — Mobile Companion & 24/7 Remote Steering    ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (5 tasks)
-Group H — Non-Technical Onboarding & Starter Packs   ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (7 tasks)
+Group H — Dual Onboarding (Builders/Runners) & Packs ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (7 tasks)
 ```
 
 ---
@@ -43,45 +43,45 @@ Group H — Non-Technical Onboarding & Starter Packs   ⬜  [░░░░░░�
 | What | Status | Owner | Notes |
 |------|--------|-------|-------|
 | Extract marketing findings into `Features-QA.md` | ✅ Done | Orchestrator | Complete in `Features-QA.md` (all 9 domains & competitor gaps) |
-| PM Review of `Features-QA.md` | 🔶 In Review | User (PM) | Reviewing options, suggestions, and P0/P1 feature matrix |
-| Update `Features-QA.md` from PM Feedback | ⬜ Next | Orchestrator | Apply decisions and adjustments |
-| Audit & finalize Roadmap 02 based on approved QA | ⬜ Pending | Orchestrator | Lock in Phase 2 feature backlog |
-| Group I: Source Study & Extraction | ⬜ Blocked | Fabrica-app | Deep-dive `_sources/` (mission-control, buzz, legacy-fabrica) after QA sign-off |
+| PM Review of `Features-QA.md` | ✅ Done | User (PM) | PM decisions, feedback, and positioning corrections received |
+| Update Brand & Research from PM Feedback | ✅ Done | Orchestrator | `brand-guidelines.md`, `positioning-statement.md`, `competitor-landscape.md` updated |
+| Lock in Phase 2 feature backlog | ✅ Done | Orchestrator | `Features-QA.md` and `Fabrica-Roadmap-02.md` synchronized |
+| Group I: Source Study & Feature Extraction | ⬜ Next | Fabrica-app | Unblocked. Extract specs from `_sources/` (mission-control, buzz, legacy-fabrica) |
 
 ---
 
 ## Phase 2 — Business-First Transformation
 
-> Transform Fabrica from coding-first to business-first. Non-technical founders control everything from the UI.
+> Transform Fabrica from coding-first to a desktop CLI agent management and operations platform for both builders and operators.
 > All marketing research, competitor gaps, trade-offs, and options live in **[Features-QA.md](Features-QA.md)**.
 
 ### Progress by Sub-Project
 
 | Sub-Project | ✅ Done | 🔶 In Review | ⬜ Todo | 📋 Planning | 🚫 Blocked | ❌ Issues | Task File |
 | ----------- | ------ | ------------ | ------ | ----------- | ---------- | -------- | --------- |
-| Strategy & QA | 1 | 1 | 2 | 0 | 0 | 0 | `.Fabrica-Board/Features-QA.md` |
-| Fabrica-app | 0 | 0 | 45 | 0 | 0 | 0 | `Fabrica-app/.Fabrica-app-board/Fabrica-app-tasks.md` |
+| Strategy & QA | 4 | 0 | 0 | 0 | 0 | 0 | `.Fabrica-Board/Features-QA.md` |
+| Fabrica-app | 0 | 0 | 49 | 0 | 0 | 0 | `Fabrica-app/.Fabrica-app-board/Fabrica-app-tasks.md` |
 | Fabrica-relay | 0 | 0 | 5 | 0 | 0 | 0 | `Fabrica-relay/.Fabrica-relay-board/Fabrica-relay-tasks.md` |
 | Fabrica-web | 0 | 0 | 5 | 0 | 0 | 0 | `Fabrica-web/.Fabrica-web-board/Fabrica-web-tasks.md` |
 | Fabrica-marketing | 0 | 0 | 7 | 0 | 0 | 0 | `Fabrica-marketing/.Fabrica-marketing-board/Fabrica-marketing-tasks.md` |
-| **Total** | **1** | **1** | **64** | **0** | **0** | **0** | |
+| **Total** | **4** | **0** | **66** | **0** | **0** | **0** | |
 
 ---
 
-### Group 0 — Strategy & Feature QA Alignment (Current Phase)
-> **CURRENT STAGE.** Extract all marketing intelligence, review options/suggestions with the PM, and lock the feature scope.
+### Group 0 — Strategy & Feature QA Alignment
+> **COMPLETE.** Marketing intelligence extracted, PM feedback integrated, Brand & Research docs rewritten, and Phase 2 backlog locked.
 
 | # | Task | Status | Owner | Output / Deliverable |
 |---|------|--------|-------|----------------------|
 | 0.1 | Extract marketing findings, gaps, and opportunities into QA file | ✅ Done | Orchestrator | `.Fabrica-Board/Features-QA.md` created with 9 domains |
-| 0.2 | Review `Features-QA.md` and select desired features & options | 🔶 In Review | User (PM) | PM decisions on P0/P1 priorities and UX options |
-| 0.3 | Update `Features-QA.md` based on PM feedback | ⬜ Todo | Orchestrator | Refined specification incorporating feedback |
-| 0.4 | Audit & finalize `Fabrica-Roadmap-02.md` tasks from approved QA | ⬜ Todo | Orchestrator | Final locked Phase 2 task backlog |
+| 0.2 | Review `Features-QA.md` and select desired features & options | ✅ Done | User (PM) | PM decisions on P0/P1 priorities, CLI agent framing, and ops |
+| 0.3 | Update Brand, Research, and `Features-QA.md` based on PM feedback | ✅ Done | Orchestrator | Brand guidelines, positioning, and research updated |
+| 0.4 | Audit & finalize `Fabrica-Roadmap-02.md` tasks from approved QA | ✅ Done | Orchestrator | Locked Phase 2 task backlog with 70 tasks |
 
 ---
 
 ### Group I — Source Study & Feature Extraction
-> **DO AFTER GROUP 0 SIGN-OFF.** Blocks Groups A–H. Workers extract specifications into `Fabrica-app/.Fabrica-app-board/specs/`.
+> **UNBLOCKED — NEXT STEP.** Blocks Groups A–H. Workers extract specifications into `Fabrica-app/.Fabrica-app-board/specs/`.
 
 | # | Task | Status | Output File |
 |---|------|--------|-------------|
@@ -98,7 +98,7 @@ Group H — Non-Technical Onboarding & Starter Packs   ⬜  [░░░░░░�
 | A1 | Design master Mission Control layout (Kanban + fleet status) | ⬜ | Wireframe from `mission-control` patterns |
 | A2 | Implement Visual Kanban & Eisenhower Priority Matrix | ⬜ | `@dnd-kit` drag-and-drop |
 | A3 | Implement Sources vs. Deliverables Split View | ⬜ | 50/50 split from `legacy-fabrica` |
-| A4 | Implement Agent Fleet Registry Panel | ⬜ | Active cards with status & token usage |
+| A4 | Implement Agent Fleet Registry Panel with Forge Pulse | ⬜ | Active cards with status, token usage & Forge Pulse animation |
 | A5 | Implement Unified Decision Inbox | ⬜ | Central feed for human sign-offs |
 | A6 | Implement Live App & Artifact Previewer | ⬜ | Embedded iframe sandbox |
 | A7 | Implement Activity & Audit Log View | ⬜ | Searchable, timestamped execution log |
@@ -108,7 +108,7 @@ Group H — Non-Technical Onboarding & Starter Packs   ⬜  [░░░░░░�
 
 ---
 
-### Group B — Multi-Role Business Agent Crews
+### Group B — Multi-Role Business Agent Crews & CLI Management
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
@@ -118,7 +118,9 @@ Group H — Non-Technical Onboarding & Starter Packs   ⬜  [░░░░░░�
 | B4 | Build Business Data Analyst Agent Persona | ⬜ | CSV/SQL modeling, unit economics, charts |
 | B5 | Build Operations Specialist Agent Persona | ⬜ | Webhooks, cron jobs, file maintenance |
 | B6 | Upgrade Senior Full-Stack Engineer Agent | ⬜ | Architecture planning, tests, PR descriptions |
-| B7 | Implement Crew Collaboration UI | ⬜ | Lead agent delegating to parallel worktrees |
+| B7 | Implement Crew Collaboration UI & Delegation Tree | ⬜ | Lead agent delegating to parallel worktrees |
+| B8 | Implement Slack-like Agent Collaboration Channels | ⬜ | Dedicated agent discussion channels, group routing & debate |
+| B9 | Implement CLI Agent Terminal Manager | ⬜ | Spawner & manager for Claude Code, Codex, Cursor, Devin, Hermes, Pi |
 
 ---
 
@@ -130,15 +132,16 @@ Group H — Non-Technical Onboarding & Starter Packs   ⬜  [░░░░░░�
 | C2 | Hard Financial Budgeting Engine | ⬜ | Strict per-mission spend cap with auto-halt |
 | C3 | 3-Tier Risk Classification Engine | ⬜ | Tier 1 (Auto) / Tier 2 (Desktop) / Tier 3 (Gate) |
 | C4 | Granular Autonomy Sliders | ⬜ | Manual ➔ Supervised ➔ Autonomous |
-| C5 | Real-Time Token & Spend Tracker | ⬜ | Live counter using provider rate cards |
+| C5 | Real-Time Quota & Spend Tracker | ⬜ | Live counter for supported CLI agents (Claude Code, Codex, OpenCode) |
 | C6 | Global Emergency Circuit Breaker | ⬜ | Floating instant-kill button for all workers |
 
 ---
 
-### Group D — Field Ops & Service Connectors
+### Group D — Field Ops, n8n & 64+ Service Connectors
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
+| D0 | Implement Native n8n Capability Plugin | ⬜ | Bidirectional bridge connecting agent workflows to 400+ SaaS apps |
 | D1 | Build Field Ops Execution State Machine | ⬜ | Clean-room implementation |
 | D2 | Build Service Adapter Interface | ⬜ | Extensible TypeScript adapter standard |
 | D3 | Core Connectors (Batch 1: Dev/Ops) | ⬜ | GitHub, Slack, Email (SMTP/Resend), Supabase |
@@ -150,7 +153,7 @@ Group H — Non-Technical Onboarding & Starter Packs   ⬜  [░░░░░░�
 
 ---
 
-### Group E — Encrypted Credential Vault & Privacy
+### Group E — Knowledge Vault & Encrypted Credentials
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
@@ -159,10 +162,11 @@ Group H — Non-Technical Onboarding & Starter Packs   ⬜  [░░░░░░�
 | E3 | Implement Least-Privilege Key Scoping | ⬜ | Memory-only injection per sub-task |
 | E4 | Vault Auto-Lock & Session Timeout | ⬜ | Configurable lock requiring master password |
 | E5 | Implement Emergency Panic Wipe | ⬜ | Secure shredder purging all cached secrets |
+| E6 | Build Central Knowledge Vault (Document Drop) | ⬜ | Local folder watcher & semantic context provider for all agents |
 
 ---
 
-### Group F — Workflow Automation & 24/7 Daemon
+### Group F — Workflow Automation & 24/7 Runtime Daemon
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
@@ -171,7 +175,7 @@ Group H — Non-Technical Onboarding & Starter Packs   ⬜  [░░░░░░�
 | F3 | Build Visual Workflow Builder | ⬜ | Node graph / clean YAML editor |
 | F4 | Build Loop & Stall Watchdog Engine | ⬜ | Auto-detects stuck processes and escalates |
 | F5 | Implement Session Checkpointing & Resilience | ⬜ | Resumes crashed missions without data loss |
-| F6 | Create 5 Turnkey Workflow Recipes | ⬜ | Standup Brief, Competitor Radar, PR Review, etc. |
+| F6 | Create 24/7 Turnkey Operational Recipes | ⬜ | Customer Support Triage, Ecommerce Bot, Content Pipeline, HR Intake |
 
 ---
 
@@ -187,13 +191,13 @@ Group H — Non-Technical Onboarding & Starter Packs   ⬜  [░░░░░░�
 
 ---
 
-### Group H — Non-Technical Onboarding & Starter Packs
+### Group H — Dual Onboarding (Builders/Runners) & Starter Packs
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| H1 | Build 3-Step Guided Onboarding Wizard | ⬜ | Goal ➔ Connect Key ➔ Launch Agent |
-| H2 | Full UI Terminology De-Jargonization | ⬜ | Replace dev jargon with founder language |
-| H3 | Create Turnkey Business Starter Packs | ⬜ | SaaS, E-Commerce, Agency, Newsletter |
+| H1 | Build 3-Step Guided Dual Onboarding Wizard | ⬜ | Builder vs Runner path ➔ Connect Agent/Key ➔ Launch Demo |
+| H2 | Full UI Terminology De-Jargonization | ⬜ | Replace dev jargon with founder/operator language |
+| H3 | Create Turnkey Business Starter Packs | ⬜ | SaaS Dev, E-Commerce Ops, Agency Multi-Client, HR & Content |
 | H4 | Build Contextual In-App Guidance | ⬜ | Interactive feature walkthroughs |
 | H5 | Action-Oriented Empty States | ⬜ | Illustrative graphics with clear CTAs |
 | H6 | Humanized Error Explanations | ⬜ | Plain English diagnosis with 1-click fix |
@@ -208,7 +212,7 @@ Group H — Non-Technical Onboarding & Starter Packs   ⬜  [░░░░░░�
 | Parallel worktrees | CLI-driven git worktrees | Visual Workspace Tabs in Mission Control (A1) |
 | Approval gates | Terminal confirmation prompts | Rich GUI modal with visual diffs and risk tags (C1) |
 | Mobile companion relay | Terminal mirror | Dedicated mobile approval UI with push alerts (G1-G5) |
-| Plugin ecosystem | Developer plugin loader | Foundation for Field Ops 64-service catalog (D3-D5) |
+| Plugin ecosystem | Developer plugin loader | Foundation for Field Ops & n8n integration (D0, D3-D5) |
 | Multi-model BYOK | Environment variables | Encrypted client-side Vault with live token counter (E1-E3) |
 | Skills framework | Markdown skill files | Reusable Knowledge Modules assignable visually (B1) |
 | CLI engine | `fabrica` CLI commands | Retained for developers, automated under GUI |
@@ -227,12 +231,12 @@ Group H — Non-Technical Onboarding & Starter Packs   ⬜  [░░░░░░�
 
 | Name | Session | Parent Orchestrator | Task | Status | Worktree Merged |
 |------|---------|-------------------|------|--------|----------------|
-| Marketing QA Alignment | `term_orchestrator` | Orchestrator | Group 0: Feature QA | **active** | — |
+| Marketing QA Alignment | `term_orchestrator` | Orchestrator | Group 0: Feature QA Alignment | **complete** | ✅ |
 
 ### Rules
 
 - **Workers are released after review.** Once work is approved, release the worker and merge the worktree.
-- **Group 0 (QA Review & Alignment) must complete before Group I dispatches.**
+- **Group 0 (QA Review & Alignment) is complete.**
 - **Group I (Source Extraction) must complete before Groups A–H dispatch.**
 - **One orchestration session per task file.** No duplicates.
 - **Merge worktrees immediately.** Never leave branches unmerged after review.

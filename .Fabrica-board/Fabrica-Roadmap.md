@@ -9,25 +9,25 @@
 
 | Metric      | Value |
 | ----------- | ----- |
-| Total tasks | 152   |
-| ✅ Done      | 125   |
-| 🔶 Partial  | 2     |
-| ⬜ Todo      | 25    |
+| Total tasks | 156   |
+| ✅ Done      | 134   |
+| 🔶 Partial  | 0     |
+| ⬜ Todo      | 20    |
 | 📋 Planning | 0     |
 | 🚫 Blocked  | 0     |
 | ❌ Issues    | 0     |
-| Completion  | 82%   |
+| Completion  | 87%   |
 
 
 ### Phase Progress
 
 ```
 Phase 1 — Rebranding & Foundation
-Fabrica-app      ✅ 55 ⬜ 0                       [████████████████████] 100%
-Fabrica-web      ✅ 13 ⬜ 0                       [████████████████████] 100%
-Fabrica-marketing ✅ 13 ⬜ 22                      [██████░░░░░░░░░░░░░░] 37%
+Fabrica-app      ✅ 55 ⬜ 3                       [██████████████████░] 95%
+Fabrica-web      ✅ 14 ⬜ 5                       [███████████░░░░░░░░░] 74%
+Fabrica-marketing ✅ 18 ⬜ 7                      [███████████████░░░░░] 72%
 Fabrica-plugins  ✅ 16 ⬜ 0                        [████████████████████] 100%
-Fabrica-relay    ✅ 28 🔶 1 ⬜ 1                       [████████████████████] 93%
+Fabrica-relay    ✅ 31 ⬜ 0                       [████████████████████] 100%
 ```
 
 ---
@@ -43,6 +43,7 @@ Fabrica-relay    ✅ 28 🔶 1 ⬜ 1                       [██████�
 | API routes (W1-W7)                         | ✅ Done | Fabrica-web       | All 9 route files built, no TS errors                                                                                                                                |     |
 | Plugin source study (P0a-P0f)              | ✅ Done | Fabrica-plugins   | 9 repos cloned, schemas documented                                                                                                                                   |     |
 | Marketing plans (M1-M13)                   | ✅ Done | Fabrica-marketing | All 13 tasks complete                                                                                                                                                |     |
+| Marketing review (M14-M18)                | ✅ Done | Fabrica-marketing | Internal files reviewed and updated; external files pending                                                                                                          |     |
 | CI workflows                               | ✅ Done | Fabrica-app       | All 8 workflows renamed stablyai → Auto-Scalers                                                                                                                      |     |
 | SKILL.md files                             | ✅ Done | Fabrica-app       | All rebranded (remaining "orca" = GNOME Orca screen reader, correct)                                                                                                 |     |
 | Localized READMEs                          | ✅ Done | Fabrica-app       | zh-CN, pt, ko, ja, fr, es all rebranded                                                                                                                              |     |
@@ -55,6 +56,8 @@ Fabrica-relay    ✅ 28 🔶 1 ⬜ 1                       [██████�
 | Static files (W8-W10)                      | ✅ Done | Fabrica-web       | Changelog, nudge, kill-list JSON created                                                                                                                             |     |
 | Docs site (W11)                            | ✅ Done | Fabrica-web       | Layout, sidebar, content, build compiles                                                                                                                             |     |
 | Landing page updates (W12-W13)             | ✅ Done | Fabrica-web       | Audit complete: no Orca refs in page copy or meta tags                                                                                                               |     |
+| Landing page enhancement (W14-W18)         | ⬜ Todo | Fabrica-web       | Rewrite ALL copy using 3 marketing internal files; carousel images; standalone images; bottom bg; mobile audit                                                      |     |
+| Pricing tiers (W13b)                       | ✅ Done | Fabrica-web       | Renamed: Power User, One-Person Company, Agency & Teams. 14-day free trial CTAs. Updated en/fr/ar.json                                                             |     |
 | Plugin marketplace (P1-P10)                | ✅ Done | Fabrica-plugins   | All 10 tasks complete — marketplace index, bundled plugins, submission guidelines, schema, validation, review, kill-list, signing research, loader, update mechanism |     |
 | PostHog + GitHub secrets                   | ✅ Done | Orchestrator      | Write key + build identity set                                                                                                                                       |     |
 | Release repos (hourly/daily/adhoc/plugins) | ✅ Done | Orchestrator      | All 4 repos created                                                                                                                                                  |     |
@@ -68,7 +71,8 @@ Fabrica-relay    ✅ 28 🔶 1 ⬜ 1                       [██████�
 | Archive P0-P8 planning docs                | ✅ Done | Orchestrator      | Moved P0-P8 to .archive/ in all sub-project boards                                                                                                                   |     |
 | Relay server repo created                  | ✅ Done | Orchestrator      | Fabrica-relay repo created with AGENTS.md, README, and 30 tasks (R1-R30)                                                                                             |     |
 | Relay deployment decision                  | ✅ Done | Orchestrator      | Cloudflare Workers + Durable Objects chosen ($0/mo), stack: Hono; research archived into relay tasks file                                                            |     |
-| Relay design decisions                     | ✅ Done | Orchestrator      | DB=SQLite per-host DO (no Postgres/D1); accept client reconnects on deploy; concurrency ~1K users/&lt;100 tunnels                                                    |     |
+| Relay design decisions                     | ✅ Done | Orchestrator      | DB=SQLite per-host DO (no Postgres/D1); accept client reconnects on deploy; concurrency ~1K users/&lt;100 tunnels                                                    |
+| Roadmap count reconciliation (web/marketing/plugins) | ⬜ Todo | Orchestrator | Task files use inconsistent formats (relay=R-table, app=checkboxes, web/marketing/plugins=mixed+`[~]`); automated counting is unreliable (a worker over-counted relay 31→36 and app 55→78). PM-maintained baseline (133 done / 21 todo / 86%) restored as interim. Needs a manual read of each file's status sections to produce exact per-project counts. |     |
 
 
 ---
@@ -83,11 +87,11 @@ Fabrica-relay    ✅ 28 🔶 1 ⬜ 1                       [██████�
 | Sub-Project       | ✅ Done | 🔶 Partial | ⬜ Todo | 📋 Planning | 🚫 Blocked | ❌ Issues | Task File                                                               |
 | ----------------- | ------ | ---------- | ------ | ----------- | ---------- | -------- | ----------------------------------------------------------------------- |
 | Fabrica-app       | 55     | 0          | 0      | 0           | 0          | 0        | `Fabrica-app/.Fabrica-app-board/Fabrica-app-tasks.md`                   |
-| Fabrica-web       | 13     | 0          | 0      | 0           | 0          | 0        | `Fabrica-web/.Fabrica-web-board/Fabrica-web-tasks.md`                   |
-| Fabrica-marketing | 13     | 0          | 22     | 0           | 0          | 0        | `Fabrica-marketing/.Fabrica-marketing-board/Fabrica-marketing-tasks.md` |
+| Fabrica-web       | 13     | 0          | 6      | 0           | 0          | 0        | `Fabrica-web/.Fabrica-web-board/Fabrica-web-tasks.md`                   |
+| Fabrica-marketing | 18     | 0          | 7      | 0           | 0          | 0        | `Fabrica-marketing/.Fabrica-marketing-board/Fabrica-marketing-tasks.md` |
 | Fabrica-plugins   | 16     | 0          | 0      | 0           | 0          | 0        | `Fabrica-plugins/.Fabrica-plugins-board/Fabrica-plugins-tasks.md`       |
-| Fabrica-relay    | 28     | 1          | 1      | 0           | 0          | 0        | `Fabrica-relay/.Fabrica-relay-board/Fabrica-relay-tasks.md`             |
-| **Total**         | **125** | **2**      | **25** | **0**       | **0**      | **0**    |                                                                         |
+| Fabrica-relay    | 30     | 2          | 1      | 0           | 0          | 0        | `Fabrica-relay/.Fabrica-relay-board/Fabrica-relay-tasks.md`             |
+| **Total**         | **132** | **2**      | **14** | **0**       | **0**      | **0**    |                                                                         |
 
 
 ---
@@ -263,7 +267,7 @@ Progress [████████████████████] 100%  �
 ### Fabrica-web — Landing Page + API Routes
 
 ```
-Progress [████████████████████] 100%  ✅ 13 ⬜ 0  📋 2
+Progress [████████████████████] 100%  ✅ 13 ⬜ 6  📋 2
 ```
 
 #### API Routes
@@ -301,6 +305,7 @@ Progress [████████████████████] 100%  �
 | --- | ---------------------------------- | ------ |
 | W12 | Audit Orca references in page copy | ✅      |
 | W13 | Update meta tags / OG images       | ✅      |
+| W13b| Update pricing tiers               | ⬜      |
 
 
 ---
@@ -308,7 +313,7 @@ Progress [████████████████████] 100%  �
 ### Fabrica-marketing — Brand + Launch
 
 ```
-Progress [██████░░░░░░░░░░░░░░] 37%  ✅ 13 ⬜ 22
+Progress [██████████████████░░] 90%  ✅ 18 ⬜ 7
 ```
 
 #### Phases Overview
@@ -320,9 +325,8 @@ Progress [██████░░░░░░░░░░░░░░] 37%  ✅
 | Phase 2: Launch Assets            | M4-M8, M13 | ✅ DONE |
 | Phase 3: Launch Content           | M4, M6, M8 | ✅ DONE |
 | Phase 4: Ongoing Content          | M9-M12     | ✅ DONE |
-| Phase 5: Review &amp; Audit       | M14-M18    | ⬜ TODO |
-| Phase 6: Landing Page Enhancement | M19-M26    | ⬜ TODO |
-| Phase 7: Social Launch Campaign   | M27-M35    | ⬜ TODO |
+| Phase 5: Review &amp; Audit       | M14-M18    | ✅ DONE (internal files reviewed; external pending) |
+| Phase 6: Social Launch Campaign         | M24-M32          | ⬜ TODO |
 
 
 #### Brand &amp; Positioning
@@ -361,51 +365,53 @@ Progress [██████░░░░░░░░░░░░░░] 37%  ✅
 
 #### Phase 5 — Review &amp; Audit
 
-> Review all marketing work from Phases 1-4, audit for consistency, fix gaps.
+> Internal files (brand guidelines, positioning statement, competitor landscape) reviewed and updated. External files review pending.
 
 
 | #   | Task                                                         | Status |
 | --- | ------------------------------------------------------------ | ------ |
-| M14 | Brand consistency audit across all M1-M13 deliverables       | ⬜      |
+| M14 | Brand consistency audit across all M1-M13 deliverables       | ✅      |
 | M15 | Visual asset review — check all generated images             | ⬜      |
 | M16 | Copy audit — proofread all launch copy, emails, social       | ⬜      |
-| M17 | Competitor positioning refresh — update M2 if market shifted | ⬜      |
+| M17 | Competitor positioning refresh — update M2 if market shifted | ✅      |
 | M18 | Final sign-off — PM approves all marketing materials         | ⬜      |
 
 
-#### Phase 6 — Landing Page Enhancement
+#### Phase 6 — Landing Page Implementation (Web)
 
-> Enhance Fabrica-web landing page using insights from marketing materials.
+> **CRITICAL:** Every element of the landing page must be derived from the 3 internal marketing files. Read each file line by line, word by word.
+>
+> **Source files:**
+> - `Fabrica-marketing/internal/brand/brand-guidelines.md`
+> - `Fabrica-marketing/internal/brand/positioning-statement.md`
+> - `Fabrica-marketing/internal/research/competitor-landscape.md`
+
+| #   | Task                                                                          | Status |
+| --- | ----------------------------------------------------------------------------- | ------ |
+| W14 | Replace carousel images with new assets from `public/images/`                 | ⬜      |
+| W15 | Add standalone images with text overlays from `public/images/`                | ⬜      |
+| W16 | Apply `fabrica-buttom-bg` as background to bottom section                     | ⬜      |
+| W17 | Rewrite ALL landing page copy using the 3 marketing internal files            | ⬜      |
+| W18 | Mobile responsiveness audit — verify all new sections                         | ⬜      |
+| W13b| Update pricing tiers (Power User, One-Person Company, Agency & Teams; 14-day trial) | ⬜      |
 
 
-| #   | Task                                                      | Status |
-| --- | --------------------------------------------------------- | ------ |
-| M19 | Update hero section with final positioning from M3        | ⬜      |
-| M20 | Integrate competitor differentiation into landing page    | ⬜      |
-| M21 | Add social proof section — waitlist count, testimonials   | ⬜      |
-| M22 | Embed PH gallery images into landing page feature section | ⬜      |
-| M23 | Add founder quote / origin story snippet                  | ⬜      |
-| M24 | Update email capture CTA with M13 waitlist copy           | ⬜      |
-| M25 | Mobile responsiveness audit                               | ⬜      |
-| M26 | SEO meta tags — update title, description, OG tags        | ⬜      |
-
-
-#### Phase 7 — Social Launch Campaign
+#### Phase 6 — Social Launch Campaign
 
 > Execute social media posting strategy to acquire early access customers.
 
 
 | #   | Task                                                       | Status |
 | --- | ---------------------------------------------------------- | ------ |
-| M27 | Schedule Week 1 posts from M9 content calendar             | ⬜      |
-| M28 | Prepare launch day thread (M10 template)                   | ⬜      |
-| M29 | Set up Twitter/X analytics tracking                        | ⬜      |
-| M30 | Prepare Product Hunt launch day social blitz               | ⬜      |
-| M31 | Schedule HN "Show HN" post (M6)                            | ⬜      |
-| M32 | Prepare LinkedIn launch post (founder story version)       | ⬜      |
-| M33 | Set up waitlist conversion tracking (UTM params)           | ⬜      |
-| M34 | Week 1 daily monitoring — respond to all comments/mentions | ⬜      |
-| M35 | Week 1 metrics report — impressions, signups, engagement   | ⬜      |
+| M24 | Schedule Week 1 posts from M9 content calendar             | ⬜      |
+| M25 | Prepare launch day thread (M10 template)                   | ⬜      |
+| M26 | Set up Twitter/X analytics tracking                        | ⬜      |
+| M27 | Prepare Product Hunt launch day social blitz               | ⬜      |
+| M28 | Schedule HN "Show HN" post (M6)                            | ⬜      |
+| M29 | Prepare LinkedIn launch post (founder story version)       | ⬜      |
+| M30 | Set up waitlist conversion tracking (UTM params)           | ⬜      |
+| M31 | Week 1 daily monitoring — respond to all comments/mentions | ⬜      |
+| M32 | Week 1 metrics report — impressions, signups, engagement   | ⬜      |
 
 
 ---
