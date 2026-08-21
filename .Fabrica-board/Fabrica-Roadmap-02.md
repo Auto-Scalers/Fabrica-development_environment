@@ -1,37 +1,31 @@
 # Fabrica — Roadmap 02
 
-> Phase 2 execution. Vision/identity → `Fabrica-DNA.md`. Marketing Findings, Gaps & Feature QA → `Features-QA.md`.
-
 ---
 
 ## Dashboard
 
-| Metric | Value |
-|--------|-------|
-| Total Phase 2 tasks | 70 |
-| ✅ Done | 4 |
-| 🔶 In Review | 0 |
-| ⬜ Todo | 66 |
-| 📋 Planning | 0 |
-| 🚫 Blocked | 0 |
-| ❌ Issues | 0 |
-| Completion | 6% |
+
+| Metric       | Value |
+| ------------ | ----- |
+| Total tasks  | 8     |
+| ✅ Done       | 0     |
+| 🔶 In Review | 0     |
+| ⬜ Todo       | 8     |
+| 📋 Planning  | 0     |
+| 🚫 Blocked   | 0     |
+| 🚫 Cancelled | 0     |
+| ❌ Issues     | 0     |
+| Completion   | 0%    |
+
 
 ### Phase Progress
 
 ```
-Phase 2 — Business-First Transformation
+Fabrica Transformation
 
-Group 0 — Strategy & Feature QA Alignment            ✅  [████████████████████] 100% (4/4 done)
-Group I — Source Extraction & Licensing Isolation    ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (3 tasks) ← NEXT
-Group A — Mission Control UI & Visual Lifecycle      ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (10 tasks)
-Group B — Multi-Role Business Agent Crews & CLI Mgr  ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (9 tasks)
-Group C — Governance: Approval Gates & Hard Budgets  ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (6 tasks)
-Group D — Field Ops, n8n & 64+ Service Connectors    ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (9 tasks)
-Group E — Knowledge Vault & Encrypted Credentials    ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (6 tasks)
-Group F — Workflow Automation & 24/7 Runtime Daemon  ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (6 tasks)
-Group G — Mobile Companion & 24/7 Remote Steering    ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (5 tasks)
-Group H — Dual Onboarding (Builders/Runners) & Packs ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (7 tasks)
+Group 1 — Discovery & Analysis                       ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (3 tasks) ← NEXT
+Group 2 - Verify                                     ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (3 tasks)
+Group 3 - Synthesis & Concept Mapping                ⬜  [░░░░░░░░░░░░░░░░░░░░] 0% (2 tasks)
 ```
 
 ---
@@ -40,207 +34,254 @@ Group H — Dual Onboarding (Builders/Runners) & Packs ⬜  [░░░░░░�
 
 > What's actively being tracked. Update this section as work progresses.
 
-| What | Status | Owner | Notes |
-|------|--------|-------|-------|
-| Extract marketing findings into `Features-QA.md` | ✅ Done | Orchestrator | Complete in `Features-QA.md` (all 9 domains & competitor gaps) |
-| PM Review of `Features-QA.md` | ✅ Done | User (PM) | PM decisions, feedback, and positioning corrections received |
-| Update Brand & Research from PM Feedback | ✅ Done | Orchestrator | `brand-guidelines.md`, `positioning-statement.md`, `competitor-landscape.md` updated |
-| Lock in Phase 2 feature backlog | ✅ Done | Orchestrator | `Features-QA.md` and `Fabrica-Roadmap-02.md` synchronized |
-| Group I: Source Study & Feature Extraction | ⬜ Next | Fabrica-app | Unblocked. Extract specs from `_sources/` (mission-control, buzz, legacy-fabrica) |
+
+| What                                             | Status | Owner        | Notes                                                                                                                                    |
+| ------------------------------------------------ | ------ | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Group 1: Discovery &amp; Analysis                | ⬜ Next | Orchestrator | Scan mission-control, buzz, Fabrica-app. List features, architecture, logic. Do NOT modify files. Output → `.Fabrica-board/discovery/`  |
+
 
 ---
 
-## Phase 2 — Business-First Transformation
+## Fabrica Transformation
 
-> Transform Fabrica from coding-first to a desktop CLI agent management and operations platform for both builders and operators.
-> All marketing research, competitor gaps, trade-offs, and options live in **[Features-QA.md](Features-QA.md)**.
-
-### Progress by Sub-Project
-
-| Sub-Project | ✅ Done | 🔶 In Review | ⬜ Todo | 📋 Planning | 🚫 Blocked | ❌ Issues | Task File |
-| ----------- | ------ | ------------ | ------ | ----------- | ---------- | -------- | --------- |
-| Strategy & QA | 4 | 0 | 0 | 0 | 0 | 0 | `.Fabrica-Board/Features-QA.md` |
-| Fabrica-app | 0 | 0 | 49 | 0 | 0 | 0 | `Fabrica-app/.Fabrica-app-board/Fabrica-app-tasks.md` |
-| Fabrica-relay | 0 | 0 | 5 | 0 | 0 | 0 | `Fabrica-relay/.Fabrica-relay-board/Fabrica-relay-tasks.md` |
-| Fabrica-web | 0 | 0 | 5 | 0 | 0 | 0 | `Fabrica-web/.Fabrica-web-board/Fabrica-web-tasks.md` |
-| Fabrica-marketing | 0 | 0 | 7 | 0 | 0 | 0 | `Fabrica-marketing/.Fabrica-marketing-board/Fabrica-marketing-tasks.md` |
-| **Total** | **4** | **0** | **66** | **0** | **0** | **0** | |
+> In order to Plan for Transforming Fabrica from coding-first to a desktop CLI agent management and operations platform for both bussines and coding builders and operators.
 
 ---
 
-### Group 0 — Strategy & Feature QA Alignment
-> **COMPLETE.** Marketing intelligence extracted, PM feedback integrated, Brand & Research docs rewritten, and Phase 2 backlog locked.
+### Group 1 — Discovery &amp; Analysis
+>
+> **WHAT THIS GROUP DOES:**
+>
+> - Scan `_sources/mission-control` and `_sources/buzz` and `Fabrica-app/`
+> - Scan every file. If 50 files with 10,000 lines each — ALL must be scanned, understood, and documented. 
+> - List EVERY feature, module, service, API, UI component, logic, architectural pattern. Do NOT extract code. Map features to original source only. Extract architecture &amp; specs in extreme detail.
+> - Understand how each repo is structured and what it does
+> - Categorize everything (features by type, architecture by layer, logic by domain)
+> - Document as plain text — every file, every function, every relation, architecture, idea, every concept documented
+>
+>
+>
+> **WHAT THIS GROUP DOES NOT DO:**
+>
+> - Do NOT modify `Fabrica-app/` source files — scan and understand only, do not change contents
+> - Do NOT touch `_sources/legacy-fabrica` — ignore completely
 
-| # | Task | Status | Owner | Output / Deliverable |
-|---|------|--------|-------|----------------------|
-| 0.1 | Extract marketing findings, gaps, and opportunities into QA file | ✅ Done | Orchestrator | `.Fabrica-Board/Features-QA.md` created with 9 domains |
-| 0.2 | Review `Features-QA.md` and select desired features & options | ✅ Done | User (PM) | PM decisions on P0/P1 priorities, CLI agent framing, and ops |
-| 0.3 | Update Brand, Research, and `Features-QA.md` based on PM feedback | ✅ Done | Orchestrator | Brand guidelines, positioning, and research updated |
-| 0.4 | Audit & finalize `Fabrica-Roadmap-02.md` tasks from approved QA | ✅ Done | Orchestrator | Locked Phase 2 task backlog with 70 tasks |
 
----
+| #   | Task                                                                                               | Status       | Output File                                             |
+| --- | -------------------------------------------------------------------------------------------------- | ------------ | ------------------------------------------------------- |
+| 1.1 | Scan `_sources/mission-control/` — list all features, architecture, logic, concepts, map to source | ⬜            | `.Fabrica-board/discovery/mission-control-discovery.md` |
+| 1.2 | Scan `_sources/buzz/` — list all features, architecture, logic, concepts, map to source            | ⬜            | `.Fabrica-board/discovery/buzz-discovery.md`            |
+| 1.3 | Scan `Fabrica-app/` — list all features, architecture, logic, concepts (do not modify files)      | ⬜            | `.Fabrica-board/discovery/fabrica-app-discovery.md`     |
 
-### Group I — Source Study & Feature Extraction
-> **UNBLOCKED — NEXT STEP.** Blocks Groups A–H. Workers extract specifications into `Fabrica-app/.Fabrica-app-board/specs/`.
 
-| # | Task | Status | Output File |
-|---|------|--------|-------------|
-| I1 | Extract functional specs from `_sources/mission-control` | ⬜ | `specs/mission-control-spec.md` (AGPL-3.0 clean-room) |
-| I2 | Extract architecture & code from `_sources/buzz` | ⬜ | `specs/buzz-spec.md` (Apache 2.0) |
-| I3 | Extract UI components from `_sources/legacy-fabrica` | ⬜ | `specs/legacy-fabrica-spec.md` |
-
----
-
-### Group A — Mission Control UI (Command Center)
-
-| # | Task | Status | Notes |
-|---|------|--------|-------|
-| A1 | Design master Mission Control layout (Kanban + fleet status) | ⬜ | Wireframe from `mission-control` patterns |
-| A2 | Implement Visual Kanban & Eisenhower Priority Matrix | ⬜ | `@dnd-kit` drag-and-drop |
-| A3 | Implement Sources vs. Deliverables Split View | ⬜ | 50/50 split from `legacy-fabrica` |
-| A4 | Implement Agent Fleet Registry Panel with Forge Pulse | ⬜ | Active cards with status, token usage & Forge Pulse animation |
-| A5 | Implement Unified Decision Inbox | ⬜ | Central feed for human sign-offs |
-| A6 | Implement Live App & Artifact Previewer | ⬜ | Embedded iframe sandbox |
-| A7 | Implement Activity & Audit Log View | ⬜ | Searchable, timestamped execution log |
-| A8 | Implement AI Context Snapshot Generator | ⬜ | Background ~650-token prompt summarizer |
-| A9 | Implement Natural Language Mission Launcher | ⬜ | Objective ➔ Auto-decomposed sub-tasks |
-| A10 | Implement Business Velocity & Cost Analytics | ⬜ | Time/money saved charts (D3/Recharts) |
 
 ---
 
-### Group B — Multi-Role Business Agent Crews & CLI Management
+### Group 2 - Verify
 
-| # | Task | Status | Notes |
-|---|------|--------|-------|
-| B1 | Implement Persona Engine & Role Definitions | ⬜ | Inspired by `buzz-persona` |
-| B2 | Build Lead Researcher Agent Persona | ⬜ | Web search, scrape, competitor summaries |
-| B3 | Build Growth Marketer Agent Persona | ⬜ | GTM copy, social threads, SEO, launch blogs |
-| B4 | Build Business Data Analyst Agent Persona | ⬜ | CSV/SQL modeling, unit economics, charts |
-| B5 | Build Operations Specialist Agent Persona | ⬜ | Webhooks, cron jobs, file maintenance |
-| B6 | Upgrade Senior Full-Stack Engineer Agent | ⬜ | Architecture planning, tests, PR descriptions |
-| B7 | Implement Crew Collaboration UI & Delegation Tree | ⬜ | Lead agent delegating to parallel worktrees |
-| B8 | Implement Slack-like Agent Collaboration Channels | ⬜ | Dedicated agent discussion channels, group routing & debate |
-| B9 | Implement CLI Agent Terminal Manager | ⬜ | Spawner & manager for Claude Code, Codex, Cursor, Devin, Hermes, Pi |
+> **AFTER Group 1 completes.** Verify findings to make sure we have all context needed to go next.
+>
+> **WHAT THIS GROUP DOES:**
+>
+> - verify all discovery files are complete and accurate  
 
----
 
-### Group C — Governance: Approval Gates & Budget Controls
+| #   | Task                                                                                                          | Status | Output File                                          |
+| --- | ------------------------------------------------------------------------------------------------------------- | ------ | ---------------------------------------------------- |
+| 2.1 | Verify mission-control discovery — all files, features, architecture accounted for                              | ⬜      | `.Fabrica-board/verify/mission-control-verify.md`    |
+| 2.2 | Verify buzz discovery — all files, features, architecture accounted for                                         | ⬜      | `.Fabrica-board/verify/buzz-verify.md`               |
+| 2.3 | Verify Fabrica-app discovery — all files, features, architecture accounted for                                  | ⬜      | `.Fabrica-board/verify/fabrica-app-verify.md`        |
 
-| # | Task | Status | Notes |
-|---|------|--------|-------|
-| C1 | Visual One-Click Approval Modal | ⬜ | Shows visual diffs, cost estimate, risk level |
-| C2 | Hard Financial Budgeting Engine | ⬜ | Strict per-mission spend cap with auto-halt |
-| C3 | 3-Tier Risk Classification Engine | ⬜ | Tier 1 (Auto) / Tier 2 (Desktop) / Tier 3 (Gate) |
-| C4 | Granular Autonomy Sliders | ⬜ | Manual ➔ Supervised ➔ Autonomous |
-| C5 | Real-Time Quota & Spend Tracker | ⬜ | Live counter for supported CLI agents (Claude Code, Codex, OpenCode) |
-| C6 | Global Emergency Circuit Breaker | ⬜ | Floating instant-kill button for all workers |
+
 
 ---
 
-### Group D — Field Ops, n8n & 64+ Service Connectors
+### Group 3 — Synthesis &amp; Concept Mapping
 
-| # | Task | Status | Notes |
-|---|------|--------|-------|
-| D0 | Implement Native n8n Capability Plugin | ⬜ | Bidirectional bridge connecting agent workflows to 400+ SaaS apps |
-| D1 | Build Field Ops Execution State Machine | ⬜ | Clean-room implementation |
-| D2 | Build Service Adapter Interface | ⬜ | Extensible TypeScript adapter standard |
-| D3 | Core Connectors (Batch 1: Dev/Ops) | ⬜ | GitHub, Slack, Email (SMTP/Resend), Supabase |
-| D4 | Core Connectors (Batch 2: Growth) | ⬜ | Twitter/X, LinkedIn, Stripe, Notion |
-| D5 | 64-Service Visual Catalog & Setup Wizard | ⬜ | Interactive service directory |
-| D6 | Dry-Run Sandbox Preview Mode | ⬜ | Simulates external API calls before approval |
-| D7 | Per-Service Action Throttling | ⬜ | Rate limits and spend caps per integration |
-| D8 | Field Ops Audit Trail & CSV Export | ⬜ | Compliance log with approving user timestamps |
+> **AFTER Group 2 completes.** Analyze findings, find relations, see the final picture.
+>
+> **WHAT THIS GROUP DOES:**
+>
+> - Analyze similarities between the 3 repos (shared features, overlapping logic, common patterns)
+> - Identify gaps (what mission-control/buzz have that Fabrica-app doesn't, what can be Added)
+> - Identify extensions and enhancements opportunities (what can be enhanced, expanded, combined)
+> - Map relevances (which features from buzz/mission-control are relevant to Fabrica's direction)
+> - Define the final production Fabrica app architecture — what it should look like (complete picture of what the app should be)
+> - verify all analysis files are complete and accurate  
+> - Audit only `.Fabrica-board/` files (NOT DNA, NOT Roadmap 01, NOT other files that do not belongs to you)
 
----
 
-### Group E — Knowledge Vault & Encrypted Credentials
+| #   | Task                                                                                                          | Status | Output File                                          |
+| --- | ------------------------------------------------------------------------------------------------------------- | ------ | ---------------------------------------------------- |
+| 3.1 | Analyze similarities, gaps, extensions across mission-control, buzz, and Fabrica-app                           | ⬜      | `.Fabrica-board/analysis/similarities-gaps.md`       |
+| 3.2 | Define final production Fabrica architecture — complete picture of what the app should be                      | ⬜      | `.Fabrica-board/analysis/production-architecture.md` |
 
-| # | Task | Status | Notes |
-|---|------|--------|-------|
-| E1 | Implement AES-256-GCM Vault Engine | ⬜ | Derived via Argon2id / OS Keychain |
-| E2 | Build Zero-Knowledge BYOK Settings UI | ⬜ | Store keys for Anthropic, OpenAI, Google, etc. |
-| E3 | Implement Least-Privilege Key Scoping | ⬜ | Memory-only injection per sub-task |
-| E4 | Vault Auto-Lock & Session Timeout | ⬜ | Configurable lock requiring master password |
-| E5 | Implement Emergency Panic Wipe | ⬜ | Secure shredder purging all cached secrets |
-| E6 | Build Central Knowledge Vault (Document Drop) | ⬜ | Local folder watcher & semantic context provider for all agents |
 
 ---
 
-### Group F — Workflow Automation & 24/7 Runtime Daemon
+## Autonomous Work System
 
-| # | Task | Status | Notes |
-|---|------|--------|-------|
-| F1 | Build YAML Workflow Blueprint Engine | ⬜ | Adapted from `buzz-workflow` (Apache 2.0) |
-| F2 | Implement Persistent Background Daemon | ⬜ | Node runner with `node-cron` support |
-| F3 | Build Visual Workflow Builder | ⬜ | Node graph / clean YAML editor |
-| F4 | Build Loop & Stall Watchdog Engine | ⬜ | Auto-detects stuck processes and escalates |
-| F5 | Implement Session Checkpointing & Resilience | ⬜ | Resumes crashed missions without data loss |
-| F6 | Create 24/7 Turnkey Operational Recipes | ⬜ | Customer Support Triage, Ecommerce Bot, Content Pipeline, HR Intake |
+> Enable hours of autonomous execution without breaking. Agent reads this section to know what to do, where it stopped, and how to verify.
+>
+> **CORE PRINCIPLE: Scan and understand all 3 repos. Do NOT modify any source files.**
+>
+> **HOW ROUNDS WORK:**
+> - One **Round** = full execution of Group 1 → Group 2 → Group 3
+> - Each round, the agent discovers more, understands more, links features more
+> - When verification finds gaps, new tasks are added to the existing task tables
+> - The roadmap supports **infinite rounds** — each round goes deeper than the last
+> - The agent stops only when the user says stop, or when all source files are fully accounted for across multiple rounds
 
----
+### Checkpoint (Current State)
 
-### Group G — Mobile Companion & Remote Steering
+> Updated after every significant action. Agent reads this FIRST on resume.
 
-| # | Task | Status | Notes |
-|---|------|--------|-------|
-| G1 | Build Mobile Push Notification Dispatcher | ⬜ | Alerts on approval gates & budget warnings |
-| G2 | Build One-Tap Mobile Decision & Diff Review | ⬜ | Inspect diffs and approve via Fabrica-relay |
-| G3 | Build Live Mobile Mission Feed | ⬜ | Real-time progress and token consumption |
-| G4 | Remote Natural Language Steering | ⬜ | Send chat instructions to running agents |
-| G5 | Remote Emergency Mission Pause | ⬜ | 1-tap mobile kill-switch |
 
----
+| Field                  | Value                                                                                                   |
+| ---------------------- | ------------------------------------------------------------------------------------------------------- |
+| **Current Round**      | 1                                                                                                       |
+| **Current Task**       | 1.1 — Scan mission-control                                                                              |
+| **Current Group**      | Group 1 — Discovery & Analysis                                                                          |
+| **Phase**              | Group 1 → 2 → 3 (repeat)                                                                                |
+| **Last Checkpoint**    | `2026-08-21T00:00:00Z` (initial)                                                                        |
+| **Last Action**        | Roadmap updated, tasks defined                                                                           |
+| **Next Action**        | Begin 1.1 — scan `_sources/mission-control/` directory structure, list ALL features, architecture, logic |
+| **Verification Pass**  | 0 (within current round)                                                                                |
+| **Hours Elapsed**      | 0                                                                                                       |
+| **Files Modified**     | `Fabrica-Roadmap-02.md`                                                                                 |
 
-### Group H — Dual Onboarding (Builders/Runners) & Starter Packs
 
-| # | Task | Status | Notes |
-|---|------|--------|-------|
-| H1 | Build 3-Step Guided Dual Onboarding Wizard | ⬜ | Builder vs Runner path ➔ Connect Agent/Key ➔ Launch Demo |
-| H2 | Full UI Terminology De-Jargonization | ⬜ | Replace dev jargon with founder/operator language |
-| H3 | Create Turnkey Business Starter Packs | ⬜ | SaaS Dev, E-Commerce Ops, Agency Multi-Client, HR & Content |
-| H4 | Build Contextual In-App Guidance | ⬜ | Interactive feature walkthroughs |
-| H5 | Action-Oriented Empty States | ⬜ | Illustrative graphics with clear CTAs |
-| H6 | Humanized Error Explanations | ⬜ | Plain English diagnosis with 1-click fix |
-| H7 | Build Interactive Demo Mission Sandbox | ⬜ | Zero-cost pre-cached simulation |
+### Autonomous Execution Rules
 
----
+> Agent MUST follow these rules when running autonomously.
 
-## What We Keep From Fabrica (Orca Base) — Never Replace
+**WHAT YOU ARE DOING (READ THIS):**
 
-| Feature | Current State | Phase 2 Enhancement |
-|---------|---------------|---------------------|
-| Parallel worktrees | CLI-driven git worktrees | Visual Workspace Tabs in Mission Control (A1) |
-| Approval gates | Terminal confirmation prompts | Rich GUI modal with visual diffs and risk tags (C1) |
-| Mobile companion relay | Terminal mirror | Dedicated mobile approval UI with push alerts (G1-G5) |
-| Plugin ecosystem | Developer plugin loader | Foundation for Field Ops & n8n integration (D0, D3-D5) |
-| Multi-model BYOK | Environment variables | Encrypted client-side Vault with live token counter (E1-E3) |
-| Skills framework | Markdown skill files | Reusable Knowledge Modules assignable visually (B1) |
-| CLI engine | `fabrica` CLI commands | Retained for developers, automated under GUI |
+- You are doing DISCOVERY and ANALYSIS of mission-control and buzz and Fabrica-app
+- You scan repos, list features, understand architecture, categorize everything
+- You analyze similarities, gaps, extensions, relations across repos
+- You audit `.Fabrica-board/` files only (NOT DNA, NOT Roadmap 01, NOT others that dont belongs to you)
+- You do NOT modify Fabrica-app source files — scan and understand only
 
----
+**STARTUP SEQUENCE (every resume):**
 
-> **Reference** (App ID, Infrastructure, Deferred Items) → see [Fabrica-DNA.md](Fabrica-DNA.md)
+1. Read this `Fabrica-Roadmap-02.md` file
+2. Read the **Checkpoint** table above
+3. Read the **Current Task** details from the task table
+4. Read the **Current Group** description and critical rules
+5. Resume from **Next Action**
+
+**WORK SEQUENCE (DISCOVERY MODE):**
+
+1. Scan the source repo directory for the current task
+2. List EVERY: file, function, module, service, API, UI component, logic, concept
+3. Categorize: group by type (features, architecture, logic, domain)
+4. Document as plain text — every relation, every concept, nothing skipped
+5. Write output to the specified file in `.Fabrica-board/discovery/`
+6. After completing a task:
+  - Update the task status to ✅ Done
+  - Update the Checkpoint table (Current Task, Last Checkpoint, Last Action, Next Action)
+  - Move to the next task
+7. After completing a group:
+  - Update Phase Progress bar
+  - Verify the group is complete (count tasks, check output files exist)
+  - Move to the next group
+
+**WORK SEQUENCE (ANALYSIS MODE):**
+
+1. Read all discovery output files from `.Fabrica-board/discovery/`
+2. Analyze: what features overlap across repos? what's unique? what's missing?
+3. Identify: gaps (what exists but Fabrica doesn't have), extensions (what can be enhanced)
+4. Map: which buzz/mission-control features are relevant to Fabrica's direction
+5. Define: final production Fabrica architecture — the complete picture
+6. Audit: `.Fabrica-board/` files only — verify discovery/analysis is complete
+
+**VERIFICATION LOOP (CRITICAL):**
+
+> When all tasks show ✅ Done, the agent does NOT stop. It enters verification, then starts a new round.
+
+**Within a round — verification passes:**
+
+1. **Pass 1:**
+  - Re-read every output file in `.Fabrica-board/discovery/` and `.Fabrica-board/analysis/`
+  - Cross-reference: did we miss entire directories or files in the source repos?
+  - Count: source repo file count vs documented file count
+  - If gaps found: add new tasks to the appropriate group table, mark them ⬜, and execute them within this same round
+  - Update Verification Pass counter
+
+2. **Pass 2 (if Pass 1 found gaps):**
+  - Re-scan source repos for anything not documented
+  - Compare: are all features, modules, services accounted for?
+  - If gaps found: execute more discovery tasks
+  - Update Verification Pass counter
+
+3. **Pass N:**
+  - Continue until two consecutive passes find ZERO gaps
+  - Mark the current round as complete
+
+**Between rounds — the full cycle repeats:**
+
+1. Current round completes (all tasks ✅, verification passes clean)
+2. Increment Round counter
+3. Reset to Group 1 — start a new round with fresh eyes
+4. Each round goes deeper: more features discovered, better understanding, more relations found
+5. Repeat until user says stop, or source repos are fully accounted for across multiple rounds
+
+**COMPLETION CRITERIA:**
+
+- All tasks ✅ Done
+- All output files exist and contain content
+- All source repo files/features/modules accounted for in discovery docs
+- Verification passes clean (two consecutive passes with zero gaps)
+- Multiple rounds completed with diminishing new findings
+
+**ANTI-BREAKAGE RULES:**
+
+- Never skip the Checkpoint update — it's how you resume
+- Never mark a task Done without producing the output file
+- Never stop at ✅ Done — always verify
+- If stuck on a task, document the blocker and move to the next task
+- Max 4 hours per checkpoint cycle, then summarize and update Checkpoint
+- Do NOT modify Fabrica-app source files — scan and understand only, never change contents
+
+### Verification Tracker
+
+> Track rounds and verification passes within each round.
+
+
+| Round | Pass | Tasks Done | Output Files | Source Files Scanned | Gaps Found | Status    |
+| ----- | ---- | ---------- | ------------ | -------------------- | ---------- | --------- |
+| 1     | 0    | 0          | 0            | 0                    | —          | Pre-start |
+| 1     | 1    | —          | —            | —                    | —          | Pending   |
+| 1     | 2    | —          | —            | —                    | —          | Pending   |
+
+
+### Source Repo Scan Log
+
+> Track which source directories have been fully scanned and documented.
+
+
+| Source Repo     | Directory           | Files Counted | Files Documented | Status        |
+| --------------- | ------------------- | ------------- | ---------------- | ------------- |
+| mission-control | `/`                 | —             | —                | ⬜ Not started |
+| buzz            | `/`                 | —             | —                | ⬜ Not started |
+| Fabrica-app     | `/src/`             | —             | —                | ⬜ Not started |
+
+
 
 ---
 
 ## Session Ledger
 
-> Phase 2 sessions. Master ledger → `Fabrica-Roadmap.md`.
+> Roadmap 2 sessions. Master ledger .
 
 ### Worker Sessions (ephemeral — released after review)
 
-| Name | Session | Parent Orchestrator | Task | Status | Worktree Merged |
-|------|---------|-------------------|------|--------|----------------|
-| Marketing QA Alignment | `term_orchestrator` | Orchestrator | Group 0: Feature QA Alignment | **complete** | ✅ |
 
-### Rules
+| Name                   | Session             | Parent Orchestrator | Task                          | Status       | Worktree Merged |
+| ---------------------- | ------------------- | ------------------- | ----------------------------- | ------------ | --------------- |
 
-- **Workers are released after review.** Once work is approved, release the worker and merge the worktree.
-- **Group 0 (QA Review & Alignment) is complete.**
-- **Group I (Source Extraction) must complete before Groups A–H dispatch.**
-- **One orchestration session per task file.** No duplicates.
-- **Merge worktrees immediately.** Never leave branches unmerged after review.
-- **Update this ledger** when sessions are created, released, or worktrees merged.
+
 
 ---
 

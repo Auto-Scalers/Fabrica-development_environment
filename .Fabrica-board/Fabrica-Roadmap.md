@@ -10,13 +10,13 @@
 | Metric      | Value |
 | ----------- | ----- |
 | Total tasks | 156   |
-| ✅ Done      | 134   |
+| ✅ Done      | 140   |
 | 🔶 Partial  | 0     |
-| ⬜ Todo      | 20    |
+| ⬜ Todo      | 15    |
 | 📋 Planning | 0     |
 | 🚫 Blocked  | 0     |
 | ❌ Issues    | 0     |
-| Completion  | 87%   |
+| Completion  | 90%   |
 
 
 ### Phase Progress
@@ -24,7 +24,7 @@
 ```
 Phase 1 — Rebranding & Foundation
 Fabrica-app      ✅ 55 ⬜ 3                       [██████████████████░] 95%
-Fabrica-web      ✅ 14 ⬜ 5                       [███████████░░░░░░░░░] 74%
+Fabrica-web      ✅ 20 ⬜ 0                       [████████████████████] 100%
 Fabrica-marketing ✅ 18 ⬜ 7                      [███████████████░░░░░] 72%
 Fabrica-plugins  ✅ 16 ⬜ 0                        [████████████████████] 100%
 Fabrica-relay    ✅ 31 ⬜ 0                       [████████████████████] 100%
@@ -56,8 +56,10 @@ Fabrica-relay    ✅ 31 ⬜ 0                       [█████████
 | Static files (W8-W10)                      | ✅ Done | Fabrica-web       | Changelog, nudge, kill-list JSON created                                                                                                                             |     |
 | Docs site (W11)                            | ✅ Done | Fabrica-web       | Layout, sidebar, content, build compiles                                                                                                                             |     |
 | Landing page updates (W12-W13)             | ✅ Done | Fabrica-web       | Audit complete: no Orca refs in page copy or meta tags                                                                                                               |     |
-| Landing page enhancement (W14-W18)         | ⬜ Todo | Fabrica-web       | Rewrite ALL copy using 3 marketing internal files; carousel images; standalone images; bottom bg; mobile audit                                                      |     |
-| Pricing tiers (W13b)                       | ✅ Done | Fabrica-web       | Renamed: Power User, One-Person Company, Agency & Teams. 14-day free trial CTAs. Updated en/fr/ar.json                                                             |     |
+| Landing page enhancement (W14-W17)         | ✅ Done | Fabrica-web       | Carousel images, standalone images, bottom bg, full copy rewrite from marketing docs                                                      |     |
+| Pricing tiers (W13b)                       | ✅ Done | Fabrica-web       | Renamed: Power User, One-Person Company, Agency & Teams. 14-day free trial CTAs. Updated en/fr/ar.json                                   |     |
+| FR/AR localization (W18)                   | ✅ Done | Fabrica-web       | fr.json and ar.json fully updated to match new en.json. Natural phrasing, brand voice preserved.|     |
+| Mobile audit (W19)                         | ✅ Done | Fabrica-web       | Fixed carousel nav, touch targets, background scaling, gate toggles                            |     |
 | Plugin marketplace (P1-P10)                | ✅ Done | Fabrica-plugins   | All 10 tasks complete — marketplace index, bundled plugins, submission guidelines, schema, validation, review, kill-list, signing research, loader, update mechanism |     |
 | PostHog + GitHub secrets                   | ✅ Done | Orchestrator      | Write key + build identity set                                                                                                                                       |     |
 | Release repos (hourly/daily/adhoc/plugins) | ✅ Done | Orchestrator      | All 4 repos created                                                                                                                                                  |     |
