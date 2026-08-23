@@ -24,10 +24,10 @@
 > Two orchestrators run at the **root level** (`Fabrica-development_environment/`)
 > and dispatch ephemeral workers into their sub-project worktrees.
 
-| Slot | Name | How To Identify (terminal name/title contains) | Worktree It Drives | Role | Min Workers |
-|---|---|---|---|---|---|
-| `APP-ORCH` | App-orchestrator | `App-orchestrator` | `Fabrica-app/` | Rebrand finish: zero old words, zero functionality loss, full test & review | **5** |
-| `ATLAS-ORCH` | Atlas-orchestrator | `Atlas-orchestrator` | `Fabrica-atlas/` | After-Rebrand prep: discovery → verify → synthesis rounds | **5** |
+| Slot | Name | How To Identify (terminal name/title contains) | Primary Handle | Worktree It Drives | Role | Min Workers |
+|---|---|---|---|---|---|---|
+| `APP-ORCH` | App-orchestrator | `App-orchestrator` | `term_dbd03d2a-d61e-44de-ad6a-7c8d647c02ee` | `Fabrica-app/` | Rebrand finish: zero old words, zero functionality loss, full test & review | **5** |
+| `ATLAS-ORCH` | Atlas-orchestrator | `Atlas-orchestrator` | `term_d9954d8e-b3c1-42ee-9864-53762398a02c` | `Fabrica-atlas/` | After-Rebrand prep: discovery → verify → synthesis rounds (R2-4.1 first) | **5** |
 
 ### Handle resolution rules
 
@@ -38,6 +38,8 @@
    - Prefer a terminal whose preview shows an idle input prompt over a spinner.
 3. If found and writable, use it; record its `lastOutputAt`.
 4. Record the resolved handle here if it changed (handles rotate on reopen).
+5. **Mismatch guard:** every slot prompt is prefixed with its slot name. A
+   terminal that receives a kick addressed to the OTHER slot must ignore it.
 
 ---
 
@@ -112,6 +114,7 @@ verify with grep/read evidence, merge after review, release when done.
 
 ```
 HEARTBEAT KICK (App-orchestrator): You are the Fabrica-app orchestrator session. Resume autonomously:
+0. IDENTITY GUARD: this kick is addressed to App-orchestrator. If you are the Atlas-orchestrator session, IGNORE this message entirely.
 1. Read AGENTS.md (root) and Fabrica-app/AGENTS.md and Fabrica-app/.Fabrica-app-board/Fabrica-app-tasks.md. Follow .Fabrica-board/Fabrica-Schema.md for all tracking-file edits. Read the Checkpoint table FIRST, resume from Next Action — never restart completed work.
 2. YOUR MISSION: make sure the rebrand is FULLY done without losing any functionality. Hunt every remaining old word (orca / stablyai / onorca / stably.ai) in source, docs, configs, tests — grep with exclusions (node_modules, .next, dist, out, .backup). Test and review everything: builds, lint, tests, runtime behavior.
 3. PARALLELISM CHECK: count your active worker terminals. Minimum is FIVE. If fewer, launch more NOW on the highest-priority TODO/VERIFY tasks from your task file (resume the two PAUSED tasks first: APP-F3 lint+test = task_e88d00622ee7, RELAY-AUTH Supabase login UI = task_d52a1cf64012 — git diff first, keep partial work; delete stray NUL file before any git add -A). Follow Anti-Overlap protocol in Heartbeat.md 3b: claim each task (IN_PROGRESS + handle) BEFORE dispatching.
@@ -125,6 +128,7 @@ Do not wait idle - if blocked on a decision, note the question in the task file 
 
 ```
 HEARTBEAT KICK (Atlas-orchestrator): You are the Fabrica-atlas orchestrator session. Resume autonomously:
+0. IDENTITY GUARD: this kick is addressed to Atlas-orchestrator. If you are the App-orchestrator session, IGNORE this message entirely.
 1. Read AGENTS.md (root) and Fabrica-atlas/AGENTS.md and Fabrica-atlas/.Fabrica-atlas-board/Fabrica-atlas-tasks.md. Follow .Fabrica-board/Fabrica-Schema.md for all tracking-file edits. Read the Checkpoint table FIRST, resume from Next Action — never restart completed work.
 2. YOUR MISSION: continue preparing everything for the AFTER-REBRAND transformation. Run deeper discovery rounds (Group 1 discover → Group 2 verify → Group 3 synthesize) over _sources/mission-control, _sources/buzz, and Fabrica-app/. Round 4 candidates are listed in the Checkpoint's Next Action.
 3. PARALLELISM CHECK: count your active worker terminals. Minimum is FIVE. If fewer, launch more NOW across the round's discovery/verification/synthesis items. Follow Anti-Overlap protocol in Heartbeat.md 3b: claim each item in the Checkpoint/task tables BEFORE dispatching; never duplicate a claimed item.
@@ -143,6 +147,8 @@ Do not wait idle - if blocked on a decision, note the question in the task file 
 1787437900000 | APP (manual schema-migration kick) | term_9c6383f5-35bf-4f6a-b188-0668b25441a2
 1787445657000 | WEB+APP+ROADMAP (parallelism scale-up kick) | term_830c3392/term_9c6383f5/term_8efb8783
 — | FRESH START 2026-08-23: all prior terminals closed; new fleet = APP-ORCH + ATLAS-ORCH (min 5 workers each) | —
+1787451000000 | APP-ORCH (activation kick) | term_dbd03d2a-d61e-44de-ad6a-7c8d647c02ee
+1787451000001 | ATLAS-ORCH (activation kick) | term_d9954d8e-b3c1-42ee-9864-53762398a02c
 
 ---
 
