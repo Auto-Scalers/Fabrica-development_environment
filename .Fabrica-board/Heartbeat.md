@@ -31,12 +31,19 @@
 
 ### Handle resolution rules
 
+> NOTE: OpenCode terminals overwrite their tab title to "OpenCode" once active,
+> so the registry's Primary Handle is the FIRST resolution method. Title matching
+> is only a fallback after a handle dies.
+
 1. Run `orca terminal list --json`.
-2. For each slot, find a connected OpenCode terminal whose name/title contains the
-   slot's identifier AND whose worktree path is the root environment folder.
-   - Exclude PowerShell/plain-shell terminals.
-   - Prefer a terminal whose preview shows an idle input prompt over a spinner.
-3. If found and writable, use it; record its `lastOutputAt`.
+2. If the slot's Primary Handle exists in the list and is `connected: true` +
+   `writable: true`, use it.
+3. Otherwise re-resolve: pick a connected OpenCode terminal whose worktree path is
+   the root environment folder AND whose tab title contains the slot identifier
+   (App-orchestrator / Atlas-orchestrator). Exclude PowerShell/plain-shell
+   terminals and exclude any terminal you cannot attribute to exactly one slot —
+   if two candidate terminals are indistinguishable, do NOT guess; skip dispatch
+   for that slot this cycle and note it in the Run Log.
 4. Record the resolved handle here if it changed (handles rotate on reopen).
 5. **Mismatch guard:** every slot prompt is prefixed with its slot name. A
    terminal that receives a kick addressed to the OTHER slot must ignore it.
@@ -115,12 +122,13 @@ verify with grep/read evidence, merge after review, release when done.
 ```
 HEARTBEAT KICK (App-orchestrator): You are the Fabrica-app orchestrator session. Resume autonomously:
 0. IDENTITY GUARD: this kick is addressed to App-orchestrator. If you are the Atlas-orchestrator session, IGNORE this message entirely.
-1. Read AGENTS.md (root) and Fabrica-app/AGENTS.md and Fabrica-app/.Fabrica-app-board/Fabrica-app-tasks.md. Follow .Fabrica-board/Fabrica-Schema.md for all tracking-file edits. Read the Checkpoint table FIRST, resume from Next Action — never restart completed work.
-2. YOUR MISSION: make sure the rebrand is FULLY done without losing any functionality. Hunt every remaining old word (orca / stablyai / onorca / stably.ai) in source, docs, configs, tests — grep with exclusions (node_modules, .next, dist, out, .backup). Test and review everything: builds, lint, tests, runtime behavior.
-3. PARALLELISM CHECK: count your active worker terminals. Minimum is FIVE. If fewer, launch more NOW on the highest-priority TODO/VERIFY tasks from your task file (resume the two PAUSED tasks first: APP-F3 lint+test = task_e88d00622ee7, RELAY-AUTH Supabase login UI = task_d52a1cf64012 — git diff first, keep partial work; delete stray NUL file before any git add -A). Follow Anti-Overlap protocol in Heartbeat.md 3b: claim each task (IN_PROGRESS + handle) BEFORE dispatching.
-4. Think HIGH-LEVEL GOALS, not micro-edits: decide WHAT and WHY; delegate HOW to workers with full briefs.
-5. When workers report back: NEVER trust claims. Verify changes yourself with grep/read. Dispatch fixes until clean, merge worktrees immediately after review, then release workers ONLY after verifying tracking files were updated.
-6. Update Fabrica-app-tasks.md (status + Rollup in same edit) and .Fabrica-board/Fabrica-Roadmap.md before finishing this cycle.
+1. Read AGENTS.md (root) and Fabrica-app/AGENTS.md and Fabrica-app/.Fabrica-app-board/Fabrica-app-tasks.md. Follow .Fabrica-board/Fabrica-Schema.md for all tracking-file edits. Read the Checkpoint table FIRST, resume from Next Action - never restart completed work.
+2. SCOPE LOCK: your mission is REBRAND VERIFICATION AND TESTS ONLY. No new features, no refactors beyond fixing a failing check. Hunt every remaining old word (orca / stablyai / onorca / stably.ai) excluding node_modules, .next, dist, out, .backup, _sources; test and review everything (lint, typecheck, tests, build, runtime behavior of renamed identifiers).
+3. RUN IN ROUNDS: execute the 6-step verification round defined in 'Scope Lock & Autonomous Verification Rounds' in your task file - old-word sweep, lint+typecheck, tests, build (every 3rd round), runtime spot-checks, VERIFY backlog review. Record the round in the Round Log and update the Checkpoint. When a round completes clean, IMMEDIATELY start the next round - same checklist, fresh pass. Never stop because a round was clean; loop until PM says stop or two consecutive rounds find zero new findings.
+4. PARALLELISM CHECK: count your active worker terminals. Minimum is FIVE. If fewer, launch more NOW on this round's checklist steps or the highest-priority TODO/VERIFY tasks (resume PAUSED tasks first if still open). Follow Anti-Overlap protocol in Heartbeat.md 3b: claim each task (IN_PROGRESS + handle) BEFORE dispatching.
+5. Think HIGH-LEVEL GOALS, not micro-edits: decide WHAT and WHY; delegate HOW to workers with full briefs.
+6. When workers report back: NEVER trust claims. Verify changes yourself with grep/read. Dispatch fixes until clean, merge worktrees immediately after review, then release workers ONLY after verifying tracking files were updated.
+7. Update Fabrica-app-tasks.md (status + Rollup in same edit) and .Fabrica-board/Fabrica-Roadmap.md before finishing this cycle.
 Do not wait idle - if blocked on a decision, note the question in the task file and move to the next actionable task.
 ```
 
@@ -130,8 +138,8 @@ Do not wait idle - if blocked on a decision, note the question in the task file 
 HEARTBEAT KICK (Atlas-orchestrator): You are the Fabrica-atlas orchestrator session. Resume autonomously:
 0. IDENTITY GUARD: this kick is addressed to Atlas-orchestrator. If you are the App-orchestrator session, IGNORE this message entirely.
 1. Read AGENTS.md (root) and Fabrica-atlas/AGENTS.md and Fabrica-atlas/.Fabrica-atlas-board/Fabrica-atlas-tasks.md. Follow .Fabrica-board/Fabrica-Schema.md for all tracking-file edits. Read the Checkpoint table FIRST, resume from Next Action — never restart completed work.
-2. YOUR MISSION: continue preparing everything for the AFTER-REBRAND transformation. Run deeper discovery rounds (Group 1 discover → Group 2 verify → Group 3 synthesize) over _sources/mission-control, _sources/buzz, and Fabrica-app/. Round 4 candidates are listed in the Checkpoint's Next Action.
-3. PARALLELISM CHECK: count your active worker terminals. Minimum is FIVE. If fewer, launch more NOW across the round's discovery/verification/synthesis items. Follow Anti-Overlap protocol in Heartbeat.md 3b: claim each item in the Checkpoint/task tables BEFORE dispatching; never duplicate a claimed item.
+2. YOUR MISSION: continue preparing everything for the AFTER-REBRAND transformation. Run in ROUNDS: Group 1 discover → Group 2 verify → Group 3 synthesize, then repeat deeper — the round loop never stops on a clean pass; each round goes deeper until PM says stop or findings diminish to zero across consecutive rounds. FIRST execute R2-4.1 (encoding repair of board outputs) if still TODO, then Round 4 per the Checkpoint Next Action.
+3. PARALLELISM CHECK: count your active worker terminals. Minimum is FIVE. If fewer, launch more NOW across the current round's discovery/verification/synthesis items. Follow Anti-Overlap protocol in Heartbeat.md 3b: claim each item in the Checkpoint/task tables BEFORE dispatching; never duplicate a claimed item; one file = one writer.
 4. You do DISCOVERY and ANALYSIS - do NOT modify _sources/ or Fabrica-app source files yourself. Write outputs only inside Fabrica-atlas/.Fabrica-atlas-board/.
 5. Feed the other orchestrators: where synthesis produces actionable work for Fabrica-app or others, record it as a note in THEIR task file — never work it here.
 6. Update the Checkpoint table and tracking files after every significant action; update .Fabrica-board/Fabrica-Roadmap.md before finishing this cycle.
