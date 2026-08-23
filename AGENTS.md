@@ -15,6 +15,7 @@ You are the **orchestrator**. You dispatch workers directly to sub-project workt
 | `Fabrica-marketing/` | Marketing assets, copy, launch materials | `Fabrica-marketing/AGENTS.md` | `6f298adc-e33d-42de-942f-f68caafd905c::C:/Users/BAB AL SAFA/Desktop/Fabrica-development_environment/Fabrica-marketing` |
 | `Fabrica-plugins/` | Plugin marketplace index (JSON registry) | `Fabrica-plugins/AGENTS.md` | `50c4d32d-dbcc-441f-a2df-4cd3e5317bb6::C:/Users/BAB AL SAFA/Desktop/Fabrica-development_environment/Fabrica-plugins` |
 | `Fabrica-relay/` | Relay server (WebSocket bridge for phone↔desktop) | `Fabrica-relay/AGENTS.md` | `pending` |
+| `Fabrica-atlas/` | Discovery & transformation planning (owns `_sources/`: mission-control, buzz, legacy-fabrica) | `Fabrica-atlas/AGENTS.md` | `fe588915-bf33-4c64-8904-7b22b223c5b2::C:/Users/BAB AL SAFA/Desktop/Fabrica-development_environment/Fabrica-atlas` |
 
 ## What You Own
 
@@ -252,6 +253,36 @@ When a new session starts, it should immediately:
 - **Do NOT stop workers that are stuck but not done.** If a worker appears stuck, check its terminal output first. Only stop workers that are: (1) completely done and reviewed, or (2) no longer needed because the task was cancelled. Stuck workers can be resumed — stopped workers lose context and must restart from scratch.
 - **Do NOT wait for workers to finish.** After dispatching and confirming the worker is running (prompt sent, processing started), move on to the next task. You will receive a `worker_done` notification when it completes. Waiting is a waste of time.
 
+## Parallelism Policy (24/7 Multi-Terminal Orchestration)
+
+We run **real, continuous, multi-terminal orchestration**: unlimited tokens, a
+multi-terminal app, many sub-projects, close deadline. Parallelism is the default.
+
+1. **Minimum fleet:** policy floor is **at least 3 active worker terminals** per
+   orchestrator slot. **Current PM mandate (2026-08-23): APP and ATLAS
+   orchestrators each run ≥ 5 workers.** If a slot is under minimum at resume or
+   cycle end, launching more comes FIRST — picked from the highest-priority
+   TODO/VERIFY items in its own roadmap/task file, focused on high-level goals,
+   not micro-edits.
+2. **Anti-overlap protocol (STRICT):**
+   - **One task = one worker.** A worker claims its task by setting `IN_PROGRESS`
+     and recording its handle in the Session Ledger BEFORE starting. Claimed tasks
+     are forbidden territory for everyone else.
+   - **One folder = one orchestrator.** Slots never touch another slot's folder.
+   - **One file = one writer.** Two live workers must never edit the same file;
+     such tasks run sequentially.
+   - **Claim-before-work:** on start, a worker confirms its Task ID is still
+     unclaimed; if done or taken, stop and report — never duplicate.
+   - Cross-project dependencies are recorded as notes in the OTHER project's task
+     file, never worked on directly.
+3. **Quality bar never relaxes:** no DONE without orchestrator-verified evidence
+   (grep/read); tracking files + Rollup updated in the same edit cycle; finished
+   terminals closed only after review and tracking-file updates.
+4. **No gaps:** every heartbeat cycle checks fleet size per slot (see
+   `.Fabrica-board/Heartbeat.md` §3b) and refills idle capacity from the task files.
+   The canonical policy text lives in `.Fabrica-board/Fabrica-Schema.md` §9 and is
+   mirrored in every AGENTS.md and tracking file.
+
 ## Roadmap
 
 The top-level roadmap lives at `.Fabrica-Board/Fabrica-Roadmap.md`. It is a **tracking hub only** — phases, status, and links to task files.
@@ -269,6 +300,7 @@ Each sub-project has its own task file that owns execution details.
 | Fabrica-marketing | `Fabrica-marketing/.Fabrica-marketing-board/Fabrica-marketing-tasks.md` | Brand, launch copy, content, press |
 | Fabrica-plugins | `Fabrica-plugins/.Fabrica-plugins-board/Fabrica-plugins-tasks.md` | Plugin marketplace index, submission process, quality |
 | Fabrica-relay | `Fabrica-relay/.Fabrica-relay-board/Fabrica-relay-tasks.md` | Relay server (WebSocket bridge for phone↔desktop) |
+| Fabrica-atlas | `Fabrica-atlas/.Fabrica-atlas-board/Fabrica-atlas-tasks.md` | Discovery & transformation planning (ex-Roadmap 02): source-repo discovery, verification, synthesis, production architecture |
 
 **Rule:** Do not duplicate task details in the Roadmap. When dispatching work, reference the specific task file for that sub-project.
 
