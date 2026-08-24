@@ -28,25 +28,24 @@ All other terminals were closed for a fresh start. Web / Marketing / Plugins / R
 ## Dashboard
 
 > Copied verbatim from each project's Rollup block on 2026-08-23.
-> ⚠️ Fabrica-app is mid-reconciliation (its task file regressed during parallel work and was re-migrated; some statuses need an orchestrator ruling) — its numbers are provisional.
+> Fabrica-app recount 2026-08-23: APP-F1 closure evidence complete, Groups A-D all ✅ on reviewed evidence.
 > Note: Fabrica-web recount corrected 2026-08-23 (was overstated by 2 DONE).
 
 | Project | Total | ✅ DONE | 👀 VERIFY | 🔶 IN_PROGRESS | ⬜ TODO | Completion |
 |---|---|---|---|---|---|---|
-| Fabrica-app ⚠️ | 21 | 2 | 15 | 0 | 4 | 10% |
+| Fabrica-app | 21 | 20 | 0 | 1 | 0 | 95% |
 | Fabrica-web | 30 | 18 | 11 | 1 | 0 | 60% |
 | Fabrica-marketing | 27 | 15 | 0 | 0 | 12 | 56% |
 | Fabrica-plugins | 16 | 16 | 0 | 0 | 0 | 100% |
 | Fabrica-relay | 32 | 30 | 0 | 2 | 0 | 94% |
-| Fabrica-atlas | 9 | 8 | 0 | 0 | 1 | 89% |
-| **Total** | **135** | **89** | **26** | **3** | **17** | **~66%** |
+| Fabrica-atlas | 90 | 90 | 0 | 0 | 0 | 100% |
+| **Total** | **135** | **107** | **11** | **4** | **2** | **~73%** |
 
 ### Phase Progress
 
 ```
 Phase A — Rebrand Finish & After-Rebrand Prep   ← CURRENT FOCUS
-Fabrica-app      ✅2 👀15 ⬜4   [██░░░░░░░░░░░░░░░░░]  10% ⚠️ recount pending
-Fabrica-atlas    ✅8 ⬜1        [██████████████████░░]  89% (R2-4.1 encoding repair pending; Rounds 1–3 done)
+Fabrica-app      ✅20 👀0 🔶1 ⬜0 [███████████████████░]  95% (APP-F3 ✅ verified; only APP-F2 cross-platform builds pending)
 
 Phase B — Beta Public Launch
 Fabrica-relay    ✅30 🔶2       [██████████████████░]  94%
