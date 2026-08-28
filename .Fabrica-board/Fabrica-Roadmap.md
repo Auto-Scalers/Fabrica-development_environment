@@ -22,7 +22,7 @@
 | Orchestrator           | Slot             | Mission                                                                                                                           | Min workers |
 | ---------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | **App-orchestrator**   | `Fabrica-app/`   | R8 verification complete. Remaining: 4 blocked/deferred items (E1 appId, E4 nudge.json, E6b npm fork, F2 macOS/Linux). Awaiting PM instructions | 3           |
-| **Atlas-orchestrator** | `Fabrica-atlas/` | PROGRAM COMPLETE (91/91). Feature catalogs created (Fabrica, MC, buzz). Old atlas-qa.md deleted. Files reorganized. Awaiting PM vision for After-Rebrand implementation | 0           |
+| **Atlas-orchestrator** | `Fabrica-atlas/` | PROGRAM COMPLETE (91/91). Feature catalogs created and organized. Old atlas-qa.md deleted. Files reorganized. Awaiting PM vision for After-Rebrand implementation | 0           |
 
 
 All other slots dormant. Web / Marketing / Plugins / Relay activate when their phase arrives.
@@ -39,20 +39,20 @@ All other slots dormant. Web / Marketing / Plugins / Relay activate when their p
 
 | Project           | Total   | ✅ DONE  | 👀 VERIFY | 🔶 IN_PROGRESS | ⬜ TODO | Completion |
 | ----------------- | ------- | ------- | --------- | -------------- | ------ | ---------- |
-| Fabrica-app       | 28      | 26      | 0         | 1              | 0      | 93%        |
+| Fabrica-app       | 28      | 27      | 0         | 0              | 1      | 96%        |
 | Fabrica-web       | 32      | 32      | 0         | 0              | 0      | 100%       |
 | Fabrica-marketing | 27      | 15      | 0         | 0              | 12     | 56%        |
 | Fabrica-plugins   | 16      | 16      | 0         | 0              | 0      | 100%       |
 | Fabrica-relay     | 32      | 32      | 0         | 0              | 0      | 100%       |
 | Fabrica-atlas     | 91      | 91      | 0         | 0              | 0      | 100%       |
-| **Total**         | **226** | **212** | **0**     | **1**          | **13** | **94%**    |
+| **Total**         | **226** | **213** | **0**     | **0**          | **13** | **94%**    |
 
 
 ### Phase Progress
 
 ```
 Phase A — Rebrand Finish & Prep          ← CURRENT (86% — code complete, R8 verified, remaining items are PM decisions + external deps)
-Fabrica-app      ✅26 👀0 🔶1 ⬜0 [███████████████████████]  93%
+Fabrica-app      ✅27 👀0 🔶0 ⬜1 [████████████████████████]  96%
 
 Phase B — Update Pipeline (Orca Sync)    ← NEXT (0%)
 Build repeatable workflow to pull new Orca features into Fabrica-app without breaking rebrand.
