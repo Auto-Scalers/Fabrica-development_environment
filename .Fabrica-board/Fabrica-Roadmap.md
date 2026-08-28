@@ -22,7 +22,7 @@
 | Orchestrator           | Slot             | Mission                                                                                                                           | Min workers |
 | ---------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | **App-orchestrator**   | `Fabrica-app/`   | R8 verification complete. Remaining: 4 blocked/deferred items (E1 appId, E4 nudge.json, E6b npm fork, F2 macOS/Linux). Awaiting PM instructions | 3           |
-| **Atlas-orchestrator** | `Fabrica-atlas/` | PROGRAM COMPLETE (91/91). Feature catalogs created (Fabrica, MC, buzz). Awaiting PM vision for After-Rebrand implementation | 0           |
+| **Atlas-orchestrator** | `Fabrica-atlas/` | PROGRAM COMPLETE (91/91). Feature catalogs created (Fabrica, MC, buzz). Old atlas-qa.md deleted. Awaiting PM vision for After-Rebrand implementation | 0           |
 
 
 All other slots dormant. Web / Marketing / Plugins / Relay activate when their phase arrives.
