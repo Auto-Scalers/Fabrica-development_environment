@@ -144,6 +144,10 @@ Orchestrator (you — in Fabrica-development_environment)
 └── ...
 ```
 
+### Fabrica-App Transformation Rule (CRITICAL)
+
+**Strictly preserve all existing Fabrica features.** We enhance, extend, and add — we do NOT remove or massively refactor. Every existing component, panel, setting, backend service, and feature must continue to work after any change. If a feature from MC/buzz replaces an existing Fabrica feature, the new version must be a strict superset — same functionality, plus more. This is a rebrand and enhancement, not a rewrite.
+
 ### Rules
 
 1. **You dispatch workers directly** — no middle layer, no sub-orchestrators.
