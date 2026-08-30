@@ -21,7 +21,7 @@
 
 | Orchestrator           | Slot             | Mission                                                                                                                           | Min workers |
 | ---------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| **App-orchestrator**   | `Fabrica-app/`   | Rebrand verified + committed/pushed. Windows .exe + Android APK built + published in GitHub release v0.0.43. Landing page /download wired + pushed (live). Plugins pushed, web backend deployed+env set, **Beta announced (PH/Show HN/social)**. → **Phase C Post-Beta Growth**  | 0           |
+| **App-orchestrator**   | `Fabrica-app/`   | Physical testing (H1-H5) → rebuild installers (H6-H7) → trigger marketing (DNA+brand from app+atlas, rewrite landing page). Update pipeline delegated to Fabrica-update/. | 0           |
 | **Atlas-orchestrator** | `Fabrica-atlas/` | PROGRAM COMPLETE (91/91). Awaiting PM go/no-go on After-Rebrand implementation                                                    | 0           |
 
 
@@ -31,32 +31,32 @@ All other slots dormant. Web / Marketing / Plugins / Relay activate when their p
 
 ## Dashboard
 
-> Copied verbatim from each project's Rollup block on 2026-08-25.
-> Fabrica-app recount 2026-08-25: R8 verified — SWEEP/BUILD/LINT-TC/MOBILE all clean, R7 Group E all done. 28 total, 24 DONE (86%). Remaining: E1 appId lockstep, E4 nudge.json, E6b npm fork, F2 macOS/Linux runners.
-> Fabrica-web recount 2026-08-24: 32/32 DONE (100%).
-> Note: Fabrica-web recount corrected 2026-08-23 (was overstated by 2 DONE).
-> Fabrica-update recount 2026-08-30: 6 tasks (T1-T6), 0 DONE, 6 TODO. Analysis-only workspace — no code output expected.
+> Copied verbatim from each project's Rollup block on 2026-08-30 (dashboard reconciliation).
+> Fabrica-app recount 2026-08-30: 49 tasks, 42 DONE, 7 TODO (86%). Group H: 7 physical testing + rebuild tasks (H1-H7) all TODO.
+> Fabrica-web recount 2026-08-30: 48 unique tasks, 48 DONE (100%). Deduplicated W40a cross-listing.
+> Fabrica-plugins recount 2026-08-30: 20 tasks, 20 DONE (100%). Group 6 (P11-P14) added post-migration.
+> Fabrica-update recount 2026-08-30: 6 tasks (T1-T6), 1 DONE (T2), 5 TODO. Analysis-only workspace — no code output expected.
 
 
 | Project           | Total   | ✅ DONE  | 👀 VERIFY | 🔶 IN_PROGRESS | ⬜ TODO | Completion |
 | ----------------- | ------- | ------- | --------- | -------------- | ------ | ---------- |
-| Fabrica-app       | 43      | 43      | 0         | 0              | 0      | 100%       |
-| Fabrica-web       | 45      | 45      | 0         | 0              | 0      | 100%       |
+| Fabrica-app       | 49      | 42      | 0         | 0              | 7      | 86%        |
+| Fabrica-web       | 48      | 48      | 0         | 0              | 0      | 100%       |
 | Fabrica-marketing | 27      | 27      | 0         | 0              | 0      | 100%       |
-| Fabrica-plugins   | 16      | 16      | 0         | 0              | 0      | 100%       |
+| Fabrica-plugins   | 20      | 20      | 0         | 0              | 0      | 100%       |
 | Fabrica-relay     | 32      | 32      | 0         | 0              | 0      | 100%       |
-| Fabrica-atlas     | 91      | 91      | 0         | 0              | 0      | 100%       |
-| Fabrica-update    | 6       | 0       | 0         | 0              | 6      | 0%         |
-| **Total** | **260** | **254** | **0**     | **0**          | **6**  | **98%**    |
+| Fabrica-atlas     | 0       | 0       | 0         | 0              | 0      | 0% (archived) |
+| Fabrica-update    | 6       | 1       | 0         | 0              | 5      | 17%        |
+| **Total** | **182** | **170** | **0**     | **0**          | **12** | **93%**    |
 
 
 ### Phase Progress
 
 ```
-Phase A — Rebrand Finish & Prep          ← COMPLETE (App rebrand committed+push: 552 files; Windows installer + Android APK built & published in release v0.0.43; landing page /download wired + pushed; web backend deployed + Vercel env set; G1/G3/G7 reopened — G3 done, G1+G7 TODO)
-Fabrica-app      ✅43 🔶0 🚫0 ❌0 ⬜0 [████████████████████] 100% (G1 contrast + G7 non-technical copy/font+zoom DONE; G8 settings panel reorder removed per PM; ~20 stale 👀 VERIFY rows — promote wave dispatched)
-   Done: commit+push 552 files; build Win .exe + APK; publish GitHub release v0.0.43; wire landing /download; deploy web backend live + set Vercel env; push plugins (G5-FIX); Beta announced (PH/Show HN/social); G3 colored brand icons/logo fully wired across desktop + web (theme-aware)
-Fabrica-web      ✅45 🔶0 ⬜0 [██████████████████████]  100%
+Phase A — Rebrand Finish & Prep          ← COMPLETE (App rebrand committed+push: 552 files; Windows installer + Android APK built & published in release v0.0.43; landing page /download wired + pushed; web backend deployed + Vercel env set; G1/G3/G7 done; G8 removed; update pipeline delegated to Fabrica-update/)
+Fabrica-app      ✅42 ⬜7 [██████████████████████░░░░] 86% (Group H: physical testing H1-H5 ⬜, rebuild H6-H7 ⬜)
+   Done: commit+push 552 files; build Win .exe + APK; publish GitHub release v0.0.43; wire landing /download; deploy web backend live + set Vercel env; push plugins (G5-FIX); Beta announced (PH/Show HN/social); G1 WCAG AA contrast; G3 colored icon/logo; G7 non-technical copy + font/zoom
+Fabrica-web      ✅48 🔶0 ⬜0 [██████████████████████]  100%
    Done: /download + /dashboard pages built + pushed (live); web backend /v1/desktop/* deployed; Vercel env set; web brand icons swapped (light default + theme-aware via Tailwind `dark:` variant on navbar/hero/finalcta/login/download/dashboard)
 
 Phase B — Beta Public Launch             ← COMPLETE
@@ -64,12 +64,12 @@ Phase B — Beta Public Launch             ← COMPLETE
 
 Phase C — Post-Beta Growth
 Fabrica-marketing ✅27 ⬜0      [████████████████████] 100%
-Fabrica-web      ✅45           [██████████████████████] 100%
+Fabrica-web      ✅48           [██████████████████████] 100%
 Fabrica-relay    ✅32           [████████████████████] 100%
-Fabrica-plugins  ✅16           [████████████████████] 100%
+Fabrica-plugins  ✅20           [████████████████████] 100%
 
 Phase D — Atlas-Project Plan & Implementation
-Fabrica-atlas    ✅91           [████████████████████] 100% (awaiting PM go/no-go)
+Fabrica-atlas    ⬜0            (archived — tracking file wiped, 91 tasks in .archive/)
 ```
 
 ---
@@ -95,6 +95,10 @@ Fabrica-atlas    ✅91           [███████████████�
 
 | What                                       | Status         | Owner             | Notes                                                                                                                                                                                                                   |
 | ------------------------------------------ | -------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| G1/G3/G7 verification                      | ✅ Done         | Orchestrator      | All three confirmed in source: G1 WCAG AA tokens in main.css/terminal.css/mobile-page.css, G3 DEFAULT_APP_ICON_ID='light' + colored logo.svg, G7 en.json rewording + uiZoomLevel 0.5                                 |
+| Group H: Physical testing                  | ⬜ TODO         | PM (manual)       | H1 desktop login, H2 relay pairing, H3 phone control, H4 plugins, H5 general UI — PM runs app and tests each feature                                                                                                  |
+| Group H: Rebuild installers                | ⬜ TODO         | Fabrica-app       | H6 Windows .exe (electron-builder NSIS), H7 Android APK (EAS) — after H1-H5 pass                                                                                                                                       |
+| Marketing trigger                          | ⬜ TODO         | Orchestrator      | After H6+H7 done: dispatch Fabrica-marketing to read new DNA (app+atlas) and rewrite landing page                                                                                                                      |
 | App rebranding — display identity          | ✅ Done         | Fabrica-app       | App name, menu, firewall, helper, CLI, env vars, keychain, wire tokens, plugin engines, data dirs, casks, i18n, deep links                                                                                              |
 | API routes (W1–W7)                         | ✅ Done         | Fabrica-web       | All 9 route files built, no TS errors                                                                                                                                                                                   |
 | Plugin source study (P0a–P0f)              | ✅ Done         | Fabrica-plugins   | 9 repos cloned, schemas documented                                                                                                                                                                                      |
@@ -169,16 +173,19 @@ Fabrica-atlas    ✅91           [███████████████�
 | 6 | G6-RUN: build Fabrica APK via EAS | Fabrica-app | PM EAS login | ✅ Done — APK: https://expo.dev/artifacts/eas/-sZ8VjUyqnUyJaGJR64PsTShJEbHrTdYrieODLyG7U8.apk |
 | 7 | WEB-CTA: landing Download + Sign in buttons + /dashboard | Fabrica-web | — | ✅ Done — pages + buttons built (files verified) |
 | 8 | G2-skills lowercase fabrica- prefix fix | Fabrica-app | — | ✅ Done — lowercase fabrica- prefix applied to 8 skill dirs + constants + guides + manifest |
-| 9 | G1 UI color contrast (WCAG AA) | Fabrica-app | — | ❌ Cancelled (PM deferred) |
-| 10 | G3 Colored icon/logo in-app | Fabrica-app | — | ❌ Cancelled (PM deferred) |
-| 11 | G7 Non-technical UI copy + settings reorder + font/zoom | Fabrica-app | — | ❌ Cancelled (PM deferred) |
+| 9 | G1 UI color contrast (WCAG AA) | Fabrica-app | — | ✅ Done — token-level fixes verified in source |
+| 10 | G3 Colored icon/logo in-app | Fabrica-app | — | ✅ Done — DEFAULT_APP_ICON_ID='light', colored logo.svg wired |
+| 11 | G7 Non-technical UI copy + font/zoom defaults | Fabrica-app | — | ✅ Done — en.json reworded, uiZoomLevel 0→0.5 |
 | 12 | Skip Apple Dev for now | PM | — | ✅ Decided — no macOS builds in Beta |
 | 13 | Windows signing (deferred) | PM | — | 🔶 Deferred — unsigned installers OK for Beta, SmartScreen warning acceptable |
 | 14 | Build Windows installer (.exe + NSIS) | Fabrica-app | #2 committed | ✅ Done — fabrica-windows-setup.exe (171 MB) built + published in release v0.0.43 |
 | 15 | Add installer + APK to landing page download | Fabrica-web | #6,#14 | ✅ Done — /download wired + pushed (release v0.0.43 links) |
 | 16 | Beta public announcement | Fabrica-marketing | #15 live | ✅ Done — PH, Show HN, social campaign executed |
-| 17 | Map Orca vs Fabrica diff surface (#17: rebrand diff + upstream diff + implementation plan) | Fabrica-app | Beta shipped | 📝 Plan drafted (`Fabrica-app/.Fabrica-app-board/UPDATE-PIPELINE-PLAN.md`); ⬜ T1 pending PM Q1–Q4 |
-| 18 | Build update sync workflow | Fabrica-app | #17 done | ⬜ TODO |
+| 17 | Map Orca vs Fabrica diff surface (#17: rebrand diff + upstream diff + implementation plan) | Fabrica-app | Beta shipped | 📝 Plan drafted (`Fabrica-app/.Fabrica-app-board/UPDATE-PIPELINE-PLAN.md`); delegated to Fabrica-update/ |
+| 18 | Build update sync workflow | Fabrica-app | #17 done | 📝 Delegated to Fabrica-update/ |
+| 19 | H1-H5: Physical test (desktop login, relay, phone, plugins, UI) | PM | — | ⬜ TODO — PM manual testing |
+| 20 | H6-H7: Rebuild Windows installer + Android APK | Fabrica-app | #19 pass | ⬜ TODO |
+| 21 | Trigger marketing: read DNA+brand from app+atlas, rewrite landing page | Fabrica-marketing | #20 done | ⬜ TODO |
 
 
 ---
@@ -229,12 +236,12 @@ orchestrators launch; Heartbeat.md resolves by worktree path first, handle secon
 
 | Slot      | Orchestrator                    | Worktree             | Task File                    | Status                              |
 | --------- | ------------------------------- | -------------------- | ---------------------------- | ----------------------------------- |
-| APP       | App-orchestrator (root level)   | `Fabrica-app/`       | `Fabrica-app-tasks.md`       | **active** — R8 complete (86% done, 4 items remaining) |
-| ATLAS     | Atlas-orchestrator (root level) | `Fabrica-atlas/`     | `Fabrica-atlas-tasks.md`     | **complete** — 91/91 tasks done, 100% |
-| WEB       | *(dormant until Phase B)*       | `Fabrica-web/`       | `Fabrica-web-tasks.md`       | dormant (32/32 done — 100%)         |
-| MARKETING | *(dormant until Phase C)*       | `Fabrica-marketing/` | `Fabrica-marketing-tasks.md` | dormant (15/27 done — 56%)          |
-| PLUGINS   | *(dormant)*                     | `Fabrica-plugins/`   | `Fabrica-plugins-tasks.md`   | dormant (100% done)                 |
-| RELAY     | *(dormant)*                     | `Fabrica-relay/`     | `Fabrica-relay-tasks.md`     | dormant (100% done)                 |
+| APP       | App-orchestrator (root level)   | `Fabrica-app/`       | `Fabrica-app-tasks.md`       | **active** — R8 complete (86% done, 7 items remaining) |
+| ATLAS     | Atlas-orchestrator (root level) | `Fabrica-atlas/`     | `Fabrica-atlas-tasks.md`     | **archived** — tracking file wiped to 0 tasks; 91 tasks in `.archive/` |
+| WEB       | *(dormant until Phase B)*       | `Fabrica-web/`       | `Fabrica-web-tasks.md`       | dormant (48/48 done — 100%)         |
+| MARKETING | *(dormant until Phase C)*       | `Fabrica-marketing/` | `Fabrica-marketing-tasks.md` | dormant (27/27 done — 100%)          |
+| PLUGINS   | *(dormant)*                     | `Fabrica-plugins/`   | `Fabrica-plugins-tasks.md`   | dormant (20/20 done — 100%)                 |
+| RELAY     | *(dormant)*                     | `Fabrica-relay/`     | `Fabrica-relay-tasks.md`     | dormant (32/32 done — 100%)                 |
 
 
 ### Worker Sessions (ephemeral — released after review)
@@ -297,4 +304,4 @@ APP-F3) and restore lost ledger history from the archive copy.
 
 ---
 
-*Last updated: 2026-08-29 (BETA LAUNCH COMPLETE + PROMOTE WAVE DONE. Fabrica-app 43/43 (100%) — 0 TODO, 0 👀. G1 + G7 DONE; G8 removed; promote wave re-run flipped all 20 stale 👀 → ✅ (4 endpoints, 6 READMEs, 8 CI workflows, 2 casks); release-cut.yml:1147 stale diagnostics env also fixed. Fabrica-web 45/45, Fabrica-marketing 27/27, Fabrica-plugins 16/16, Fabrica-relay 32/32, Fabrica-atlas 91/91 (all 100%). Total 254/254 (100%). Phase A+B done. **Update pipeline plan drafted** — `Fabrica-app/.Fabrica-app-board/UPDATE-PIPELINE-PLAN.md` (Roadmap #17+#18: 3-phase analytics, "massive file" of mapped code lines, strict preservation, sync workflow). Awaiting PM Q1–Q4 to dispatch T1. Phase C post-Beta growth ongoing. Phase D Atlas-project plan awaiting PM go/no-go.)*
+*Last updated: 2026-08-30 (DASHBOARD RECONCILIATION. Corrected task counts from source task files: Fabrica-app 49 tasks (42 DONE, 7 TODO = 86%); Fabrica-web 48 tasks (48 DONE = 100%); Fabrica-plugins 20 tasks (20 DONE = 100%); Fabrica-atlas archived (tracking file wiped to 0 tasks, 91 in .archive/); Fabrica-update 6 tasks (1 DONE = 17%). Marketing session ledger cleaned (8 stale workers marked RELEASED). Grand total 182 tasks, 170 DONE, 12 TODO = 93%.)*
