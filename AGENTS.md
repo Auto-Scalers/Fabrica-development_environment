@@ -16,6 +16,7 @@ You are the **orchestrator**. You dispatch workers directly to sub-project workt
 | `Fabrica-plugins/` | Plugin marketplace index (JSON registry) | `Fabrica-plugins/AGENTS.md` | `50c4d32d-dbcc-441f-a2df-4cd3e5317bb6::C:/Users/BAB AL SAFA/Desktop/Fabrica-development_environment/Fabrica-plugins` |
 | `Fabrica-relay/` | Relay server (WebSocket bridge for phone↔desktop) | `Fabrica-relay/AGENTS.md` | `pending` |
 | `Fabrica-atlas/` | Discovery & transformation planning (owns `_sources/`: mission-control, buzz, legacy-fabrica) | `Fabrica-atlas/AGENTS.md` | `fe588915-bf33-4c64-8904-7b22b223c5b2::C:/Users/BAB AL SAFA/Desktop/Fabrica-development_environment/Fabrica-atlas` |
+| `Fabrica-update/` | Orca↔Fabrica diff analytics + sync workflow (read-only analysis workspace) | `Fabrica-update/AGENTS.md` | `pending` |
 
 ## What You Own
 
@@ -82,6 +83,7 @@ You can only write to:
 - `Fabrica-web/.Fabrica-web-board/` (task files)
 - `Fabrica-marketing/.Fabrica-marketing-board/` (task files)
 - `Fabrica-plugins/.Fabrica-plugins-board/` (task files)
+- `Fabrica-update/.Fabrica-update-board/` (task files)
 - Your own `AGENTS.md` and `README.md` (top-level only)
 
 **You NEVER audit sub-project code yourself.** You orchestrate and review. Workers do the actual code work.
@@ -305,6 +307,7 @@ Each sub-project has its own task file that owns execution details.
 | Fabrica-plugins | `Fabrica-plugins/.Fabrica-plugins-board/Fabrica-plugins-tasks.md` | Plugin marketplace index, submission process, quality |
 | Fabrica-relay | `Fabrica-relay/.Fabrica-relay-board/Fabrica-relay-tasks.md` | Relay server (WebSocket bridge for phone↔desktop) |
 | Fabrica-atlas | `Fabrica-atlas/.Fabrica-atlas-board/Fabrica-atlas-tasks.md` | Discovery & transformation planning (ex-Roadmap 02): source-repo discovery, verification, synthesis, production architecture |
+| Fabrica-update | `Fabrica-update/.Fabrica-update-board/Fabrica-update-tasks.md` | Orca↔Fabrica diff analytics + sync workflow: rebrand diff mapping, upstream diff analysis, implementation planning |
 
 **Rule:** Do not duplicate task details in the Roadmap. When dispatching work, reference the specific task file for that sub-project.
 

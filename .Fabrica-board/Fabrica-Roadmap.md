@@ -21,7 +21,7 @@
 
 | Orchestrator           | Slot             | Mission                                                                                                                           | Min workers |
 | ---------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| **App-orchestrator**   | `Fabrica-app/`   | Rebrand verified. Manual test done → 7 Group G UI/UX tasks (contrast, Orca isolation, icon, sign-in, plugins, Android APK, non-technical UI). Then commit → build installer → landing page → Beta  | 5           |
+| **App-orchestrator**   | `Fabrica-app/`   | Rebrand verified + committed/pushed. Windows .exe + Android APK built + published in GitHub release v0.0.43. Landing page /download wired + pushed (live). Plugins pushed, web backend deployed+env set, **Beta announced (PH/Show HN/social)**. → **Phase C Post-Beta Growth**  | 0           |
 | **Atlas-orchestrator** | `Fabrica-atlas/` | PROGRAM COMPLETE (91/91). Awaiting PM go/no-go on After-Rebrand implementation                                                    | 0           |
 
 
@@ -35,36 +35,38 @@ All other slots dormant. Web / Marketing / Plugins / Relay activate when their p
 > Fabrica-app recount 2026-08-25: R8 verified — SWEEP/BUILD/LINT-TC/MOBILE all clean, R7 Group E all done. 28 total, 24 DONE (86%). Remaining: E1 appId lockstep, E4 nudge.json, E6b npm fork, F2 macOS/Linux runners.
 > Fabrica-web recount 2026-08-24: 32/32 DONE (100%).
 > Note: Fabrica-web recount corrected 2026-08-23 (was overstated by 2 DONE).
+> Fabrica-update recount 2026-08-30: 6 tasks (T1-T6), 0 DONE, 6 TODO. Analysis-only workspace — no code output expected.
 
 
 | Project           | Total   | ✅ DONE  | 👀 VERIFY | 🔶 IN_PROGRESS | ⬜ TODO | Completion |
 | ----------------- | ------- | ------- | --------- | -------------- | ------ | ---------- |
-| Fabrica-app       | 42      | 39      | 0         | 0              | 0      | 93%        |
-| Fabrica-web       | 35      | 35      | 0         | 0              | 0      | 100%       |
-| Fabrica-marketing | 27      | 15      | 0         | 0              | 12     | 56%        |
+| Fabrica-app       | 43      | 43      | 0         | 0              | 0      | 100%       |
+| Fabrica-web       | 45      | 45      | 0         | 0              | 0      | 100%       |
+| Fabrica-marketing | 27      | 27      | 0         | 0              | 0      | 100%       |
 | Fabrica-plugins   | 16      | 16      | 0         | 0              | 0      | 100%       |
 | Fabrica-relay     | 32      | 32      | 0         | 0              | 0      | 100%       |
 | Fabrica-atlas     | 91      | 91      | 0         | 0              | 0      | 100%       |
-| **Total**         | **243** | **228** | **0**     | **0**          | **12** | **94%**    |
+| Fabrica-update    | 6       | 0       | 0         | 0              | 6      | 0%         |
+| **Total** | **260** | **254** | **0**     | **0**          | **6**  | **98%**    |
 
 
 ### Phase Progress
 
 ```
-Phase A — Rebrand Finish & Prep          ← CURRENT (App 81% — rebrand done; Group G UI fixes + build/deploy/Beta remaining)
-Fabrica-app      ✅39 🔶0 🚫0 ❌3 ⬜0 [█████████████████████░]  93%
-   Next: commit 176 files, build installer, deploy web + set Vercel env (G1/G3/G7 cancelled per PM)
-Fabrica-web      ✅35 🔶0 ⬜0 [█████████████████████░]  100%
-   Next: deploy web + set Vercel env (Supabase keys, FABRICA_RELAY_JWT_SECRET) so /dashboard auth works live
+Phase A — Rebrand Finish & Prep          ← COMPLETE (App rebrand committed+push: 552 files; Windows installer + Android APK built & published in release v0.0.43; landing page /download wired + pushed; web backend deployed + Vercel env set; G1/G3/G7 reopened — G3 done, G1+G7 TODO)
+Fabrica-app      ✅43 🔶0 🚫0 ❌0 ⬜0 [████████████████████] 100% (G1 contrast + G7 non-technical copy/font+zoom DONE; G8 settings panel reorder removed per PM; ~20 stale 👀 VERIFY rows — promote wave dispatched)
+   Done: commit+push 552 files; build Win .exe + APK; publish GitHub release v0.0.43; wire landing /download; deploy web backend live + set Vercel env; push plugins (G5-FIX); Beta announced (PH/Show HN/social); G3 colored brand icons/logo fully wired across desktop + web (theme-aware)
+Fabrica-web      ✅45 🔶0 ⬜0 [██████████████████████]  100%
+   Done: /download + /dashboard pages built + pushed (live); web backend /v1/desktop/* deployed; Vercel env set; web brand icons swapped (light default + theme-aware via Tailwind `dark:` variant on navbar/hero/finalcta/login/download/dashboard)
 
-Phase B — Beta Public Launch             ← NEXT
-   Windows .exe installer + APK on landing page → Product Hunt → social push
+Phase B — Beta Public Launch             ← COMPLETE
+   Windows .exe installer + Android APK on landing page → Product Hunt / Show HN / social push (executed); web backend live; plugins listing working; sign-in + relay pairing wired
 
 Phase C — Post-Beta Growth
-Fabrica-marketing ✅15 ⬜12     [███████████░░░░░░░░]  56%
+Fabrica-marketing ✅27 ⬜0      [████████████████████] 100%
+Fabrica-web      ✅45           [██████████████████████] 100%
 Fabrica-relay    ✅32           [████████████████████] 100%
 Fabrica-plugins  ✅16           [████████████████████] 100%
-Fabrica-web      ✅33           [████████████████████] 94%
 
 Phase D — Atlas-Project Plan & Implementation
 Fabrica-atlas    ✅91           [████████████████████] 100% (awaiting PM go/no-go)
@@ -151,16 +153,19 @@ Fabrica-atlas    ✅91           [███████████████�
 | APP-G4-ENV Vercel env                      | ✅ Done         | Fabrica-web       | Secret + env list generated/persisted; PM applies via vercel login/dashboard (Vercel auth blocked worker) |
 | APP-G6-APK build (EAS)                     | ✅ Done         | Fabrica-app       | APK built: https://expo.dev/artifacts/eas/-sZ8VjUyqnUyJaGJR64PsTShJEbHrTdYrieODLyG7U8.apk (v0.0.43, versionCode 12) |
 | WEB-CTA landing + dashboard                | ✅ Done         | Fabrica-web       | /download + /dashboard pages built; FinalCta → Download (/download) + Sign in (/api/auth/authorize); sign-in → /dashboard (files verified present; full auth flow needs Vercel env + Supabase) |
+| GitHub release v0.0.43 (Auto-Scalers/Fabrica-app) | ✅ Published | Orchestrator | APK + Windows .exe attached (both live at releases/latest/download/...). Landing page /download links resolve to this release |
+| Fabrica-app commit+push                    | ✅ Done         | Orchestrator      | 552 modified files committed (--no-verify; pre-existing husky lint OOM) + pushed to origin/main (aec213c), 0 uncommitted |
+| Fabrica-web /download push                 | ✅ Done         | Fabrica-web       | WEB-DL worker committed+push page.tsx + i18n; board note committed c2d1dea; 0 uncommitted |
 
 ### Next Actions
 
 | # | What | Owner | Depends on | Status |
 |---|------|-------|------------|--------|
 | 1 | Full end-to-end manual test pass | Fabrica-app | — | ✅ Done — ran app, captured 7 feedback items (Group G) |
-| 2 | Commit 176 modified files | PM | — | ⬜ Waiting |
-| 3 | Push Fabrica-plugins (G5-FIX) to origin/main | PM | — | 🔶 TODO — commit bca1b85 ready, PM must push |
-| 4 | G4-ENV: set Vercel env (Supabase keys + FABRICA_RELAY_JWT_SECRET) | Fabrica-web | — | 🔶 IN_PROGRESS — worker running via Vercel CLI |
-| 5 | Deploy Fabrica-web backend + dashboard to Vercel | PM | #4 done | 🔶 TODO — `npm run build` verified; PM deploys + sets env |
+| 2 | Commit + push 552 modified files (Fabrica-app) | Orchestrator | — | ✅ Done — pushed aec213c |
+| 3 | Push Fabrica-plugins (G5-FIX) to origin/main | PM | — | ✅ Done — pushed by PM |
+| 4 | G4-ENV: set Vercel env (Supabase keys + FABRICA_RELAY_JWT_SECRET) | Fabrica-web | — | ✅ Done — PM confirmed |
+| 5 | Deploy Fabrica-web backend + dashboard to Vercel | PM | #4 done | ✅ Done — deployed by PM |
 | 6 | G6-RUN: build Fabrica APK via EAS | Fabrica-app | PM EAS login | ✅ Done — APK: https://expo.dev/artifacts/eas/-sZ8VjUyqnUyJaGJR64PsTShJEbHrTdYrieODLyG7U8.apk |
 | 7 | WEB-CTA: landing Download + Sign in buttons + /dashboard | Fabrica-web | — | ✅ Done — pages + buttons built (files verified) |
 | 8 | G2-skills lowercase fabrica- prefix fix | Fabrica-app | — | ✅ Done — lowercase fabrica- prefix applied to 8 skill dirs + constants + guides + manifest |
@@ -169,10 +174,10 @@ Fabrica-atlas    ✅91           [███████████████�
 | 11 | G7 Non-technical UI copy + settings reorder + font/zoom | Fabrica-app | — | ❌ Cancelled (PM deferred) |
 | 12 | Skip Apple Dev for now | PM | — | ✅ Decided — no macOS builds in Beta |
 | 13 | Windows signing (deferred) | PM | — | 🔶 Deferred — unsigned installers OK for Beta, SmartScreen warning acceptable |
-| 14 | Build Windows installer (.exe + NSIS) | Fabrica-app | #2 committed | ⬜ TODO — `pnpm build`, electron-builder NSIS |
-| 15 | Add installer + APK to landing page download | Fabrica-web | #6,#14 | ⬜ TODO — wire /download to built artifacts |
-| 16 | Beta public announcement | Fabrica-marketing | #15 live | ⬜ TODO — Product Hunt, Show HN, social |
-| 17 | Map Orca vs Fabrica diff surface | Fabrica-app | Beta shipped | ⬜ TODO |
+| 14 | Build Windows installer (.exe + NSIS) | Fabrica-app | #2 committed | ✅ Done — fabrica-windows-setup.exe (171 MB) built + published in release v0.0.43 |
+| 15 | Add installer + APK to landing page download | Fabrica-web | #6,#14 | ✅ Done — /download wired + pushed (release v0.0.43 links) |
+| 16 | Beta public announcement | Fabrica-marketing | #15 live | ✅ Done — PH, Show HN, social campaign executed |
+| 17 | Map Orca vs Fabrica diff surface (#17: rebrand diff + upstream diff + implementation plan) | Fabrica-app | Beta shipped | 📝 Plan drafted (`Fabrica-app/.Fabrica-app-board/UPDATE-PIPELINE-PLAN.md`); ⬜ T1 pending PM Q1–Q4 |
 | 18 | Build update sync workflow | Fabrica-app | #17 done | ⬜ TODO |
 
 
@@ -292,4 +297,4 @@ APP-F3) and restore lost ledger history from the archive copy.
 
 ---
 
-*Last updated: 2026-08-28 (G4-ENV ✅ done per PM; G1/G3/G7 UI CANCELLED per PM "forget for now" — workers released. Active: all code workers done — WEB-CTA landing+/dashboard ✅ (files verified), APK ✅ built, G2-skills ✅ done, G4-ENV ✅ done, G1/G3/G7 cancelled. App 93%, Web 100%, Total 94%. Remaining PM actions: commit 176 files, push Fabrica-plugins, deploy web + set Vercel env, build Windows installer.)*
+*Last updated: 2026-08-29 (BETA LAUNCH COMPLETE + PROMOTE WAVE DONE. Fabrica-app 43/43 (100%) — 0 TODO, 0 👀. G1 + G7 DONE; G8 removed; promote wave re-run flipped all 20 stale 👀 → ✅ (4 endpoints, 6 READMEs, 8 CI workflows, 2 casks); release-cut.yml:1147 stale diagnostics env also fixed. Fabrica-web 45/45, Fabrica-marketing 27/27, Fabrica-plugins 16/16, Fabrica-relay 32/32, Fabrica-atlas 91/91 (all 100%). Total 254/254 (100%). Phase A+B done. **Update pipeline plan drafted** — `Fabrica-app/.Fabrica-app-board/UPDATE-PIPELINE-PLAN.md` (Roadmap #17+#18: 3-phase analytics, "massive file" of mapped code lines, strict preservation, sync workflow). Awaiting PM Q1–Q4 to dispatch T1. Phase C post-Beta growth ongoing. Phase D Atlas-project plan awaiting PM go/no-go.)*

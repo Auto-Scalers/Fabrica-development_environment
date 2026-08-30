@@ -13,3 +13,9 @@
 [submodule "Fabrica-relay"]
 	path = Fabrica-relay
 	url = https://github.com/Auto-Scalers/Fabrica-relay.git
+[submodule "Fabrica-update"]
+	path = Fabrica-update
+	url = https://github.com/Auto-Scalers/Fabrica-update.git
+[submodule "Fabrica-atlas"]
+	path = Fabrica-atlas
+	url = https://github.com/Auto-Scalers/Fabrica-atlas.git
