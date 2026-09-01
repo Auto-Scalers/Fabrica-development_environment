@@ -34,7 +34,7 @@ All other slots dormant. Web / Marketing / Plugins / Relay activate when their p
 
 > Synced from sub-project task files on 2026-09-01.
 > Fabrica-app: 35 tasks (H1-H9, I1-I7, P1-P9). 10 DONE (H1, P8, P9, P1-P7 marked 🚫 BLOCKED), 10 TODO, 7 BLOCKED. Group I: 7 feedback items TODO. Group H: H2-H9 TODO. Phase P: P1-P7 BLOCKED (no halal payment processor).
-> Fabrica-web: 51 DONE, 3 CANCELLED (W50b, W52, W53), 0 TODO (100%).
+> Fabrica-web: 51 DONE, 3 CANCELLED (W50b, W52, W53), 4 TODO (W55-W58 blocked on marketing M4-M6).
 > Fabrica-marketing: 10 tasks (M1-M11). 3 DONE (M1-M3 brand foundation), 7 TODO (M4-M11 align/strategy/content).
 > Fabrica-plugins: 18 tasks, 18 DONE (100%). Groups 1-6 complete.
 > Fabrica-relay: 32 tasks, 32 DONE (100%).
@@ -44,13 +44,13 @@ All other slots dormant. Web / Marketing / Plugins / Relay activate when their p
 | Project           | Total   | ✅ DONE  | 👀 VERIFY | 🔶 IN_PROGRESS | 🚫 BLOCKED | ⬜ TODO | Completion    |
 | ----------------- | ------- | ------- | --------- | -------------- | ---------- | ------ | ------------- |
 | Fabrica-app       | 35      | 10      | 0         | 0              | 7          | 18     | 29%           |
-| Fabrica-web       | 51      | 51      | 0         | 0              | 0          | 0      | 100%          |
+| Fabrica-web       | 55      | 51      | 0         | 0              | 0          | 4      | 93%           |
 | Fabrica-marketing | 10      | 3       | 0         | 0              | 0          | 7      | 30%           |
 | Fabrica-plugins   | 18      | 18      | 0         | 0              | 0          | 0      | 100%          |
 | Fabrica-relay     | 32      | 32      | 0         | 0              | 0          | 0      | 100%          |
 | Fabrica-atlas     | 0       | 0       | 0         | 0              | 0          | 0      | 0% (archived) |
 | Fabrica-update    | 4       | 0       | 0         | 0              | 0          | 4      | 0%            |
-| **Total**         | **150** | **114** | **0**     | **0**          | **7**      | **29** | **76%**       |
+| **Total**         | **154** | **114** | **0**     | **0**          | **7**      | **33** | **74%**       |
 
 
 ### Phase Progress
@@ -59,15 +59,16 @@ All other slots dormant. Web / Marketing / Plugins / Relay activate when their p
 Phase A — Rebrand Finish & Prep          ← COMPLETE (App rebrand committed+push: 552 files; Windows installer + Android APK built & published in release v0.0.43; landing page /download wired + pushed; web backend deployed + Vercel env set; G1/G3/G7 done; G8 removed; update pipeline delegated to Fabrica-update/)
 Fabrica-app      ✅10 ⬜18 🚫7 [████████████░░░░░░░░░░░░] 29% (Group I: I1-I7 ⬜, Group H: H2-H9 ⬜, Phase P: P1-P7 🚫)
    Done: commit+push 552 files; build Win .exe + APK; publish GitHub release v0.0.43; wire landing /download; deploy web backend live + set Vercel env; push plugins (G5-FIX); Beta announced (PH/Show HN/social); G1 WCAG AA contrast; G3 colored icon/logo; G7 non-technical copy + font/zoom; H1 desktop login ✅; P8 startup lock ✅; P9 login flow ✅
-Fabrica-web      ✅51 🔶0 ⬜0 [██████████████████████]  100%
+Fabrica-web      ✅51 ⬜4 [████████████████████░░]  93% (W55-W58: blocked on marketing M4-M6)
    Done: /download + /dashboard pages built + pushed (live); web backend /v1/desktop/* deployed; Vercel env set; web brand icons swapped (light default + theme-aware via Tailwind `dark:` variant on navbar/hero/finalcta/login/download/dashboard)
+   Pending: W55 onorca.dev reference, W56-W57 landing page copy+images update (blocked on marketing), W58 i18n sync
 
 Phase B — Beta Public Launch             ← COMPLETE
    Windows .exe installer + Android APK on landing page → Product Hunt / Show HN / social push (executed); web backend live; plugins listing working; sign-in + relay pairing wired
 
 Phase C — Post-Beta Growth
 Fabrica-marketing ✅3 ⬜7       [███░░░░░░░░░░░░░░░░░] 30% (M4-M11: align with app, strategy, content)
-Fabrica-web      ✅51           [██████████████████████] 100%
+Fabrica-web      ✅51 ⬜4 [████████████████████░░] 93% (W55-W58: blocked on marketing)
 Fabrica-relay    ✅32           [████████████████████] 100%
 Fabrica-plugins  ✅18           [████████████████████] 100%
 
