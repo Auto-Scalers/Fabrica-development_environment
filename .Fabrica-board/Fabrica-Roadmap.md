@@ -38,7 +38,7 @@ All other slots dormant. Web / Marketing / Plugins / Relay activate when their p
 > Fabrica-marketing: 10 tasks (M1-M11). 3 DONE (M1-M3 brand foundation), 7 TODO (M4-M11 align/strategy/content).
 > Fabrica-plugins: 18 tasks, 18 DONE (100%). Groups 1-6 complete.
 > Fabrica-relay: 32 tasks, 32 DONE (100%).
-> Fabrica-update: 4 tasks (T1-T4), 0 DONE, 4 TODO (0%). Read-only analysis workspace.
+> Fabrica-update: 5 tasks (T0-T4), 0 DONE, 5 TODO (0%). Read-only analysis workspace.
 
 
 | Project           | Total   | ✅ DONE  | 👀 VERIFY | 🔶 IN_PROGRESS | 🚫 BLOCKED | ⬜ TODO | Completion    |
@@ -49,8 +49,8 @@ All other slots dormant. Web / Marketing / Plugins / Relay activate when their p
 | Fabrica-plugins   | 18      | 18      | 0         | 0              | 0          | 0      | 100%          |
 | Fabrica-relay     | 32      | 32      | 0         | 0              | 0          | 0      | 100%          |
 | Fabrica-atlas     | 0       | 0       | 0         | 0              | 0          | 0      | 0% (archived) |
-| Fabrica-update    | 4       | 0       | 0         | 0              | 0          | 4      | 0%            |
-| **Total**         | **154** | **114** | **0**     | **0**          | **7**      | **33** | **74%**       |
+| Fabrica-update    | 6       | 0       | 0         | 0              | 0          | 6      | 0%            |
+| **Total**         | **156** | **114** | **0**     | **0**          | **7**      | **35** | **73%**       |
 
 
 ### Phase Progress
@@ -74,7 +74,7 @@ Fabrica-plugins  ✅18           [███████████████�
 
 Phase D — Atlas-Project Plan & Implementation
 Fabrica-atlas    ⬜0            (archived — tracking file wiped, 91 tasks in .archive/)
-Fabrica-update   ⬜4            [░░░░░░░░░░░░░░░░░░░░] 0% (T1-T4: rebrand diff + upstream diff + implementation plan + sync runbook)
+Fabrica-update   ⬜5            [░░░░░░░░░░░░░░░░░░░░] 0% (T0-T4: upstream update + upstream diff + rebrand diff + implementation plan + sync runbook)
 ```
 
 ---
