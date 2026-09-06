@@ -10,13 +10,15 @@ You are the **orchestrator**. You dispatch workers directly to sub-project workt
 
 | Folder | What It Does | Worker Instructions | Worktree ID |
 |--------|-------------|-------------------|-------------|
-| `Fabrica-app/` | Desktop app (Electron, forked from Orca) | `Fabrica-app/AGENTS.md` | `fb6b9ddc-b91a-42f2-bd3d-22fc14e9853a::C:/Users/BAB AL SAFA/Desktop/Fabrica-development_environment/Fabrica-app` |
+| `Fabrica/` | Desktop app (Electron, fresh clone of upstream `stablyai/orca` — rebrand + custom-logic being applied) | `Fabrica/AGENTS.md` | `pending` |
 | `Fabrica-web/` | Landing page (Next.js, fabrica-ai.vercel.app) | `Fabrica-web/AGENTS.md` | `cddb258f-edbe-4bae-b207-a7713e4eb3a2::C:/Users/BAB AL SAFA/Desktop/Fabrica-development_environment/Fabrica-web` |
 | `Fabrica-marketing/` | Marketing assets, copy, launch materials | `Fabrica-marketing/AGENTS.md` | `6f298adc-e33d-42de-942f-f68caafd905c::C:/Users/BAB AL SAFA/Desktop/Fabrica-development_environment/Fabrica-marketing` |
 | `Fabrica-plugins/` | Plugin marketplace index (JSON registry) | `Fabrica-plugins/AGENTS.md` | `50c4d32d-dbcc-441f-a2df-4cd3e5317bb6::C:/Users/BAB AL SAFA/Desktop/Fabrica-development_environment/Fabrica-plugins` |
 | `Fabrica-relay/` | Relay server (WebSocket bridge for phone↔desktop) | `Fabrica-relay/AGENTS.md` | `pending` |
 | `Fabrica-atlas/` | Discovery & transformation planning (owns `_sources/`: mission-control, buzz, legacy-fabrica) | `Fabrica-atlas/AGENTS.md` | `fe588915-bf33-4c64-8904-7b22b223c5b2::C:/Users/BAB AL SAFA/Desktop/Fabrica-development_environment/Fabrica-atlas` |
-| `Fabrica-update/` | Orca↔Fabrica diff analytics + sync workflow (read-only analysis workspace) | `Fabrica-update/AGENTS.md` | `pending` |
+| `Fabrica-update/` | Fabrica↔upstream-Orca fork/sync workflow (v2: fork upstream into `Fabrica/`, then apply rebrand + custom-logic from `Fabrica-update/Fabrica-app/` reference) | `Fabrica-update/AGENTS.md` | `pending` |
+
+**Note:** The old `Fabrica-app/` submodule was removed from the dev-env. A fresh clone lives at `Fabrica-update/Fabrica-app/` as a read-only reference (v0.0.6, `0a5d258`).
 
 ## What You Own
 
@@ -308,6 +310,8 @@ Each sub-project has its own task file that owns execution details.
 | Fabrica-relay | `Fabrica-relay/.Fabrica-relay-board/Fabrica-relay-tasks.md` | Relay server (WebSocket bridge for phone↔desktop) |
 | Fabrica-atlas | `Fabrica-atlas/.Fabrica-atlas-board/Fabrica-atlas-tasks.md` | Discovery & transformation planning (ex-Roadmap 02): source-repo discovery, verification, synthesis, production architecture |
 | Fabrica-update | `Fabrica-update/.Fabrica-update-board/Fabrica-update-tasks.md` | Orca↔Fabrica diff analytics + sync workflow: rebrand diff mapping, upstream diff analysis, implementation planning |
+
+**Rule:** Do not duplicate task details in the Roadmap. When dispatching work, reference the specific task file for that sub-project.
 
 **Rule:** Do not duplicate task details in the Roadmap. When dispatching work, reference the specific task file for that sub-project.
 

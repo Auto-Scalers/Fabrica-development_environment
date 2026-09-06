@@ -8,9 +8,9 @@
 
 > The why behind everything. Task details stay in sub-project task files — this is the direction.
 
-1. **Finish the rebrand without losing anything.** Every old Orca/Stably word gone from Fabrica-app, every feature and custom logic intact, everything tested and reviewed.
+1. **Finish the rebrand without losing anything.** Every old Orca/Stably word gone from Fabrica, every feature and custom logic intact, everything tested and reviewed.
 2. **Test the app end-to-end.** After rebrand completes, run a full manual + automated test pass to confirm nothing is broken before we layer in upstream changes.
-3. **Set up the update pipeline.** Build a workflow for pulling new Orca features into Fabrica-app without breaking our rebrand. This means: understanding the diff surface between Orca and Fabrica, creating a repeatable sync process, and documenting how to handle future Orca releases going forward.
+3. **Set up the update pipeline.** Build a workflow for pulling new Orca features into Fabrica without breaking our rebrand. This means: understanding the diff surface between Orca and Fabrica, creating a repeatable sync process, and documenting how to handle future Orca releases going forward.
 4. **Test again after first sync.** After the first Orca feature sync, run another full test pass to confirm the update pipeline works and the rebrand is intact.
 5. **Beta public launch.** When app + relay + plugins are verified working perfectly, we ship our first public Beta — immediately after, marketing starts publishing daily content aligned with the product vision.
 6. **Plan the final version ("Atlas-project").** Right after Beta, figure out how the Fabrica app becomes the Atlas app — upgrading it while losing zero functionality or custom logic.
@@ -21,7 +21,7 @@
 
 | Orchestrator           | Slot             | Mission                                                                                                                                                                   | Min workers |
 | ---------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| **App-orchestrator**   | `Fabrica-app/`   | Physical testing (H1-H5) → rebuild installers (H6-H7) → trigger marketing (DNA+brand from app+atlas, rewrite landing page). Update pipeline delegated to Fabrica-update/. | 0           |
+| **App-orchestrator**   | `Fabrica/`       | Physical testing (H1-H5) → rebuild installers (H6-H7) → trigger marketing (DNA+brand from app+atlas, rewrite landing page). Update pipeline delegated to Fabrica-update/. | 0           |
 | **Atlas-orchestrator** | `Fabrica-atlas/` | PROGRAM COMPLETE (91/91). Awaiting PM go/no-go on After-Rebrand implementation                                                                                            | 0           |
 |                        |                  |                                                                                                                                                                           |             |
 
@@ -38,26 +38,26 @@ All other slots dormant. Web / Marketing / Plugins / Relay activate when their p
 > Fabrica-marketing: 10 tasks (M1-M11). 3 DONE (M1-M3 brand foundation), 7 TODO (M4-M11 align/strategy/content).
 > Fabrica-plugins: 18 tasks, 18 DONE (100%). Groups 1-6 complete.
 > Fabrica-relay: 32 tasks, 32 DONE (100%).
-> Fabrica-update: 5 tasks (T0-T4), 0 DONE, 5 TODO (0%). Read-only analysis workspace.
+> Fabrica-update: 8 tasks (T0-T7), 8 DONE, 0 TODO (100%). Fork-from-upstream pipeline complete: `Fabrica/` repo rebranded (7,266 files, 71,252 substitutions), 18 custom-logic entries re-implemented, 0 residual orca/stablyai. Awaiting PM commit/push.
 
 
 | Project           | Total   | ✅ DONE  | 👀 VERIFY | 🔶 IN_PROGRESS | 🚫 BLOCKED | ⬜ TODO | Completion    |
 | ----------------- | ------- | ------- | --------- | -------------- | ---------- | ------ | ------------- |
-| Fabrica-app       | 35      | 10      | 0         | 0              | 7          | 18     | 29%           |
+| Fabrica           | 35      | 10      | 0         | 0              | 7          | 18     | 29%           |
 | Fabrica-web       | 55      | 51      | 0         | 0              | 0          | 4      | 93%           |
 | Fabrica-marketing | 10      | 3       | 0         | 0              | 0          | 7      | 30%           |
 | Fabrica-plugins   | 18      | 18      | 0         | 0              | 0          | 0      | 100%          |
 | Fabrica-relay     | 32      | 32      | 0         | 0              | 0          | 0      | 100%          |
 | Fabrica-atlas     | 0       | 0       | 0         | 0              | 0          | 0      | 0% (archived) |
-| Fabrica-update    | 6       | 0       | 0         | 0              | 0          | 6      | 0%            |
-| **Total**         | **156** | **114** | **0**     | **0**          | **7**      | **35** | **73%**       |
+| Fabrica-update    | 8       | 8       | 0         | 0              | 0          | 0      | 100%          |
+| **Total**         | **158** | **122** | **0**     | **0**          | **7**      | **29** | **77%**       |
 
 
 ### Phase Progress
 
 ```
 Phase A — Rebrand Finish & Prep          ← COMPLETE (App rebrand committed+push: 552 files; Windows installer + Android APK built & published in release v0.0.43; landing page /download wired + pushed; web backend deployed + Vercel env set; G1/G3/G7 done; G8 removed; update pipeline delegated to Fabrica-update/)
-Fabrica-app      ✅10 ⬜18 🚫7 [████████████░░░░░░░░░░░░] 29% (Group I: I1-I7 ⬜, Group H: H2-H9 ⬜, Phase P: P1-P7 🚫)
+Fabrica          ✅10 ⬜18 🚫7 [████████████░░░░░░░░░░░░] 29% (Group I: I1-I7 ⬜, Group H: H2-H9 ⬜, Phase P: P1-P7 🚫)
    Done: commit+push 552 files; build Win .exe + APK; publish GitHub release v0.0.43; wire landing /download; deploy web backend live + set Vercel env; push plugins (G5-FIX); Beta announced (PH/Show HN/social); G1 WCAG AA contrast; G3 colored icon/logo; G7 non-technical copy + font/zoom; H1 desktop login ✅; P8 startup lock ✅; P9 login flow ✅
 Fabrica-web      ✅51 ⬜4 [████████████████████░░]  93% (W55-W58: blocked on marketing M4-M6)
    Done: /download + /dashboard pages built + pushed (live); web backend /v1/desktop/* deployed; Vercel env set; web brand icons swapped (light default + theme-aware via Tailwind `dark:` variant on navbar/hero/finalcta/login/download/dashboard)
@@ -74,7 +74,7 @@ Fabrica-plugins  ✅18           [███████████████�
 
 Phase D — Atlas-Project Plan & Implementation
 Fabrica-atlas    ⬜0            (archived — tracking file wiped, 91 tasks in .archive/)
-Fabrica-update   ⬜5            [░░░░░░░░░░░░░░░░░░░░] 0% (T0-T4: upstream update + upstream diff + rebrand diff + implementation plan + sync runbook)
+Fabrica-update   ✅8            [████████████████████] 100% (T0-T7: fork, rebrand, custom-logic, verification — all complete)
 ```
 
 ---

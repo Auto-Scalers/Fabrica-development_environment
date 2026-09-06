@@ -20,7 +20,7 @@ This is the **Fabrica development environment** — a monorepo containing all th
 
 | Folder | Repo | What It Is |
 |--------|------|-----------|
-| `Fabrica-app/` | `Auto-Scalers/Fabrica-app` | Desktop app (Electron, forked from Orca) |
+| `Fabrica/` | `Auto-Scalers/Fabrica-app` | Desktop app (Electron, forked from Orca) |
 | `Fabrica-web/` | `Auto-Scalers/Fabrica-web` | Landing page (Next.js, fabrica-ai.vercel.app) |
 | `Fabrica-marketing/` | `Auto-Scalers/Fabrica-Marketing` | Marketing assets, copy, and launch materials |
 | `Fabrica-plugins/` | `Auto-Scalers/Fabrica-plugins` | Plugin marketplace index (JSON registry + plugin submodules) |
@@ -31,7 +31,7 @@ This is the **Fabrica development environment** — a monorepo containing all th
 
 ```
 Fabrica-development_environment/     ← You are here (top-level)
-├── Fabrica-app/                     ← Desktop app source code
+├── Fabrica/                         ← Desktop app source code
 ├── Fabrica-web/                     ← Landing page (fabrica-ai.vercel.app)
 ├── Fabrica-marketing/               ← Marketing assets & copy
 ├── Fabrica-plugins/                 ← Plugin marketplace index
@@ -71,7 +71,7 @@ Each folder is its own git repo with its own `AGENTS.md` (system logic / agent i
 - The top-level `AGENTS.md` explains how the orchestrator coordinates across all folders
 
 **For Developers:**
-- `Fabrica-app/` — Electron app, see its README for setup
+- `Fabrica/` — Electron app, see its README for setup
 - `Fabrica-web/` — Next.js landing page, `npm install && npm run dev`
 - `Fabrica-marketing/` — Static assets, no build step
 - `Fabrica-plugins/` — JSON registry, no build step
